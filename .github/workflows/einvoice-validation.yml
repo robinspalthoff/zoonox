@@ -1,0 +1,50 @@
+name: E-Invoice Validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/dashboard/src/lib/e-invoice/**"
+      - "apps/dashboard/src/components/pdf/**"
+      - "apps/dashboard/src/lib/vat-regulation.ts"
+
+jobs:
+  validate-einvoice:
+    name: KOSIT Schematron Validation
+    runs-on: ubuntu-latest
+
+    services:
+      kosit-validator:
+        image: backofficeplus/e-invoice-validator:latest
+        ports:
+          - 8081:80
+        options: >-
+          --health-cmd "wget -qO- http://localhost:80 || exit 1"
+          --health-interval 15s
+          --health-timeout 10s
+          --health-retries 20
+          --health-start-period 120s
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Generate & validate sample invoices
+        working-directory: apps/dashboard
+        env:
+          KOSIT_VALIDATOR_URL: http://localhost:8081
+        run: npx tsx tests/e-invoice/validate-samples.ts
+
+      - name: Upload validation reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kosit-validation-reports
+          path: apps/dashboard/tests/e-invoice/reports/
+          retention-days: 30

@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+/* ─── Dark Mode (default) ──────────────────────────────────────── */
+@theme {
+  --color-background: #171717;
+  --color-foreground: #f5f5f5;
+
+  --color-card: #212121;
+  --color-card-foreground: #f5f5f5;
+
+  --color-border: #2e2e2e;
+  --color-input: #191A1F;
+
+  --color-muted: #171717;
+  --color-muted-foreground: #888888;
+
+  --color-primary: #FD9A00;
+  --color-brand: #FFC973;
+  --color-primary-foreground: #ffffff;
+  --color-accent-brand: #d946ef;
+
+  --color-accent: #191A1F;
+  --color-accent-foreground: #f5f5f5;
+
+  --color-destructive: #e53e3e;
+  --color-destructive-foreground: #f5f5f5;
+  --color-success: #22c55e;
+
+  /* Auto-match accent — used for "Auto-Zuordnung" badges, suggestion
+   * highlights, and inline links to matched receipts/invoices. The dark
+   * variant is intentionally lighter (#A5A0FF) so text stays legible on
+   * the #171717 background; the light variant uses the brand purple
+   * #524BCC directly. */
+  --color-automatch: #A5A0FF;
+  --color-automatch-foreground: #ffffff;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --radius: 0.75rem;
+}
+
+/* ─── Light Mode ───────────────────────────────────────────────── */
+.light {
+  --color-background: #F9FAFB;
+  --color-foreground: #1a1a1a;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #1a1a1a;
+
+  --color-border: #e2e2e2;
+  --color-input: #efefef;
+
+  --color-muted: #f2f2f2;
+  --color-muted-foreground: #737373;
+
+  --color-primary: #FD9A00;
+  --color-brand: #FFC973;
+  --color-primary-foreground: #ffffff;
+  --color-accent-brand: #d946ef;
+
+  --color-accent: #f2f2f2;
+  --color-accent-foreground: #1a1a1a;
+
+  --color-destructive: #e53e3e;
+  --color-destructive-foreground: #ffffff;
+  --color-success: #16a34a;
+
+  --color-automatch: #524BCC;
+  --color-automatch-foreground: #ffffff;
+}
+
+@layer components {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Onboarding ─────────────────────────────────────────────────────────── */
+
+@keyframes onbFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes onbPop {
+  from { opacity: 0; transform: scale(.96) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Soft pulsing focus ring drawn around a hinted element. */
+@keyframes onbRing {
+  0%, 100% { box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 55%, transparent); }
+  50%      { box-shadow: 0 0 0 8px color-mix(in oklab, var(--color-primary) 10%, transparent); }
+}
+
+/* ─── Mobile-Upload CTA: Scan-Effekt nach Fingerprint-Vorbild ────────────
+ * Zwei zusammenspielende Animationen, beide in 4s-Loop synchron:
+ *  - `scan-fill`  : der primärfarbene QR-Layer wächst von 0 % auf 100 %
+ *                   Höhe und wieder zurück — wie das „heatmap"-Auffüllen
+ *                   im Fingerprint-Scan.
+ *  - `scan-sweep` : eine dünne Linie mit Glow läuft synchron von oben
+ *                   nach unten und zurück.
+ * Bewegung läuft permanent (nicht nur on-hover), damit der QR-Button
+ * sofort als „aktiv/scannbar" erkennbar ist.
+ */
+@keyframes scan-fill {
+  0%, 100% { height: 0%; }
+  50%      { height: 100%; }
+}
+
+@keyframes scan-sweep {
+  0%, 100% { top: 0; }
+  50%      { top: calc(100% - 2px); }
+}
+
+@theme {
+  --animate-scan-fill: scan-fill 4s ease-in-out infinite;
+  --animate-scan-sweep: scan-sweep 4s ease-in-out infinite;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    /* your other light mode variables */
+  }
+
+  .dark {
+    color-scheme: dark;
+    /* your other dark mode variables */
+  }
+}

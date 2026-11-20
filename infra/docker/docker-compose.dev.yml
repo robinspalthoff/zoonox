@@ -1,0 +1,37 @@
+services:
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: accounting_dev
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ─── KOSIT Validator (E-Invoice XML Validation) ─────────────────
+  # Optional. Supports XRechnung 3.0.2, ZUGFeRD/Factur-X and EN 16931.
+  # https://github.com/backoffice-plus/e-invoice-validator
+  # Set KOSIT_VALIDATOR_URL=http://localhost:8081 to use it.
+  kosit-validator:
+    image: backofficeplus/e-invoice-validator:latest
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:80", "||", "exit", "1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  postgres_dev_data:

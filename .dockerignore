@@ -1,0 +1,21 @@
+.git
+.github
+.turbo
+.next
+**/node_modules
+**/.next
+**/dist
+**/*.log
+**/coverage
+
+# ENV-Dateien — nie in den Build-Context
+.env
+.env.*
+!.env.example
+
+# Secrets (Enable-Banking-Key o.ä.) — kommen zur Laufzeit per ENV
+**/secrets
+
+# Lokale Config
+*.local
+.DS_Store

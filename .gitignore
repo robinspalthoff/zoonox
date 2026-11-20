@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor und lokale Werkzeug-Ordner
+.vscode/
+.idea/
+*.swp
+
+# Turbo
+.turbo/
+
+# Docker
+docker-volumes/
+
+uploads/documents
+# Environment-Backups und Varianten nie committen
+.env.*
+!.env.example
+
+# Generierte Validierungs-Reports der E-Invoice-Tests
+apps/dashboard/tests/e-invoice/reports/
+
+# TypeScript-Build-Cache
+*.tsbuildinfo

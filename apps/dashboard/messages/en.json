@@ -1,0 +1,3221 @@
+{
+  "common": {
+    "nav": {
+      "overview": "Overview",
+      "invoices": "Invoices",
+      "invoicesAll": "All invoices",
+      "invoicesRecurring": "Recurring",
+      "orders": "Orders",
+      "quotes": "Quotes",
+      "orderConfirmations": "Order confirmations",
+      "documents": "Receipts",
+      "documentsAll": "All receipts",
+      "documentsAssets": "Fixed assets",
+      "bank": "Bank",
+      "bankOverview": "Overview",
+      "bankAccounts": "Accounts",
+      "bankCashbook": "Cashbook",
+      "contacts": "Contacts",
+      "reports": "Reports",
+      "reportsTaxes": "Taxes",
+      "reportsOpenItems": "Open items",
+      "reportsBwa": "BWA (P&L analysis)",
+      "taxAdvisor": "Tax advisor",
+      "team": "Team",
+      "auditLog": "Audit Log",
+      "settings": "Settings",
+      "settingsUser": "User",
+      "settingsCompany": "Company",
+      "settingsAccounting": "Accounting",
+      "settingsNumberRanges": "Number ranges",
+      "settingsEmailInbound": "Receipts via email",
+      "settingsAppearance": "Appearance",
+      "firm": "Firm",
+      "firmClients": "Clients",
+      "firmClosing": "Month-End Close",
+      "changePassword": "Change password",
+      "logout": "Sign out",
+      "collapse": "Collapse",
+      "expand": "Expand"
+    },
+    "actions": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "new": "New",
+      "back": "Back"
+    },
+    "tenantSwitcher": {
+      "label": "Switch workspace",
+      "edit": "Rename workspace",
+      "editTitle": "Workspace",
+      "editDescription": "The name appears in the header and across list views.",
+      "nameLabel": "Name",
+      "save": "Save",
+      "cancel": "Cancel",
+      "errorEmpty": "Please enter a name.",
+      "errorGeneric": "Could not save workspace."
+    },
+    "pagination": {
+      "rowsPerPage": "Rows per page",
+      "range": "{from}–{to} of {total}",
+      "pageOf": "Page {page} / {totalPages}",
+      "prev": "Previous page",
+      "next": "Next page"
+    }
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Login",
+      "subtitle": "Sign in to continue",
+      "email": "Email",
+      "emailPlaceholder": "name@company.com",
+      "password": "Password",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Sign in",
+      "submitting": "Signing in…",
+      "errorInvalid": "Invalid email or password.",
+      "noAccount": "No account yet?",
+      "signupCta": "Create account",
+      "signupDisabled": "Registration is currently unavailable – the app is in a closed testing phase.",
+      "setupComplete": "Account created successfully. You can now sign in.",
+      "passwordChanged": "Password changed successfully. Please sign in with your new password.",
+      "twoFactorSubtitle": "Two-factor verification",
+      "code": "Verification code",
+      "codeHint": "Enter the 6-digit code from your authenticator app.",
+      "verify": "Verify",
+      "verifying": "Verifying…",
+      "back": "Back",
+      "errorCodeInvalid": "Code is invalid or expired.",
+      "googleCta": "Sign in with Google",
+      "googleLoading": "Redirecting to Google…",
+      "or": "or"
+    },
+    "signup": {
+      "pageTitle": "Create account",
+      "haveAccount": "Already have an account? Sign in",
+      "next": "Next",
+      "back": "Back",
+      "submitting": "Working…",
+      "steps": {
+        "name": "Name",
+        "email": "Email",
+        "company": "Company",
+        "security": "Security"
+      },
+      "welcome": {
+        "eyebrow": "Set up account",
+        "title": "Welcome to zoonox.",
+        "subtitle": "Confirm a few quick details — everything else can be customized later.",
+        "heroTitle": "Glad you're here.",
+        "heroSubtitle": "Let's get the essentials set up together.",
+        "bullets": {
+          "nameEmail": "Name & email",
+          "company": "Your workspace",
+          "security": "Password & security"
+        },
+        "cta": "Let's go →",
+        "or": "or",
+        "googleCta": "Continue with Google",
+        "googleLoading": "Redirecting to Google…"
+      },
+      "name": {
+        "title": "What's your name?",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "hint": "So we can address you correctly."
+      },
+      "email": {
+        "title": "Your email address.",
+        "label": "Email address",
+        "hint": "You'll use this to sign in and receive important notifications.",
+        "toLogin": "Go to sign-in"
+      },
+      "company": {
+        "title": "Your company.",
+        "name": "Company name",
+        "namePlaceholder": "e.g. {firstName}'s Workspace",
+        "nameHint": "Optional. If left blank, we'll derive your workspace name from your first name.",
+        "settingsNote": "Address, bank details and other info can be added later in settings."
+      },
+      "security": {
+        "title": "Almost done.",
+        "password": "Password",
+        "confirmPassword": "Confirm password",
+        "passwordHint": "Minimum 12 characters.",
+        "twoFa": "Two-factor authentication",
+        "twoFaHint": "Recommended — protects your account with an extra code from your authenticator app.",
+        "twoFaLoading": "Generating QR code…",
+        "twoFaSetupIntro": "Scan the QR code with your authenticator app (e.g. Google Authenticator, 1Password, Authy) and enter the 6-digit code it shows.",
+        "twoFaManualKey": "Or enter the key manually:",
+        "twoFaCode": "6-digit code",
+        "submit": "Finish"
+      },
+      "done": {
+        "title": "All set, {firstName}!",
+        "subtitle": "Your account is ready. Create your first invoice or explore the dashboard.",
+        "cta": "Go to dashboard →"
+      },
+      "errors": {
+        "firstNameRequired": "First name is required.",
+        "lastNameRequired": "Last name is required.",
+        "emailInvalid": "Please enter a valid email address.",
+        "emailTaken": "This email is already registered.",
+        "passwordTooShort": "Password must be at least 12 characters.",
+        "passwordMismatch": "Passwords don't match.",
+        "twoFaCodeInvalid": "The code is invalid or expired.",
+        "twoFaSetupError": "The QR code could not be generated. Please try again."
+      }
+    },
+    "changePassword": {
+      "pageTitle": "Change Password",
+      "title": "Change Password",
+      "subtitle": "Please set a new password for your account.",
+      "newPassword": "New password",
+      "confirmNewPassword": "Confirm new password",
+      "passwordPlaceholder": "••••••••••••",
+      "passwordHint": "Minimum 12 characters.",
+      "submit": "Save password",
+      "submitting": "Saving…"
+    },
+    "noTenant": {
+      "pageTitle": "No workspace",
+      "title": "No workspace assigned",
+      "subtitle": "Your account is not assigned to a workspace yet. Please contact your organization's administrator to get invited.",
+      "signOut": "Sign out"
+    }
+  },
+  "dashboard": {
+    "title": "Overview",
+    "subtitle": "Welcome back. Here is the current status.",
+    "eyebrow": "Overview",
+    "greeting": {
+      "morning": "Good morning",
+      "afternoon": "Good afternoon",
+      "evening": "Good evening",
+      "night": "Good night"
+    },
+    "heroSubtitle": "Here is what needs your attention today.",
+    "heroSummaryNone": "All clear — nothing overdue.",
+    "heroSummaryOverdue": "{count, plural, =1 {# overdue invoice} other {# overdue invoices}}",
+    "heroSummaryDraft": "{count, plural, =1 {# draft} other {# drafts}} waiting",
+    "stats": {
+      "openInvoices": "Open invoices",
+      "overdueInvoices": "Overdue",
+      "revenuePeriod": "Revenue",
+      "profitPeriod": "Profit",
+      "trendVsPrev": "vs previous",
+      "trendAttention": "Needs attention",
+      "trendCalm": "All clear",
+      "trendThisWeek": "+{count} this week"
+    },
+    "taxAdvisor": {
+      "label": "Tax advisor",
+      "title": "Get connected",
+      "description": "Work directly with your tax advisor.",
+      "cta": "Open"
+    },
+    "periods": {
+      "this-month": "This month",
+      "last-month": "Last month",
+      "last-30d": "Last 30 days",
+      "last-3m": "Last 3 months",
+      "last-6m": "Last 6 months",
+      "last-12m": "Last 12 months",
+      "this-year": "This year",
+      "last-year": "Last year"
+    },
+    "receivables": {
+      "title": "Open receivables",
+      "periodIndependent": "Open receivables are shown regardless of the selected period.",
+      "overdue": "Overdue invoices ({count})",
+      "open": "Open invoices ({count})",
+      "empty": "No open receivables."
+    },
+    "quotes": {
+      "title": "Quotes",
+      "viewAll": "View all",
+      "open": "Open quotes",
+      "acceptanceRate": "Acceptance rate",
+      "last30Days": "last 30 days",
+      "expiringSoon": "Expiring soon",
+      "next7Days": "next 7 days"
+    },
+    "score": {
+      "title": "Accounting score",
+      "tooltip": "The accounting score reflects the share of bank transactions that have been processed (matched or ignored).",
+      "openUnmatched": "{count, plural, =1 {# open transaction} other {# open transactions}}",
+      "allDone": "All processed",
+      "empty": "No bank transactions imported yet."
+    },
+    "chart": {
+      "title": "Income vs expense",
+      "subtitle": "Income from paid invoices and expenses from recorded receipts.",
+      "income": "Income",
+      "expense": "Expense",
+      "empty": "No data in this period."
+    },
+    "cashflow": {
+      "title": "Cash flow forecast",
+      "subtitle": "Balance history and 30/60/90-day projection.",
+      "currentBalance": "Balance",
+      "legendActual": "Actual balance",
+      "legendForecast": "Forecast",
+      "today": "Today",
+      "dayLabel": "{day}d",
+      "forecastTag": "(forecast)",
+      "nextExpenses": "Next expected expenses",
+      "nextExpenseHint": "Next: {name} on {date}",
+      "nextExpenseNone": "No recurring expenses detected",
+      "openInvoices": "Open invoices",
+      "openInvoiceHint": "{count, plural, =0 {No open invoices} one {# open invoice} other {# open invoices}}",
+      "cushion": "Available liquidity cushion",
+      "cushionHint": "Projected low point on {date}",
+      "empty": "No bank data yet for a forecast.",
+      "emptyCta": "Connect a bank account"
+    },
+    "recentInvoices": {
+      "title": "Recent invoices",
+      "viewAll": "View all",
+      "empty": "No invoices in this view."
+    },
+    "filters": {
+      "all": "All",
+      "DRAFT": "Draft",
+      "SENT": "Sent",
+      "PAID": "Paid",
+      "OVERDUE": "Overdue",
+      "CANCELLED": "Cancelled"
+    },
+    "quickActions": {
+      "title": "Quick actions",
+      "newInvoice": "New invoice",
+      "newClient": "New contact",
+      "uploadDocument": "Upload document"
+    },
+    "activity": {
+      "title": "Recent activity",
+      "empty": "No activity yet."
+    }
+  },
+  "invoices": {
+    "pageTitle": "Invoices",
+    "creditNoteType": "Credit note",
+    "correctionType": "Correction",
+    "badges": {
+      "creditNote": "Credit note",
+      "correction": "Correction"
+    },
+    "transactions": {
+      "creditNoteFor": "Credit note for",
+      "correctionFor": "Correction for",
+      "cancelledBy": "Cancelled by",
+      "correctedBy": "Corrected by"
+    },
+    "recurringBadge": "From recurring template — open template",
+    "title": "Invoices",
+    "subtitle": "All invoices at a glance.",
+    "new": "New invoice",
+    "newMenu": {
+      "label": "More invoice types",
+      "oneOff": {
+        "title": "One-off invoice",
+        "description": "Standard invoice you send right away."
+      },
+      "recurring": {
+        "title": "Recurring invoice",
+        "description": "Template that auto-generates invoices on a schedule."
+      }
+    },
+    "recurring": {
+      "pageTitle": "Recurring invoices",
+      "newPageTitle": "New recurring invoice",
+      "detailPageTitle": "Recurring invoice",
+      "title": "Recurring invoices",
+      "subtitle": "Templates that auto-generate invoices on a schedule.",
+      "new": "New recurring invoice",
+      "newTitle": "Create a recurring invoice",
+      "newSubtitle": "Define the rhythm — you can change anything later.",
+      "backToInvoices": "Back to invoices",
+      "backToList": "Back to overview",
+      "noClients": "Create a client first who will receive the recurring invoice.",
+      "createClientCta": "Create client",
+      "detailDefaultTitle": "Template for {client}",
+      "detailSubtitle": "Client: {client} · Invoices generated so far: {count}",
+      "completedHint": "This series is complete — its end date was reached. No further invoices will be generated.",
+      "lastErrorTitle": "Last generation failed",
+      "empty": {
+        "title": "No recurring invoices yet",
+        "subtitle": "Create a template to auto-generate recurring charges like monthly hosting fees or annual maintenance contracts.",
+        "cta": "Create your first recurring invoice"
+      },
+      "table": {
+        "title": "Title",
+        "untitled": "(Untitled)",
+        "client": "Client",
+        "interval": "Interval",
+        "nextRun": "Next run",
+        "generated": "Generated",
+        "status": "Status",
+        "autoSendTooltip": "Auto-send enabled",
+        "hasErrorTooltip": "Last run failed — see details on the template page"
+      },
+      "status": {
+        "active": "Active",
+        "paused": "Paused",
+        "completed": "Completed"
+      },
+      "intervals": {
+        "days7": "Every 7 days",
+        "days14": "Every 14 days",
+        "monthly": "Monthly",
+        "months2": "Every 2 months",
+        "quarterly": "Quarterly",
+        "halfYearly": "Half-yearly",
+        "yearly": "Yearly",
+        "years2": "Every 2 years",
+        "years3": "Every 3 years",
+        "years4": "Every 4 years",
+        "years5": "Every 5 years"
+      },
+      "form": {
+        "createTitle": "New template",
+        "editTitle": "Edit template",
+        "sectionBasics": "Basics",
+        "sectionRecurrence": "Recurrence",
+        "sectionItems": "Line items",
+        "optional": "optional",
+        "titleLabel": "Template name",
+        "titlePlaceholder": "e.g. ACME hosting fee",
+        "client": "Client",
+        "selectClient": "Choose a client…",
+        "paymentTermDays": "Payment term (days)",
+        "firstIssueDate": "First invoice on",
+        "firstIssueDateLockedHint": "This template has already generated invoices — editing won't reset the running rhythm.",
+        "endDate": "Last possible generation",
+        "interval": "Invoice interval",
+        "autoGenerate": {
+          "title": "Automatic generation",
+          "description": "Invoices are created automatically on the schedule."
+        },
+        "autoSend": {
+          "title": "Automatic delivery",
+          "description": "Email each generated invoice to the client immediately.",
+          "requiresAutoGenerate": "Automatic generation must be on."
+        },
+        "item": {
+          "description": "Description",
+          "quantity": "Qty",
+          "unit": "Unit",
+          "unitPrice": "Unit price",
+          "vatRate": "VAT",
+          "add": "Add line item",
+          "remove": "Remove line item"
+        },
+        "totals": {
+          "net": "Net",
+          "vat": "VAT",
+          "gross": "Gross"
+        },
+        "introText": "Intro text",
+        "introTextPlaceholder": "Optional — appears above the line items on every generated invoice.",
+        "notes": "Footer note",
+        "notesPlaceholder": "Optional — appears below the line items.",
+        "submitCreate": "Create template",
+        "submitUpdate": "Save changes",
+        "submitCreateAndRun": "Create template & generate invoice",
+        "submitUpdateAndRun": "Save & generate invoice",
+        "submitting": "Saving…",
+        "cancel": "Cancel",
+        "immediateNoticeTitle": "First invoice will be created immediately",
+        "immediateNoticeDraft": "Because the first invoice is dated today (or earlier), we'll create it as a draft right when you save.",
+        "immediateNoticeAutoSend": "Because the first invoice is dated today (or earlier) and auto-send is on, we'll create it and email it immediately on save.",
+        "errors": {
+          "itemDescription": "Line {position}: description is required.",
+          "itemQuantity": "Line {position}: quantity must be greater than 0.",
+          "itemPrice": "Line {position}: unit price must be greater than 0."
+        }
+      },
+      "detailActions": {
+        "runNow": "Generate now",
+        "runNowSuccess": "Invoice {number} has been created.",
+        "pause": "Pause",
+        "resume": "Resume",
+        "delete": "Delete template",
+        "deleteConfirm": "Really delete?"
+      },
+      "history": {
+        "title": "Previously generated invoices",
+        "number": "Number",
+        "issueDate": "Date",
+        "status": "Status",
+        "total": "Gross",
+        "scheduleLabel": "{client} · {count} invoices generated",
+        "scheduleHint": "Actions affect the schedule, not individual invoices."
+      },
+      "nextDates": {
+        "title": "Upcoming runs",
+        "next": "Next",
+        "pausedHint": "paused — won't fire until resumed"
+      }
+    },
+    "newTitle": "Create invoice",
+    "editTitle": "Edit invoice {number}",
+    "edit": "Edit",
+    "empty": "No invoices yet.",
+    "downloadPdf": "Download Invoice",
+    "markAsSent": "Mark as sent",
+    "markAsPaid": "Mark as paid",
+    "markAsRefunded": "Mark as refunded",
+    "revertPayment": "Revert payment",
+    "markPaid": {
+      "title": "Mark as paid",
+      "paidAt": "Payment date",
+      "method": "Payment method",
+      "methods": {
+        "BANK_TRANSFER": "Bank transfer",
+        "CASH": "Cash",
+        "CREDIT_CARD": "Credit card",
+        "PAYPAL": "PayPal"
+      },
+      "linkTx": "Link bank transaction",
+      "linkTxHint": "Optional: link to an open bank transaction.",
+      "noTxAvailable": "No open bank transactions available.",
+      "noneLinked": "No link",
+      "unknownCounterpart": "Unknown counterpart",
+      "exactMatch": "Exact amount",
+      "cancel": "Cancel",
+      "confirm": "Mark as paid"
+    },
+    "cancel": "Cancel invoice",
+    "cancelConfirmTitle": "Cancel invoice?",
+    "cancelConfirmMessage": "This action cannot be undone. The invoice will be permanently cancelled.",
+    "cancelConfirmAction": "Yes, cancel invoice",
+    "cancelConfirmAbort": "Abort",
+    "createCreditNote": "Create credit note",
+    "correctInvoice": "Correct invoice",
+    "correction": {
+      "pageTitle": "Invoice correction",
+      "pageTitleFor": "Correction for {number}",
+      "title": "Correct invoice",
+      "subtitle": "Adjust the line items. The original invoice stays untouched; the correction carries the corrected values and references the original.",
+      "backToInvoice": "Back to invoice",
+      "originalInvoice": "Original invoice",
+      "ref": {
+        "number": "Number",
+        "date": "Date",
+        "contact": "Customer",
+        "total": "Amount"
+      },
+      "fields": {
+        "issueDate": "Correction date",
+        "notes": "Note"
+      },
+      "items": {
+        "title": "Corrected line items",
+        "subtitle": "Adjust the line items to what the invoice should have been.",
+        "add": "Add line item",
+        "remove": "Remove line item",
+        "vatLocked": "VAT is inherited from the original invoice and cannot be changed.",
+        "cols": {
+          "description": "Description",
+          "quantity": "Quantity",
+          "unit": "Unit",
+          "unitPrice": "Unit price",
+          "vat": "VAT",
+          "amount": "Amount"
+        }
+      },
+      "totals": {
+        "subtotal": "Net amount",
+        "tax": "VAT",
+        "total": "Total amount (gross)"
+      },
+      "cancel": "Cancel",
+      "submit": "Create correction as draft",
+      "notesDefault": "Correction of invoice {number}",
+      "errors": {
+        "noItems": "At least one line item with a description is required."
+      }
+    },
+    "creditNoteConfirmTitle": "Create credit note (GoBD reversal)?",
+    "creditNoteConfirmMessage": "Invoice {number} will be cancelled and a new credit note with negated amounts will be created.",
+    "creditNoteGoBDNote": "GoBD notice: Finalized invoices cannot be edited or deleted directly. Corrections must be made exclusively via a credit note (reversal document).",
+    "creditNoteConfirmAction": "Create credit note",
+    "creditNoteMarkRefunded": "Immediately mark credit note as refunded",
+    "storno": "Cancel invoice",
+    "stornoConfirmTitle": "Cancel this invoice?",
+    "stornoConfirmMessage": "Invoice {number} will be withdrawn. A reversal invoice with negative amounts is created and neutralises the original. The customer should be notified.",
+    "stornoGoBDNote": "GoBD-compliant: the original stays in the system and is set to “Cancelled”; the reversal invoice offsets it in the ledger. Since no payment has been received, no refund is required.",
+    "stornoConfirmAction": "Create reversal invoice",
+    "creditNoteForLabel": "Credit note for invoice:",
+    "creditNoteCreatedLabel": "Cancelled — credit note created:",
+    "immutableBadge": "Immutable (GoBD)",
+    "finalizedAtLabel": "Finalized at",
+    "pdfHashTitle": "PDF checksum (GoBD)",
+    "pdfHashDescription": "SHA-256 hash of the PDF generated at the time of sending. Serves as tamper-proof evidence for tax auditors.",
+    "sendEmail": "Send by email",
+    "resendEmail": "Resend email",
+    "sendCreditNoteEmail": "Send credit note",
+    "resendCreditNoteEmail": "Resend credit note",
+    "sendEmailTitle": "Send invoice by email",
+    "sendCreditNoteEmailTitle": "Send credit note by email",
+    "sendEmailRecipient": "Recipient",
+    "sendEmailMessage": "Personal message (optional)",
+    "sendEmailAction": "Send email",
+    "sendEmailSuccess": "Email sent successfully.",
+    "sendEmailNoClient": "No client or email address on file.",
+    "sendEmailCopyToSelf": "Send a copy to me",
+    "readyToSend": {
+      "title": "Invoice ready to send",
+      "subtitle": "Review the preview on the left, then click “Send by email”.",
+      "cta": "Send by email"
+    },
+    "fields": {
+      "number": "Invoice number",
+      "client": "Client",
+      "issueDate": "Issue date",
+      "dueDate": "Due date",
+      "serviceDate": "Service Date",
+      "serviceDateEnd": "Service Period End",
+      "status": "Status",
+      "subtotal": "Net amount",
+      "taxAmount": "VAT",
+      "total": "Total",
+      "notes": "Notes"
+    },
+    "status": {
+      "DRAFT": "Draft",
+      "SENT": "Sent",
+      "PAID": "Paid",
+      "OVERDUE": "Overdue",
+      "CANCELLED": "Cancelled"
+    },
+    "lineItems": {
+      "title": "Line items",
+      "addItem": "Add item",
+      "description": "Description",
+      "quantity": "Qty",
+      "unitPrice": "Unit price (net)",
+      "vatRate": "VAT",
+      "amount": "Amount (net)",
+      "remove": "Remove"
+    },
+    "serviceDate": "Service Date",
+    "serviceDateEnd": "Service Period End",
+    "unit": "Unit",
+    "summary": {
+      "subtotal": "Net amount",
+      "vat19": "VAT 19 %",
+      "vat7": "VAT 7 %",
+      "total": "Total (gross)",
+      "totalSmallBusiness": "Total"
+    },
+    "table": {
+      "number": "Number",
+      "client": "Client",
+      "issueDate": "Date",
+      "dueDate": "Due",
+      "total": "Amount",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "form": {
+      "invoiceType": {
+        "standard": "Invoice",
+        "eInvoice": "E-Invoice"
+      },
+      "saving": "Saving…",
+      "creating": "Creating…",
+      "preview": "Preview",
+      "previewDraft": "Preview (Draft)",
+      "reviewAndSend": "Review & Send",
+      "recipient": "Recipient",
+      "selectClientPlaceholder": "— Select client —",
+      "newClientTooltip": "Create new client",
+      "recipientName": "Recipient name",
+      "recipientNamePlaceholder": "As shown on the invoice",
+      "street": "Street & number",
+      "streetPlaceholder": "123 Main St",
+      "zip": "ZIP",
+      "city": "City",
+      "country": "Country",
+      "invoiceDetails": "Invoice details",
+      "creditNoteDetails": "Credit note details",
+      "numberAutoAssigned": "(assigned automatically)",
+      "serviceDateMode": {
+        "date": "Date",
+        "period": "Period"
+      },
+      "serviceDateFrom": "From",
+      "serviceDateTo": "To",
+      "paymentQr": {
+        "label": "Payment QR code",
+        "hint": "EPC QR code on the invoice to scan & pay",
+        "lockedHint": "Cannot be changed once the invoice is finalized"
+      },
+      "eInvoiceSection": "E-Invoice",
+      "eInvoiceEmailLabel": "Email address",
+      "eInvoiceEmailSubLabel": "(invoice recipient)",
+      "eInvoiceEmailPlaceholder": "invoices@client.com",
+      "buyerRef": "Customer reference / Leitweg-ID",
+      "buyerRefTooltip": "If you don't have a reference, just enter 00. If the recipient is a public authority, use the Leitweg-ID (e.g. 991-1234512345-06).",
+      "introText": "Cover text",
+      "introTextPlaceholder": "Dear Sir or Madam,\n\nThank you for your order…",
+      "defaultIntroText": "Dear Sir or Madam,\n\nThank you for your order and the trust you have placed in us!\nWe hereby invoice you for the following services:",
+      "discount": "Discount",
+      "globalDiscountAdd": "Add total discount",
+      "globalDiscountLabel": "Total discount",
+      "globalDiscountRemove": "Remove total discount",
+      "summary": "Summary",
+      "moreOptions": "More options",
+      "skonto": "Offer early payment discount",
+      "skontoPercent": "Discount (%)",
+      "skontoDays": "Payment period (days)",
+      "skontoHint": "Invoice note:",
+      "skontoText": "Early payment discount: {pct}% if paid within {days} days.",
+      "emailRequired": "An email address is required for e-invoices.",
+      "clientRequired": "Please select a client."
+    },
+    "newClient": {
+      "title": "New client",
+      "namePlaceholder": "Acme Inc.",
+      "creating": "Creating…",
+      "create": "Create client"
+    },
+    "deleteDraft": {
+      "title": "Delete draft?",
+      "message": "The draft will be permanently removed from the database. The invoice number will not be consumed and will be available for the next invoice.",
+      "confirm": "Delete permanently",
+      "button": "Delete"
+    },
+    "tabs": {
+      "all": "All",
+      "open": "Open",
+      "overdue": "Overdue",
+      "draft": "Drafts",
+      "paid": "Paid"
+    },
+    "quickActions": {
+      "title": "Actions",
+      "resendEmail": "Resend email",
+      "markAsPaid": "Mark as paid",
+      "createCreditNote": "Create credit note",
+      "useAsTemplate": "Use as template for new invoice",
+      "delete": "Delete draft",
+      "resendSuccess": "Email resent successfully.",
+      "resendError": "Could not resend email."
+    },
+    "search": {
+      "placeholder": "Search by number or client…"
+    },
+    "vatRegulation": {
+      "title": "Sales tax regulation",
+      "groups": {
+        "domestic": "In Germany",
+        "eu": "Within the EU",
+        "nonEu": "Outside the EU",
+        "smallBusiness": "Small business owner"
+      },
+      "options": {
+        "standard": "Standard taxable sales",
+        "taxExempt4": "Tax-exempt sales §4 UStG",
+        "reverseCharge13b": "Reverse charge §13b UStG",
+        "reverseCharge18b": "Reverse charge §18b UStG",
+        "intraCommunityDelivery": "Intra-community delivery",
+        "oss": "OSS – One-Stop-Shop",
+        "export": "Exports",
+        "nonDomesticService": "Non-domestic service (outside EU)",
+        "smallBusiness19": "Small Business Taxation"
+      },
+      "tooltips": {
+        "standard": "Standard taxable sales with regular tax rates (0%, 7%, or 19%). The most common regulation for domestic B2B and B2C transactions.",
+        "taxExempt4": "Use this regulation for services exempt from VAT under §4 No. 8–29 UStG. For example, if you provide insurance services or practice a healing profession. This revenue is reported in field 48 of the preliminary VAT return.",
+        "reverseCharge13b": "For certain domestic services, the tax liability shifts to the recipient (§13b UStG). Applies e.g. to construction work, building cleaning, or mobile device deliveries over €5,000. You do not charge VAT — the recipient owes it.",
+        "reverseCharge18b": "For services to businesses in another EU member state (B2B). The tax liability shifts to the recipient. Requires: The customer must have a valid VAT ID. Must be reported in the EC Sales List (Zusammenfassende Meldung).",
+        "intraCommunityDelivery": "Tax-free delivery of goods to a business in another EU member state (§4 No. 1b in conjunction with §6a UStG). Requires: valid VAT ID of the recipient and proof of transport (arrival certificate).",
+        "oss": "One-Stop-Shop (OSS) for cross-border sales of goods and certain services to consumers (B2C) within the EU. The VAT rate of the destination country applies. Reporting is done quarterly via the Federal Central Tax Office (BZSt).",
+        "export": "Tax-free export delivery to recipients outside the EU (§4 No. 1a in conjunction with §6 UStG). Requires: export proof (e.g. customs certificate). Reported in field 43 of the preliminary VAT return.",
+        "nonDomesticService": "Services where the place of supply under §3a UStG is not in Germany, e.g. consulting services for businesses in Switzerland, the USA, or other non-EU countries. No German VAT is charged.",
+        "smallBusiness19": "As a small business owner according to §19 UStG, no sales tax is charged. This setting is set in company settings."
+      },
+      "legalNotice": {
+        "taxExempt4": "VAT-exempt service pursuant to §4 UStG.",
+        "reverseCharge13b": "VAT liability shifted to the recipient pursuant to §13b UStG.",
+        "reverseCharge18b": "VAT liability shifted to the recipient pursuant to §18b UStG. The VAT must be declared and paid by the recipient.",
+        "intraCommunityDelivery": "Tax-free intra-community delivery pursuant to §4 No. 1b in conjunction with §6a UStG.",
+        "oss": "Taxation under the One-Stop-Shop (OSS) procedure pursuant to §18j UStG.",
+        "export": "Tax-free export delivery pursuant to §4 No. 1a in conjunction with §6 UStG.",
+        "nonDomesticService": "Service not taxable in Germany pursuant to §3a UStG.",
+        "smallBusiness19": "According to §19 UStG, no sales tax is charged."
+      },
+      "smallBusinessSettingsHint": "This setting is managed in the company settings under Taxes.",
+      "vatLocked": "VAT locked to 0% by sales tax regulation"
+    }
+  },
+  "quotes": {
+    "pageTitle": "Quotes",
+    "title": "Quotes",
+    "subtitle": "Create and manage quotes for your customers.",
+    "new": "New quote",
+    "newTitle": "New quote",
+    "editTitle": "Edit quote {number}",
+    "empty": "No quotes yet.",
+    "downloadPdf": "Download quote",
+    "convertedBadge": "Converted",
+    "emptyState": {
+      "eyebrow": "Get started",
+      "title": "Create your first quote",
+      "subtitle": "Win customers with professional quotes — and turn them into order confirmations or invoices with a single click.",
+      "bullet1": "Assemble line items quickly from your catalog",
+      "bullet2": "Send as PDF or via email",
+      "bullet3": "Accepted? Convert directly into an OC or invoice",
+      "cta": "Create quote",
+      "helpText": "Tip: any quote you create can be reused later as a template for similar offers."
+    },
+    "tabs": {
+      "all": "All",
+      "draft": "Drafts",
+      "sent": "Sent",
+      "accepted": "Accepted",
+      "rejected": "Rejected",
+      "expired": "Expired"
+    },
+    "status": {
+      "DRAFT": "Draft",
+      "SENT": "Sent",
+      "ACCEPTED": "Accepted",
+      "REJECTED": "Rejected",
+      "EXPIRED": "Expired"
+    },
+    "table": {
+      "status": "Status",
+      "validUntil": "Valid until",
+      "number": "Number",
+      "client": "Customer",
+      "issueDate": "Date",
+      "total": "Total",
+      "actions": "Actions"
+    },
+    "search": { "placeholder": "Search number or customer…" },
+    "filters": { "from": "From", "to": "To", "reset": "Reset filters" },
+    "fields": {
+      "client": "Customer",
+      "number": "Quote no.",
+      "issueDate": "Quote date",
+      "validUntil": "Valid until",
+      "serviceDate": "Service date",
+      "serviceDateEnd": "Service period until",
+      "notes": "Notes"
+    },
+    "form": {
+      "recipient": "Recipient",
+      "details": "Quote details",
+      "numberAutoAssigned": "assigned automatically",
+      "recipientName": "Recipient name",
+      "recipientNamePlaceholder": "Company or person",
+      "street": "Street & number",
+      "streetPlaceholder": "Example St 1",
+      "zip": "ZIP",
+      "city": "City",
+      "country": "Country",
+      "introText": "Intro text",
+      "introTextPlaceholder": "Dear Sir/Madam, we would like to make the following offer…",
+      "defaultIntroText": "Dear Sir/Madam,\n\nwe would like to make the following offer.",
+      "preview": "Preview",
+      "previewDraft": "Preview (draft)",
+      "save": "Save",
+      "saving": "Saving…",
+      "creating": "Creating…",
+      "reviewAndSend": "Review & Send",
+      "clientRequired": "Please select a customer.",
+      "selectClientPlaceholder": "Select customer…",
+      "newClientTooltip": "Create new customer",
+      "summary": "Summary",
+      "serviceDateMode": { "date": "Date", "period": "Period" },
+      "serviceDateFrom": "From",
+      "serviceDateTo": "To"
+    },
+    "lineItems": {
+      "title": "Line items",
+      "description": "Description",
+      "quantity": "Quantity",
+      "unitPrice": "Unit price",
+      "vatRate": "VAT",
+      "amount": "Amount",
+      "addItem": "Add item"
+    },
+    "summary": {
+      "subtotal": "Net amount",
+      "vat19": "VAT 19 %",
+      "vat7": "VAT 7 %",
+      "total": "Total",
+      "totalSmallBusiness": "Total"
+    },
+    "unit": "Unit",
+    "actions": {
+      "markAsSent": "Mark as sent",
+      "markAsAccepted": "Mark as accepted",
+      "markAsRejected": "Mark as rejected",
+      "markAsExpired": "Mark as expired",
+      "edit": "Edit",
+      "delete": "Delete",
+      "deleteDraft": "Delete draft",
+      "createOrderConfirmation": "Create order confirmation",
+      "createInvoice": "Create invoice"
+    },
+    "deleteConfirm": {
+      "title": "Delete quote?",
+      "message": "This quote will be permanently deleted.",
+      "confirm": "Delete",
+      "cancel": "Cancel"
+    },
+    "quickActions": { "title": "More actions" },
+    "transactions": {
+      "convertedToOC": "Order confirmation created",
+      "convertedToInvoice": "Invoice created"
+    },
+    "skonto": "Offer early-payment discount",
+    "skontoPercent": "Discount (%)",
+    "skontoDays": "Within (days)",
+    "skontoHint": "Note printed on the quote:",
+    "skontoText": "Early-payment discount: {pct}% if paid within {days} days.",
+    "moreOptions": "More options",
+    "convert": {
+      "title": "Convert to order confirmation",
+      "subtitle": "Pick the positions from quote {number} to carry over.",
+      "hint": "By default all positions are carried over with their original quantity. Uncheck individual lines or override the quantity as needed.",
+      "loading": "Loading line items…",
+      "noLines": "This quote has no line items.",
+      "selectAll": "Select all",
+      "deselectAll": "Deselect all",
+      "quantity": "Quantity",
+      "original": "Original",
+      "invalidQuantity": "Position {position}: quantity must be greater than 0.",
+      "creating": "Creating…",
+      "confirm": "Create order confirmation",
+      "cancel": "Cancel"
+    },
+    "sendEmail": {
+      "title": "Send quote {number}",
+      "recipient": "Recipient",
+      "message": "Personal message",
+      "messagePlaceholder": "Optional. Replaces the default greeting in the email.",
+      "copyToSelf": "Send a copy to me (BCC)",
+      "send": "Send quote",
+      "sending": "Sending…",
+      "cancel": "Cancel",
+      "success": "Quote sent.",
+      "error": "Email sending failed.",
+      "resend": "Resend"
+    }
+  },
+  "orderConfirmations": {
+    "pageTitle": "Order confirmations",
+    "title": "Order confirmations",
+    "subtitle": "Confirm incoming orders and convert them into invoices.",
+    "new": "New order confirmation",
+    "newTitle": "New order confirmation",
+    "editTitle": "Edit order confirmation {number}",
+    "empty": "No order confirmations yet.",
+    "downloadPdf": "Download order confirmation",
+    "emptyState": {
+      "eyebrow": "Get started",
+      "title": "Create your first order confirmation",
+      "subtitle": "Lock in agreed orders and give both sides clarity — before you invoice.",
+      "bullet1": "Generate from an accepted quote in one click",
+      "bullet2": "Capture delivery date, terms and line items cleanly",
+      "bullet3": "Once fulfilled, turn it into an invoice in seconds",
+      "cta": "Create order confirmation",
+      "helpText": "Tip: convert an accepted quote into an OC with a single click — all line items are carried over."
+    },
+    "tabs": {
+      "all": "All",
+      "draft": "Drafts",
+      "sent": "Sent",
+      "invoiced": "Invoiced",
+      "cancelled": "Cancelled"
+    },
+    "status": {
+      "DRAFT": "Draft",
+      "SENT": "Sent",
+      "INVOICED": "Invoiced",
+      "CANCELLED": "Cancelled"
+    },
+    "table": {
+      "status": "Status",
+      "deliveryDate": "Delivery date",
+      "number": "Number",
+      "client": "Customer",
+      "issueDate": "Date",
+      "total": "Total",
+      "actions": "Actions"
+    },
+    "search": { "placeholder": "Search number or customer…" },
+    "filters": { "from": "From", "to": "To", "reset": "Reset filters" },
+    "fields": {
+      "client": "Customer",
+      "number": "OC no.",
+      "issueDate": "OC date",
+      "deliveryDate": "Delivery date",
+      "serviceDate": "Service date",
+      "serviceDateEnd": "Service period until",
+      "notes": "Notes"
+    },
+    "form": {
+      "recipient": "Recipient",
+      "details": "Order details",
+      "numberAutoAssigned": "assigned automatically",
+      "recipientName": "Recipient name",
+      "recipientNamePlaceholder": "Company or person",
+      "street": "Street & number",
+      "streetPlaceholder": "Example St 1",
+      "zip": "ZIP",
+      "city": "City",
+      "country": "Country",
+      "introText": "Intro text",
+      "introTextPlaceholder": "Dear Sir/Madam, we hereby confirm your order…",
+      "defaultIntroText": "Dear Sir/Madam,\n\nthank you for your order, which we hereby confirm.",
+      "preview": "Preview",
+      "previewDraft": "Preview (draft)",
+      "save": "Save",
+      "saving": "Saving…",
+      "creating": "Creating…",
+      "reviewAndSend": "Review & Send",
+      "clientRequired": "Please select a customer.",
+      "selectClientPlaceholder": "Select customer…",
+      "newClientTooltip": "Create new customer",
+      "summary": "Summary",
+      "fromQuote": "From quote",
+      "serviceDateMode": { "date": "Date", "period": "Period" },
+      "serviceDateFrom": "From",
+      "serviceDateTo": "To"
+    },
+    "lineItems": {
+      "title": "Line items",
+      "description": "Description",
+      "quantity": "Quantity",
+      "unitPrice": "Unit price",
+      "vatRate": "VAT",
+      "amount": "Amount",
+      "addItem": "Add item"
+    },
+    "summary": {
+      "subtotal": "Net amount",
+      "vat19": "VAT 19 %",
+      "vat7": "VAT 7 %",
+      "total": "Total",
+      "totalSmallBusiness": "Total"
+    },
+    "unit": "Unit",
+    "actions": {
+      "markAsSent": "Mark as sent",
+      "markAsCancelled": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "deleteDraft": "Delete draft",
+      "createInvoice": "Create invoice"
+    },
+    "deleteConfirm": {
+      "title": "Delete order confirmation?",
+      "message": "This order confirmation will be permanently deleted.",
+      "confirm": "Delete",
+      "cancel": "Cancel"
+    },
+    "quickActions": { "title": "More actions" },
+    "transactions": {
+      "fromQuote": "From quote",
+      "convertedToInvoice": "Invoice created"
+    },
+    "sendEmail": {
+      "title": "Send order confirmation {number}",
+      "recipient": "Recipient",
+      "message": "Personal message",
+      "messagePlaceholder": "Optional. Replaces the default greeting in the email.",
+      "copyToSelf": "Send a copy to me (BCC)",
+      "send": "Send OC",
+      "sending": "Sending…",
+      "cancel": "Cancel",
+      "success": "Order confirmation sent.",
+      "error": "Email sending failed.",
+      "resend": "Resend"
+    }
+  },
+  "contacts": {
+    "pageTitle": "Contacts",
+    "title": "Contacts",
+    "subtitle": "Manage customers, suppliers and partners.",
+    "new": "New contact",
+    "newTitle": "Create new contact",
+    "noPermissionAccountant": "Contact management belongs to the client — as the accountant you don't have access here. Contact details relevant for bookkeeping are available directly on documents and invoices.",
+    "editTitle": "Edit contact",
+    "empty": "No contacts yet.",
+    "cancel": "Cancel",
+    "save": "Save",
+    "saveAndNew": "Save & new",
+    "filter": {
+      "all": "All"
+    },
+    "roles": {
+      "CUSTOMER": "Customer",
+      "SUPPLIER": "Supplier",
+      "PARTNER": "Partner",
+      "OTHER": "Other"
+    },
+    "salutations": {
+      "MR": "Mr.",
+      "MRS": "Mrs.",
+      "DIVERSE": "Diverse"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "sections": {
+      "basics": "Basic data",
+      "contactPerson": "Contact person",
+      "address": "Address",
+      "contactDetails": "Contact details",
+      "payment": "Payment information",
+      "paymentTerms": "Payment terms",
+      "notes": "Notes"
+    },
+    "days": "days",
+    "fields": {
+      "roles": "Roles",
+      "name": "Company name / Name",
+      "customerNumber": "Customer number",
+      "supplierNumber": "Supplier number",
+      "paymentTermDays": "Payment term (days)",
+      "discountDays": "Discount period (days)",
+      "discountPercent": "Discount (%)",
+      "discount": "Discount",
+      "salutation": "Salutation",
+      "contactTitle": "Title",
+      "contactFirstName": "First name",
+      "contactLastName": "Last name",
+      "contactPosition": "Position",
+      "contactPositionPlaceholder": "e.g. Purchasing, Management",
+      "address": "Street & number",
+      "city": "City",
+      "zip": "ZIP",
+      "country": "Country",
+      "email": "Email",
+      "phone": "Phone",
+      "website": "Website",
+      "iban": "IBAN",
+      "bic": "BIC",
+      "vatId": "VAT ID",
+      "taxId": "Tax number",
+      "notes": "Notes"
+    },
+    "table": {
+      "name": "Contact",
+      "customerNumber": "Cust. no.",
+      "supplierNumber": "Suppl. no.",
+      "roles": "Roles",
+      "email": "Email",
+      "phone": "Phone",
+      "city": "City",
+      "invoices": "Invoices",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "actions": {
+      "edit": "Edit",
+      "deactivate": "Deactivate",
+      "activate": "Activate",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "close": "Close"
+    },
+    "paymentTerms": {
+      "hint": "Default payment terms and discount — prefilled on new invoices/documents."
+    },
+    "delete": {
+      "title": "Delete contact?",
+      "confirm": "Delete contact \"{name}\"?",
+      "errorTitle": "Cannot delete contact",
+      "hasInvoices": "This contact has linked invoices and cannot be deleted. You can deactivate it instead."
+    },
+    "detail": {
+      "contactSection": "Contact",
+      "personLabel": "Contact person",
+      "notesSection": "Notes",
+      "invoiceCount": "Total invoices",
+      "revenuePaid": "Revenue (paid)",
+      "openOverdue": "Open / Overdue",
+      "invoicesTitle": "Invoices",
+      "noInvoices": "No invoices yet.",
+      "invoiceNumber": "Number",
+      "invoiceDate": "Date",
+      "invoiceDue": "Due",
+      "invoiceAmount": "Amount",
+      "invoiceStatus": "Status",
+      "payablesOpen": "Payables (open)",
+      "incomingTitle": "Incoming invoices",
+      "incomingSummary": "{count} documents · {paid} paid",
+      "noIncoming": "No incoming invoices yet.",
+      "docNumber": "Doc no.",
+      "docStatus": {
+        "PAID": "Paid",
+        "DONE": "Open",
+        "DRAFT": "Draft",
+        "PENDING": "Pending",
+        "PROCESSING": "Processing",
+        "FAILED": "Failed"
+      }
+    }
+  },
+  "team": {
+    "pageTitle": "Team",
+    "title": "Team",
+    "subtitle": "Manage team members and their access permissions.",
+    "invite": "Invite",
+    "inviteUser": "Invite user",
+    "editUser": "Edit user",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Jane Doe",
+      "firstName": "First name",
+      "firstNamePlaceholder": "Jane",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Doe",
+      "email": "Email",
+      "emailPlaceholder": "name@company.com",
+      "role": "Role",
+      "submit": "Send invitation",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "roles": {
+      "SUPER_ADMIN": "Super Admin",
+      "ADMIN": "Admin",
+      "USER": "User"
+    },
+    "table": {
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "status": "Status",
+      "created": "Created",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Deactivated"
+    },
+    "actions": {
+      "edit": "Edit",
+      "deactivate": "Deactivate",
+      "activate": "Activate"
+    },
+    "tempPassword": {
+      "title": "Temporary Password",
+      "description": "Share this password with the new user. It will only be shown once.",
+      "warning": "This password cannot be shown again after closing.",
+      "emailSent": "An invitation email with the password has been sent.",
+      "emailNotSent": "Note: The invitation email could not be sent — please share the password manually.",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "close": "Close"
+    },
+    "inviteNotice": {
+      "existingEmailed": "User added to the workspace. A notification email has been sent.",
+      "existingNoEmail": "User added to the workspace."
+    },
+    "empty": "No team members yet.",
+    "noPermission": "You don't have permission for this action."
+  },
+  "auditLog": {
+    "pageTitle": "Audit Log",
+    "title": "Audit Log",
+    "subtitle": "Complete log of all actions — GDPR compliant.",
+    "filters": {
+      "from": "From",
+      "to": "To",
+      "action": "Action",
+      "user": "User",
+      "all": "All",
+      "apply": "Filter",
+      "reset": "Reset",
+      "refresh": "Refresh",
+      "export": "Export"
+    },
+    "table": {
+      "date": "Date",
+      "user": "User",
+      "action": "Action",
+      "entity": "Entity",
+      "ip": "IP Address"
+    },
+    "actions": {
+      "LOGIN": "Login",
+      "LOGOUT": "Logout",
+      "USER_CREATED": "User created",
+      "USER_UPDATED": "User updated",
+      "USER_DEACTIVATED": "User deactivated",
+      "USER_REACTIVATED": "User reactivated",
+      "PASSWORD_CHANGED": "Password changed",
+      "SETTINGS_CHANGED": "Settings changed",
+      "CONTACT_CREATED": "Contact created",
+      "CONTACT_UPDATED": "Contact updated",
+      "CONTACT_DELETED": "Contact deleted",
+      "CLIENT_CREATED": "Client created",
+      "CLIENT_UPDATED": "Client updated",
+      "CLIENT_DELETED": "Client deleted",
+      "INVOICE_CREATED": "Invoice created",
+      "INVOICE_UPDATED": "Invoice updated",
+      "INVOICE_SENT": "Invoice sent",
+      "INVOICE_PAID": "Invoice paid",
+      "INVOICE_CANCELLED": "Invoice cancelled",
+      "INVOICE_FINALIZED": "Invoice finalized (GoBD)",
+      "INVOICE_CREDIT_NOTE_CREATED": "Credit note created (GoBD reversal)",
+      "BANK_TRANSACTION_IMPORTED": "Imported bank transaction/s",
+      "BANK_TRANSACTION_MATCHED": "Matched bank transaction/s",
+      "BANK_TRANSACTION_AUTO_MATCHED": "Auto-matched bank transaction/s",
+      "INVOICE_PAYMENT_REVERTED": "Reverted invoice payment",
+      "BANK_TRANSACTION_CREATED": "Bank transaction created",
+      "BANK_ACCOUNT_CREATED": "Bank account created",
+      "BANK_ACCOUNT_DELETED": "Bank account deleted",
+      "BANK_ACCOUNT_UPDATED": "Bank account updated",
+      "DOCUMENT_VIEWED": "Document viewed",
+      "DOCUMENT_DOWNLOADED": "Document downloaded",
+      "DOCUMENT_DELETED": "Document deleted",
+      "QUOTE_CREATED": "Quote created",
+      "QUOTE_UPDATED": "Quote updated",
+      "QUOTE_SENT": "Quote sent",
+      "QUOTE_ACCEPTED": "Quote accepted",
+      "QUOTE_REJECTED": "Quote rejected",
+      "QUOTE_EXPIRED": "Quote expired",
+      "QUOTE_CONVERTED": "Quote converted",
+      "QUOTE_DELETED": "Quote deleted",
+      "ORDER_CONFIRMATION_CREATED": "Order confirmation created",
+      "ORDER_CONFIRMATION_UPDATED": "Order confirmation updated",
+      "ORDER_CONFIRMATION_SENT": "Order confirmation sent",
+      "ORDER_CONFIRMATION_INVOICED": "Order confirmation invoiced",
+      "ORDER_CONFIRMATION_CANCELLED": "Order confirmation cancelled",
+      "ORDER_CONFIRMATION_DELETED": "Order confirmation deleted",
+      "TWO_FACTOR_ENABLED": "2FA enabled",
+      "TWO_FACTOR_DISABLED": "2FA disabled",
+      "COMMENT_CREATED": "Comment created",
+      "COMMENT_RESOLVED": "Comment resolved",
+      "MONTH_CLOSE_SUBMITTED": "Month-close submitted",
+      "MONTH_CLOSE_REOPENED": "Month-close reopened for clarification",
+      "MONTH_CLOSE_FINALIZED": "Month-close finalized"
+    },
+    "system": "System",
+    "empty": "No entries."
+  },
+  "notifications": {
+    "title": "Notifications",
+    "subtitleWithCount": "{count, plural, one {# new notification} other {# new notifications}}",
+    "empty": "No new notifications.",
+    "systemAuthor": "System",
+    "markAllRead": "Mark all read",
+    "markRead": "Mark as read",
+    "markUnread": "Mark as unread",
+    "resolveItem": "Mark as done",
+    "openItem": "Open",
+    "unreadDot": "Unread",
+    "entity": {
+      "INVOICE": "Invoice",
+      "DOCUMENT": "Document",
+      "JOURNAL_ENTRY": "Journal entry",
+      "BANK_TRANSACTION": "Bank transaction"
+    },
+    "monthCloseSubmittedLabel": "Month-close submitted",
+    "monthCloseSubmittedBody": "{month} {year} was submitted for review.",
+    "monthCloseReopenedLabel": "Clarification requested",
+    "monthCloseReopenedBody": "Your tax advisor requested clarification for {month} {year}."
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Account and company configuration.",
+    "noPermission": "You do not have permission to edit these settings.",
+    "user": {
+      "title": "User",
+      "subtitle": "Your personal account settings."
+    },
+    "emailInbound": {
+      "title": "Receipts via email",
+      "subtitle": "Forward invoices to your personal address — we capture them automatically as a draft.",
+      "cardTitle": "Personal receipt address",
+      "help": "Forward invoices to this address or set up a forwarding rule at the sender. Attachments (PDF, PNG, JPG) are read automatically and saved as a receipt draft.",
+      "aliasLabel": "Your receipt address",
+      "copy": "Copy",
+      "copied": "Copied",
+      "inactiveHint": "The inbox is disabled — incoming mail is currently not processed.",
+      "rotate": "Generate new address",
+      "rotateHelp": "Creates a new address and invalidates the old one — useful for spam or if the address was accidentally exposed.",
+      "rotateConfirm": "Generate a new address? The previous address will stop working.",
+      "notConfigured": "This feature is not yet enabled on the server (INBOUND_EMAIL_DOMAIN is missing). Please contact your administrator.",
+      "allowlistTitle": "Sender allowlist (optional)",
+      "allowlistHelp": "If set, only mail from these senders is processed — one address per line. Leave empty to allow all senders (recommended for forwarding).",
+      "allowlistPlaceholder": "invoices@supplier.com\naccounting@partner.com",
+      "save": "Save",
+      "saved": "Saved",
+      "logTitle": "Recent inbound",
+      "logHelp": "The most recently received emails and their processing status.",
+      "logEmpty": "No emails received yet.",
+      "noSubject": "(No subject)",
+      "docCount": "{count, plural, one {# receipt} other {# receipts}}",
+      "status": {
+        "PROCESSED": "Processed",
+        "REJECTED": "Rejected",
+        "NO_ATTACHMENT": "No attachment",
+        "RECEIVED": "Received"
+      }
+    },
+    "companyPage": {
+      "title": "Company",
+      "subtitle": "Your company master data — this appears on your invoices."
+    },
+    "accountingPage": {
+      "title": "Accounting & Invoices",
+      "subtitle": "Tax mode, chart of accounts and invoice defaults."
+    },
+    "numberRanges": {
+      "pageTitle": "Number ranges",
+      "title": "Number ranges",
+      "subtitle": "Configure how numbers are assigned for documents and contacts.",
+      "save": "Save",
+      "saved": "Saved",
+      "placeholdersLabel": "Placeholders",
+      "columns": {
+        "type": "Type",
+        "format": "Format",
+        "next": "Next number",
+        "digits": "Digits",
+        "preview": "Preview"
+      },
+      "types": {
+        "INVOICE": "Invoices",
+        "CREDIT_NOTE": "Credit notes",
+        "QUOTE": "Quotes",
+        "ORDER_CONFIRMATION": "Order confirmations",
+        "DELIVERY_NOTE": "Delivery notes",
+        "CUSTOMER": "Customer numbers (debtors)",
+        "SUPPLIER": "Supplier numbers (creditors)"
+      }
+    },
+    "appearancePage": {
+      "title": "Appearance & Language",
+      "subtitle": "Adjust the look and language of the interface."
+    },
+    "account": {
+      "title": "Change password",
+      "subtitle": "Set a new password for your account. For security reasons your current password is required.",
+      "currentPassword": "Current password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm new password",
+      "passwordHint": "Minimum 12 characters.",
+      "submit": "Save password",
+      "submitting": "Saving…",
+      "success": "Password changed successfully."
+    },
+    "profile": {
+      "title": "Profile",
+      "subtitle": "Your name and email address.",
+      "name": "Name",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "submit": "Save profile",
+      "submitting": "Saving…",
+      "success": "Profile updated successfully."
+    },
+    "twoFactor": {
+      "title": "Two-factor authentication",
+      "subtitle": "Protect your account with an additional one-time code at sign-in.",
+      "statusOn": "Enabled",
+      "statusOff": "Disabled",
+      "enableTitle": "Enable two-factor authentication",
+      "enableIntro": "Scan the QR code with your authenticator app (e.g. Google Authenticator, 1Password), then enter the code it shows.",
+      "manualKey": "Or enter the key manually:",
+      "code": "Code from the app",
+      "confirmPassword": "Password for confirmation",
+      "enableSubmit": "Enable",
+      "disableTitle": "Disable two-factor authentication",
+      "disableIntro": "Enter your password to disable two-factor authentication.",
+      "disableSubmit": "Disable",
+      "submitting": "Saving…",
+      "cancel": "Cancel",
+      "loading": "Generating QR code…",
+      "loadError": "Could not generate the QR code. Please try again."
+    },
+    "company": {
+      "title": "Company",
+      "subtitle": "This information appears on your invoices.",
+      "tabs": {
+        "general": "General",
+        "taxes": "Taxes",
+        "bank": "Bank Details",
+        "invoices": "Invoices",
+        "logo": "Logo",
+        "appearance": "Appearance & Language",
+        "accounting": "Accounting"
+      },
+      "sections": {
+        "company": "Company",
+        "address": "Address",
+        "contact": "Contact information",
+        "taxes": "Tax & Register Numbers",
+        "bank": "Payment Information",
+        "invoices": "Invoice Settings",
+        "logo": "Logo",
+        "taxMode": "Tax Mode"
+      },
+      "sectionsHint": {
+        "company": "Basic data about your company. This appears on invoices and business documents.",
+        "address": "Used as your business address and shown in the invoice footer.",
+        "taxes": "Tax and register numbers for proper business documents.",
+        "contact": "So your customers can reach you with questions.",
+        "bank": "Your bank details for payments — shown on your invoices.",
+        "logo": "Your company logo appears in the invoice header."
+      },
+      "requiredNotice": "Fields marked with * are mandatory and required for proper bookkeeping. VAT ID or tax number are required for business documents, but may stay empty as long as the details are not yet available.",
+      "taxMode": {
+        "STANDARD": "Standard Taxation",
+        "SMALL_BUSINESS": "Small Business Taxation"
+      },
+      "taxModeHint": {
+        "STANDARD": "Sales tax is shown at 19% or 7%.",
+        "SMALL_BUSINESS": "No sales tax according to §19 UStG. Sales threshold: 25,000 € / year. (2026)"        
+      },
+      "name": "Company name",
+      "nameSuffix": "Company name suffix",
+      "nameSuffixPlaceholder": "e.g. & Partners, e.K.",
+      "nameSuffixHint": "Appended to the company name on invoices.",
+      "legalForm": "Legal form",
+      "legalForms": {
+        "none": "No selection",
+        "SELF_EMPLOYED": "Self-employed",
+        "SOLE_PROPRIETOR": "Sole proprietor",
+        "PARTNERSHIP": "Partnership (e.g. GbR, OHG, KG)",
+        "NON_PROFIT": "Non-profit / association",
+        "PRIVATE_COMPANY": "Privately held company (e.g. GmbH, UG, Ltd.)",
+        "CORPORATION": "Public limited company"
+      },
+      "ownerName": "Owner",
+      "ownerNamePlaceholder": "John Doe",
+      "ownerNameHint": "Required for the self-employed and sole proprietors (§14 UStG)",
+      "managingDirector": "Managing Director",
+      "managingDirectorHint": "For GmbH, UG, AG etc.",
+      "address": "Street & number",
+      "city": "City",
+      "zip": "ZIP",
+      "country": "Country",
+      "email": "Email",
+      "senderEmail": "Sender email (invoice dispatch)",
+      "senderEmailHint": "This address appears as the sender on invoice emails. Must be added as a verified sender in Brevo.",
+      "senderName": "Sender name",
+      "senderNameHint": "Display name of the sender, e.g. \"Accounting Team | zoonox\"",
+      "phone": "Phone",
+      "website": "Website",
+      "taxId": "Tax ID",
+      "vatId": "VAT ID",
+      "registerCourt": "Register court",
+      "registerNumber": "Commercial register number",
+      "bankName": "Bank name",
+      "iban": "IBAN",
+      "bic": "BIC",
+      "invoicePrefix": "Invoice prefix",
+      "defaultIntroText": "Default cover text",
+      "defaultIntroTextHint": "Pre-filled automatically above line items on new invoices.",
+      "defaultIntroTextPlaceholder": "Dear Sir or Madam,\n\nThank you for your order…",
+      "defaultNotes": "Default footer note",
+      "defaultNotesPlaceholder": "e.g. Payment due within 14 days without deduction.",
+      "logo": "Logo",
+      "logoHint": "PNG or JPG, max. 1 MB. Appears on the invoice.",
+      "logoUpload": "Upload logo",
+      "logoReplace": "Replace",
+      "logoRemove": "Remove logo",
+      "save": "Save Settings",
+      "saving": "Saving…",
+      "saved": "Saved.",
+      "skrType": "Chart of accounts (SKR)",
+      "skrTypeHint": "Choose your default chart of accounts for automatic document categorization.",
+      "skr": {
+        "SKR03": "SKR 03 – Services/freelance professions",
+        "SKR04": "SKR 04 – Industry / Trade"
+      },
+      "profitLossMethod": {
+        "title": "Calculation method for reports",
+        "hint": "Determines the principle used by the central profit calculation (the “EÜR/GuV” tab). You can still display the other method ad hoc in the BWA when needed.",
+        "info": "EÜR (cash-basis income statement): Simplified profit calculation under §4 (3) EStG for freelancers and small businesses. The actual payment date counts (cash basis).\n\nGuV (accrual P&L): Double-entry accounting with period accruals. Income and expenses are recorded in the period they economically belong to (accrual basis).",
+        "EUR": "EÜR (cash basis)",
+        "GUV": "GuV (accrual basis)",
+        "desc": {
+          "EUR": "Profit = income − expenses at the time of payment.",
+          "GUV": "Period accrual based on economic allocation."
+        }
+      }
+    },
+    "language": {
+      "title": "Language",
+      "description": "Sets the language of the entire interface.",
+      "de": "Deutsch",
+      "en": "English"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "description": "Switch between light and dark mode.",
+      "dark": "Dark",
+      "light": "Light"
+    }
+  },
+  "documents": {
+    "pageTitle": "Documents",
+    "listCta": "Capture receipt",
+    "source": {
+      "EMAIL": "Email",
+      "MOBILE": "Mobile"
+    },
+    "new": {
+      "pageTitle": "Capture receipt",
+      "subtitle": "Upload a file, capture from your phone, or enter manually.",
+      "back": "Back to overview",
+      "manual": {
+        "title": "Enter without receipt",
+        "hint": "Fill in the fields now and attach the document later."
+      }
+    },
+    "subtitle": "Document management with automatic recognition.",
+    "supplierLink": {
+      "title": "Supplier (creditor)",
+      "supplierNo": "Supplier no.",
+      "unlink": "Remove link",
+      "ocrHint": "OCR detected: \"{name}\" — link a supplier for creditor open items.",
+      "searchPlaceholder": "Search suppliers…",
+      "emptyAll": "No suppliers created yet.",
+      "emptyFiltered": "No matches.",
+      "createAs": "Create supplier \"{name}\"",
+      "createNewAdvanced": "Create with full details…"
+    },
+    "empty": "No documents uploaded yet.",
+    "upload": {
+      "title": "Upload documents",
+      "hint": "PDF, PNG or JPG — max 10 MB. Drag & drop or click.",
+      "dropTitle": "Drop file here",
+      "dropHint": "Release to start the upload."
+    },
+    "mobileUpload": {
+      "button": "From phone",
+      "buttonTitle": "Show QR code to upload from your phone",
+      "ctaTitle": "From phone",
+      "ctaHint": "Click to scan QR",
+      "title": "Capture receipt from your phone",
+      "subtitle": "Scan this code with your phone's camera.",
+      "scanHint": "Open your phone's camera and point it at the code.",
+      "expired": "QR code expired — please close and reopen.",
+      "expiredShort": "Expired",
+      "validFor": "Valid for {time}",
+      "waiting": "Waiting for upload …",
+      "received": "{count} receipt(s) received",
+      "copyLink": "Copy link",
+      "close": "Close"
+    },
+    "documentType": {
+      "INCOME": "Income",
+      "EXPENSE": "Expense"
+    },
+    "table": {
+      "fileName": "File",
+      "date": "Date",
+      "documentType": "Type",
+      "paymentStatus": "Status",
+      "recognizedAmount": "Amount",
+      "supplier": "Supplier",
+      "actions": "Actions"
+    },
+    "status": {
+      "PENDING": "Pending",
+      "PROCESSING": "Processing",
+      "DONE": "Done",
+      "FAILED": "Failed"
+    },
+    "category": {
+      "INVOICE_INCOMING": "Incoming invoice",
+      "RECEIPT": "Receipt",
+      "CONTRACT": "Contract",
+      "CREDIT_NOTE": "Credit note",
+      "DELIVERY_NOTE": "Delivery note",
+      "OTHER": "Other"
+    },
+    "paymentStatus": {
+      "draft": "Draft",
+      "dueToday": "Due today",
+      "processing": "Processing",
+      "overdue": "Overdue",
+      "dueSoon": "Due soon",
+      "open": "Open",
+      "noDueDate": "No due date",
+      "paid": "Paid"
+
+    },
+    "tabs": {
+      "all": "All",
+      "open": "Open",
+      "overdue": "Overdue",
+      "draft": "Draft",
+      "paid": "Paid"
+    },
+    "filter": {
+      "search": "Search file or supplier…"
+    },
+    "actions": {
+      "edit": "Edit",
+      "markAsPaid": "Mark as paid",
+      "markAsOpen": "Mark as open",
+      "confirmUnpaid": "Undo payment?"
+    },
+    "delete": "Delete",
+    "confirmDelete": "Delete?",
+    "detail": {
+      "saveFailed": "Saving failed — your changes were not applied.",
+      "download": "Download",
+      "deleteDocument": "Delete document",
+      "deleteConfirm": "Confirm deletion",
+      "deleteCancel": "Cancel",
+      "noPreview": "Preview not available",
+      "downloadFile": "Download file",
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out",
+      "back": "Back",
+      "attach": {
+        "title": "Attach receipt",
+        "hint": "Drop PDF, PNG or JPG here or click — max 10 MB.",
+        "uploading": "Uploading receipt …",
+        "preserveHint": "Fields you've filled in won't be overwritten"
+      },
+      "saveDraft": "Save draft",
+      "complete": "Complete",
+      "saving": "Saving…",
+      "saved": "Saved",
+      "addLineItem": "Add line item",
+      "removeLineItem": "Remove",
+      "lineItemsToggle": "Show line items",
+      "noLineItems": "No line items yet.",
+      "retryOcr": "Retry OCR",
+      "ocrRetrying": "Processing…",
+      "duplicates": {
+        "exactTitle": "Warning: identical file found",
+        "semanticTitle": "Possible duplicate document",
+        "exactHint": "This file has been uploaded before. Please review before booking.",
+        "semanticHint": "An existing document has the same vendor, amount and date. May be a duplicate — but a recurring invoice with the same total is also valid.",
+        "openExisting": "Open existing document",
+        "andMore": "and {count} more",
+        "confirmTitle": "Possible duplicate document",
+        "confirmBody": "This exact file has been uploaded before. Save anyway?",
+        "confirmFinalize": "Finalize anyway",
+        "confirmDraft": "Save draft anyway",
+        "confirmCancel": "Cancel"
+      },
+      "validation": {
+        "title": "Please fill in all required fields to complete:",
+        "required": "Required field"
+      },
+      "ocrProcessingTitle": "Analysing document…",
+      "ocrProcessingSubtitle": "OCR recognition running",
+      "cards": {
+        "openAmount": "Open Amount (Gross)",
+        "grossAmount": "Gross Amount",
+        "info": "Additional Information",
+        "file": "File Info",
+        "ocrAnalysis": "OCR Analysis",
+        "linkedInvoice": "Linked Invoice",
+        "documentId": "Document ID",
+        "lineItems": "Line Items"
+      },
+      "inputVatKinds": {
+        "standard": "None — invoice with stated input VAT",
+        "reverseChargeEuService": "§ 13b — service from another EU country",
+        "reverseChargeOther": "§ 13b — construction, work delivery, scrap, etc.",
+        "reverseChargeGrEStG": "§ 13b — transaction under GrEStG",
+        "intraCommunityAcquisition": "Intra-community acquisition (EU goods)",
+        "importVat": "Import VAT"
+      },
+      "fields": {
+        "statedVatAmount": "VAT as stated on the document (if different)",
+        "statedVatHint": "Leave empty unless the document states a different amount.",
+        "statedVatOverride": "This amount takes precedence over the calculation from gross and rate.",
+        "inputVatKind": "Reverse charge",
+        "inputVatKindHint": "The invoice amount is treated as net. You owe the VAT and — under standard taxation — deduct it as input VAT in the same step.",
+        "documentDate": "Document Date",
+        "deliveryDate": "Delivery Date",
+        "deliveryDateRange": "Delivery Period",
+        "deliveryDateFrom": "From",
+        "deliveryDateTo": "To",
+        "deliveryDateSwitchRange": "Period",
+        "deliveryDateSwitchSingle": "Single date",
+        "dueDate": "Due Date",
+        "dueSince": "Due since {days} days",
+        "supplier": "Supplier",
+        "supplierCreate": "Create as supplier",
+        "supplierLinked": "Linked to {name} — open contact",
+        "recognizedSupplier": "Recognized Supplier",
+        "currency": "Currency",
+        "exchangeRate": "Exchange rate (EUR per 1)",
+        "fxHint": "Rate {rate} EUR per 1 {currency} · ≈ {eur}",
+        "fxHintMissing": "No exchange rate set — enter the ECB daily rate or wait for auto-lookup.",
+        "fxLookupFailed": "Rate lookup failed: {error}",
+        "documentType": "Document Type",
+        "documentNumber": "Document Number",
+        "bookingAccount": "Booking Account (SKR)",
+        "bookingAccountPlaceholder": "Enter account no.",
+        "bookingAccountPicker": "Choose account",
+        "bookingAccountSearch": "Search accounts…",
+        "bookingAccountAll": "All accounts",
+        "bookingAccountNoResults": "No accounts found",
+        "category": "Category",
+        "suggestedCategory": "Suggested",
+        "fileType": "File Type",
+        "fileSize": "File Size",
+        "uploadedAt": "Uploaded at",
+        "uploadedBy": "Uploaded by",
+        "ocrConfidence": "OCR Confidence",
+        "ocrInfoToggle": "Toggle OCR Information",
+        "ocrConfidenceInfo": "This value indicates how confident the AI is about the extracted data. Lower values might require careful manual review.",
+        "tags": "Tags",
+        "tagsPlaceholder": "Enter tag, press Enter",
+        "descriptionLabel": "Description",
+        "descriptionPlaceholder": "What is this receipt for?",
+        "description": "Description",
+        "skrAccount": "SKR Account",
+        "depreciation": "Depreciation",
+        "amount": "Amount",
+        "vatRule": "VAT Rule",
+        "vatRate": "VAT Rate (%)",
+        "vatRatePlaceholder": "Select VAT rate",
+        "vatAmount": "VAT",
+        "netAmount": "Net",
+        "grossAmount": "Gross",
+        "totalNet": "Total Net",
+        "salesTax": "Sales Tax",
+        "total": "Total Gross",
+        "dueDateQuick": "+{days} days"
+      },
+      "editDocument": "Edit document",
+      "editConfirm": {
+        "title": "Edit document?",
+        "description": "This document has already been completed.",
+        "cancel": "Cancel",
+        "confirm": "Edit anyway"
+      },
+      "payment": {
+        "modalTitle": "Mark as paid",
+        "paidAt": "Payment date",
+        "useDocDate": "Payment date = document date",
+        "method": "Payment method",
+        "bankAccount": "Bank account",
+        "noBankAccount": "No active bank account yet.",
+        "paidAmount": "Actual amount paid",
+        "txSearchPlaceholder": "Search: name, purpose, amount…",
+        "txLoading": "Loading bank transactions…",
+        "txEmpty": "No open transactions in date window.",
+        "txUnknownCounterpart": "Unknown counterpart",
+        "txFilter": {
+          "label": "Filters",
+          "outflow": "Outflows only",
+          "inflow": "Inflows only",
+          "all": "All"
+        },
+        "moreFilters": "More filters",
+        "diffDetected": "Deviation from document amount: {sign}{diff}. Please select a reason.",
+        "diffReasonPlaceholder": "Select reason…",
+        "diffReason": {
+          "ROUNDING": "Rounding difference",
+          "SKONTO": "Cash discount",
+          "FX": "FX difference",
+          "OTHER": "Other deviation"
+        },
+        "diffNotePlaceholder": "Note (optional)",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "markAsPaid": "Mark as paid",
+        "paidLabel": "Paid",
+        "paidTitle": "Payment recorded",
+        "paidOn": "Paid on {date}",
+        "markAsUnpaid": "Mark as unpaid",
+        "unpaidConfirm": {
+          "title": "Undo payment?",
+          "description": "The payment will be removed and the document marked as open.",
+          "cancel": "Cancel",
+          "confirm": "Undo"
+        },
+        "methods": {
+          "BANK_TRANSFER": "Bank Transfer",
+          "CASH": "Cash",
+          "CREDIT_CARD": "Credit Card",
+          "PAYPAL": "PayPal"
+        },
+        "docSummary": {
+          "supplier": "Supplier",
+          "gross": "Gross amount",
+          "docDate": "Document date",
+          "dueDate": "Due"
+        }
+      }
+    },
+    "skr": {
+      "SKR03": "SKR 03 (service-oriented professions)",
+      "SKR04": "SKR 04 (Industry/Trade)"
+    }
+  },
+  "bank": {
+    "connect": {
+      "connect": "Connect bank",
+      "title": "Connect a bank",
+      "wizardTitle": "Connect a bank directly",
+      "intro": "Choose your bank to link accounts and transactions read-only via open banking (PSD2).",
+      "loading": "Loading banks …",
+      "empty": "No banks available for this country.",
+      "noResults": "No bank found.",
+      "searchPlaceholder": "Search bank (name, e.g. \"Sparkasse Köln\") …",
+      "close": "Close",
+      "success": "Bank connected: {accounts} account(s) linked, {imported} transactions imported, {matched} auto-matched.",
+      "error": "Bank connection failed ({code}).",
+      "psuType": {
+        "label": "Account type",
+        "business": "Business",
+        "personal": "Personal"
+      },
+      "connections": {
+        "title": "Bank connections",
+        "accountCount": "{count, plural, =0 {No accounts} one {# account} other {# accounts}}",
+        "lastSync": "synced {when}",
+        "validUntil": "valid until {date}",
+        "synced": "{imported} new transactions imported.",
+        "sync": "Sync now",
+        "reconnect": "Reconnect",
+        "disconnect": "Disconnect",
+        "disconnectConfirm": "Really disconnect this bank? Already imported transactions are kept (statutory retention).",
+        "consent": {
+          "title": "Consent details",
+          "scope": "Scope",
+          "scopeValue": "Read-only: accounts, balances, transactions",
+          "psuType": "Account type",
+          "authorizedAt": "Consent granted",
+          "validUntil": "Valid until"
+        },
+        "status": {
+          "PENDING": "Pending",
+          "ACTIVE": "Active",
+          "EXPIRED": "Expired",
+          "REVOKED": "Disconnected",
+          "ERROR": "Error"
+        }
+      }
+    },
+    "overview": {
+      "title": "Bank overview",
+      "subtitle": "Accounts and recent activity at a glance.",
+      "totalBalance": "Total balance",
+      "unmatchedTransactions": "Unmatched transactions",
+      "monthlyIncome": "Income (month)",
+      "monthlyExpense": "Expenses (month)",
+      "recentTransactions": "Recent transactions",
+      "noAccounts": "No bank accounts yet.",
+      "addFirstAccount": "Add first account"
+    },
+    "accounts": {
+      "title": "Bank accounts",
+      "add": "Add account",
+      "edit": "Edit account",
+      "editTitle": "Edit account",
+      "editClearingUnsupported": "Clearing accounts can only be edited from the accounts overview.",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "name": "Account name",
+      "namePlaceholder": "e.g. Business account",
+      "bankName": "Bank",
+      "bankNamePlaceholder": "e.g. Sparkasse",
+      "iban": "IBAN",
+      "ibanPlaceholder": "DE89 3704 0044 0532 0130 00",
+      "ibanInvalid": "Invalid IBAN",
+      "bic": "BIC",
+      "bicPlaceholder": "DEUTDEDB",
+      "openingBalance": "Opening balance",
+      "bookingAccountLabel": "Booking account",
+      "isDefault": "Default account",
+      "balance": "Balance",
+      "empty": "No bank accounts yet.",
+      "deleteConfirm": "Delete bank account and all related transactions?",
+      "transactions": "{count} transactions",
+      "transactionsCountSuffix": "transactions",
+      "clearingBadge": "Clearing",
+      "addDialog": {
+        "title": "New account",
+        "chooseType": "What kind of account would you like to create?",
+        "back": "Back"
+      },
+      "type": {
+        "bank": {
+          "title": "Bank account",
+          "desc": "Real bank account with IBAN"
+        },
+        "clearing": {
+          "title": "Clearing account",
+          "desc": "Virtual auxiliary account for bookkings"
+        }
+      },
+      "bankFlow": {
+        "tab": {
+          "manual": "Manual",
+          "csv": "CSV import",
+          "choose": "Pick a bank"
+        },
+        "manualDesc": "Set up the account yourself and enter transactions manually.",
+        "csvDesc": "Import a CSV file from your online banking on a regular basis.",
+        "orPickBank": "Or pick your bank"
+      },
+      "csv": {
+        "accountName": "Account name",
+        "accountNamePlaceholder": "e.g. Commerzbank business account",
+        "iban": "IBAN",
+        "bookingAccount": "Booking account",
+        "info": "Export your payments as a CSV file from your online banking, then import the file into zoonox.",
+        "selectedBank": "Selected bank",
+        "continue": "Weiter",
+        "mappingStep": {
+          "info": "Optionally upload a sample CSV from your bank so we can remember which columns to use. You can skip this and do it on your first import.",
+          "uploadTitle": "Upload a sample CSV",
+          "uploadHint": "We'll use the file only to learn the columns — nothing will be imported yet.",
+          "pickFile": "Choose file",
+          "pickDifferent": "Pick a different file",
+          "mapperHint": "Assign each column below. We'll remember this for future imports.",
+          "back": "Back",
+          "skip": "Skip for now",
+          "confirm": "Save mapping & finish",
+          "errors": {
+            "unsupportedType": "Unsupported file type. Please upload a .csv or .txt file.",
+            "readFailed": "Couldn't read the file. Please try again."
+          }
+        } 
+      },
+      "clearing": {
+        "accountName": "Account name",
+        "bookingAccount": "Booking account",
+        "info": "A clearing account is an auxiliary bookkeeping account, not a real bank account. Virtual payments are recorded on it to settle receipts and invoices.",
+        "selectedBank": "Selected bank"
+      },
+      "banks": {
+        "moreBanks": "+5,000 more banks in Germany and Austria",
+        "benefit1": "Incoming payments are recorded automatically.",
+        "benefit2": "Make transfers directly in zoonox, no detours.",
+        "benefit3": "See at a glance whether a receipt is missing.",
+        "searchPlaceholder": "Search bank…",
+        "noResults": "No bank found. Pick \"CSV import\" or \"Manual\" instead."
+      },
+      "bookingAccount": {
+        "placeholder": "Select account…",
+        "groupBank": "1800–1859 · Bank",
+        "groupLiabilities": "1700–1739 · Liabilities",
+        "groupClearing": "2180–2199 · Clearing accounts",
+        "groupOther": "Other"
+      }
+    },
+    "transactions": {
+      "title": "Transactions",
+      "add": "Add Transaction",
+      "import": "Import",
+      "autoMatch": "Auto-Match",
+      "autoMatchRunning": "Running…",
+      "autoMatchTooltip": "Open receipts and invoices are automatically matched against transactions (amount, invoice number in the purpose, name, date).",
+      "autoMatchedTooltip": "Automatically matched",
+      "linkedEntity": {
+        "kindDocument": "Receipt",
+        "kindInvoice": "Invoice",
+        "amount": "Amount",
+        "date": "Date",
+        "openDocument": "Open receipt in new tab",
+        "openInvoice": "Open invoice in new tab",
+        "close": "Close"
+      },
+      "autoMatchResult": {
+        "title": "Auto-match finished",
+        "scannedSummary": "{count} open transactions reviewed.",
+        "matched": "Matched",
+        "suggestions": "Suggestions",
+        "unresolved": "No match",
+        "suggestionsHint": "Click an open transaction to review the suggestion and confirm manually.",
+        "close": "Close"
+      },
+      "date": "Booking Date",
+      "valueDate": "Value Date",
+      "amount": "Amount",
+      "counterpart": "Name",
+      "counterpartIban": "Counterpart IBAN",
+      "purpose": "Purpose",
+      "purposePlaceholder": "Enter purpose",
+      "category": "Category",
+      "empty": "No transactions found.",
+      "matchDocument": "Link to receipt or invoice",
+      "unmatch": "Unmatch",
+      "ignore": "Ignore",
+      "unignore": "Restore",
+      "income": "Income",
+      "expense": "Expense",
+      "privateBadge": "Private",
+      "privateTooltip": "Private draw / deposit — excluded from income/expense totals.",
+      "selectAll": "Select all",
+      "selectRow": "Select row",
+      "selectedCount": "{count} selected",
+      "bulkMarkPrivate": "Mark as private",
+      "bulkUnmarkPrivate": "Unmark private",
+      "bulkIgnore": "Ignore",
+      "bulkUnignore": "Restore",
+      "bulkDelete": "Delete",
+      "confirmBulkDelete": "Permanently delete {count} transactions?",
+      "bulkClear": "Clear selection",
+      "statusLabel": "Status",
+      "editAccount": "Edit account",
+      "menu": {
+        "more": "More actions",
+        "markPrivate": "Mark as private",
+        "unmarkPrivate": "Unmark as private",
+        "createReceipt": "Create receipt",
+        "delete": "Delete",
+        "flipSign": "Flip sign"
+      },
+      "deleteDialog": {
+        "title": "Delete transaction?",
+        "message": "The transaction will be permanently removed.",
+        "hint": "Note: if the transaction came from an import, it may reappear on the next import.",
+        "cancel": "Cancel",
+        "confirm": "Delete"
+      },
+      "status": {
+        "UNMATCHED": "Unmatched",
+        "MATCHED": "Matched",
+        "AUTO_MATCHED": "Auto-matched",
+        "IGNORED": "Ignored"
+      },
+      "ignoreDialog": {
+        "title": "Ignore transaction?",
+        "message": "Ignored transactions are excluded from balance, income and expense totals.",
+        "reversibleHint": "This action can be reverted at any time.",
+        "confirm": "Ignore",
+        "cancel": "Cancel",
+        "unknownCounterpart": "Unknown counterpart"
+      },
+      "filter": {
+        "search": "Search…",
+        "allStatuses": "All statuses",
+        "dateFrom": "From",
+        "dateTo": "To"
+      },
+      "runningBalance": "Balance"
+    },
+    "import": {
+      "title": "CSV Import",
+      "selectFile": "Select File",
+      "dropHint": "CSV, MT940 or CAMT.053 — Drag & drop or click.",
+      "supportedFormats": "Sparkasse, Deutsche Bank, N26, ING, Volksbank and more",
+      "preview": "Preview",
+      "importCount": "{count} transactions will be imported",
+      "duplicatesSkipped": "{count} duplicates skipped",
+      "importSuccess": "{count} transactions imported successfully",
+      "autoMatchSummary": "{count} receipts matched automatically.",
+      "autoMatchSuggestions": "{count} more suggestions to review.",
+      "importError": "No valid rows found.",
+      "confirm": "Import",
+      "cancel": "Cancel",
+      "delimiter": "Delimiter",
+      "comma": "Comma",
+      "semicolon": "Semicolon",
+      "tab": "Tab",
+      "pipe": "Pipe",
+      "firstRowHeader": "First row is header",
+      "detected": "{cols} columns · {rows} rows detected",
+      "onlyOneColumn": "Only one column detected — try a different delimiter.",
+      "mapColumns": "Map columns",
+      "ignoreCol": "Do not import",
+      "previewValid": "{count} valid rows in preview",
+      "field_date": "Booking date",
+      "field_amount": "Amount (signed)",
+      "field_counterpartName": "Name",
+      "field_counterpartIban": "IBAN",
+      "field_purpose": "Purpose",
+      "usingSavedMapping": "Using saved column mapping",
+      "savedMappingSummary": "Date: {date} · Amount: {amount} · Purpose: {purpose}",
+      "editMapping": "Edit mapping",
+      "readyToImport": "transactions ready to import",
+      "presetBroken": "Saved mapping doesn't match this file",
+      "presetBrokenFields": "Missing columns: {fields}. Please re-map and save.",
+      "saveMappingForNextTime": "Save this mapping for future imports",
+      "updateSavedMapping": "Update saved mapping for this account",
+
+      "field_credit": "Credit",
+      "field_debit": "Debit",
+
+      "importOptions": "Import options",
+      "optionsHint": "Please map the columns correctly. Pick the matching category for each column in your CSV file.",
+      "numberFormat": "Number format",
+      "dateFormat": "Date format",
+      "encoding": "Encoding",
+      "rowRange": "Rows",
+      "rowFrom": "From",
+      "rowTo": "To",
+      "autoDetect": "automatic",
+      "splitCreditDebit": "Show credit & debit columns",
+      "noneSelected": "None selected",
+      "previewTitle": "Preview"
+    },
+    "cashbook": {
+      "vatRate": "VAT",
+      "vatRateNone": "No VAT",
+      "vatRateSplit": "Net {net} · VAT {vat}",
+      "title": "Cashbook",
+      "subtitle": "Record cash income and expenses.",
+      "add": "Add Entry",
+      "edit": "Edit Entry",
+      "date": "Date",
+      "description": "Description",
+      "descriptionPlaceholder": "e.g. Office supplies",
+      "amount": "Amount",
+      "type": "Type",
+      "income": "Income",
+      "expense": "Expense",
+      "runningTotal": "Cash Balance",
+      "empty": "No cashbook entries yet.",
+      "openingBalance": "Opening Balance",
+      "closingBalance": "Closing Balance",
+      "deleteConfirm": "Delete this entry?",
+      "document": "Receipt",
+      "noDocument": "No receipt"
+    },
+    "matching": {
+      "title": "Link to receipt or invoice",
+      "search": "Search receipts or invoices…",
+      "noResults": "No matches found.",
+      "suggested": "Suggestions",
+      "amount": "Amount",
+      "date": "Date",
+      "supplier": "Supplier",
+      "tab_all": "All",
+      "tab_document": "Receipts",
+      "tab_invoice": "Invoices",
+      "kind_document": "Receipt",
+      "kind_invoice": "Invoice",
+      "signMismatch": "Signs don't match: outgoing invoice requires incoming payment (and vice versa).",
+      "suggestionBadge": "Suggestion",
+      "suggestionTooltip": "Most likely match based on amount, purpose and name.",
+      "signMismatchBadge": "Wrong sign",
+      "mismatch": {
+        "title": "Amounts don't match",
+        "message": "The transaction amount differs from the selected receipt/invoice. Link anyway?",
+        "transaction": "Transaction",
+        "invoice": "Invoice",
+        "document": "Receipt",
+        "diff": "Difference: {amount}",
+        "cancel": "Cancel",
+        "confirm": "Link anyway"
+      }
+    }
+  },
+  "reports": {
+    "openItems": {
+      "pageTitle": "Open items",
+      "title": "Open items (OPOS)",
+      "subtitle": "Unpaid customer and supplier invoices.",
+      "mode": {
+        "label": "Show",
+        "RECEIVABLES": "Open customer invoices",
+        "PAYABLES": "Open supplier invoices",
+        "BOTH": "Both"
+      },
+      "contactFilter": {
+        "label": "Contact",
+        "all": "All contacts"
+      },
+      "print": "Print",
+      "table": {
+        "number": "Doc no.",
+        "date": "Date",
+        "dueDate": "Due",
+        "contact": "Contact",
+        "contactNumber": "Account no.",
+        "amount": "Amount",
+        "daysOverdue": "Days"
+      },
+      "section": {
+        "receivables": "Open customer invoices (receivables)",
+        "payables": "Open supplier invoices (payables)"
+      },
+      "empty": {
+        "receivables": "No open customer invoices.",
+        "payables": "No open supplier invoices."
+      },
+      "summary": {
+        "title": "Summary",
+        "fromCustomers": "From customers — to receive",
+        "toSuppliers": "To suppliers — to pay",
+        "net": "Net balance to receive",
+        "asOf": "As of"
+      },
+      "overdueBadge": "{days} days overdue"
+    },
+    "bwa": {
+      "pageTitle": "BWA",
+      "title": "Business analysis (BWA)",
+      "subtitle": "Monthly view of revenue and cost structure with prior-year comparison — for your bank or tax advisor.",
+      "controls": {
+        "year": "Fiscal year",
+        "method": "Calculation method",
+        "methodEUR": "Cash basis (EÜR)",
+        "methodGuV": "Accrual basis (GuV)",
+        "compare": "Prior-year comparison",
+        "download": "Download PDF"
+      },
+      "rows": {
+        "umsatzerloese": "1. Revenue",
+        "gesamtleistung": "2. Total output",
+        "wareneinsatz": "3. Cost of goods",
+        "rohertrag": "4. Gross profit",
+        "personalkosten": "5. Personnel costs",
+        "raumkosten": "6. Premises",
+        "versicherungen": "7. Insurance / fees",
+        "kfz_kosten": "8. Vehicle costs",
+        "werbe_reisekosten": "9. Marketing & travel",
+        "vertriebskosten": "10. Distribution",
+        "abschreibungen": "11. Depreciation",
+        "sonstige_kosten": "12. Other costs",
+        "gesamtkosten": "13. Total costs",
+        "betriebsergebnis": "14. Operating result (provisional)"
+      },
+      "table": {
+        "category": "Item",
+        "yearTotal": "Total {year}",
+        "yearTotalPrior": "Total {year} (prior)",
+        "yearChange": "Δ vs. prior year",
+        "months": {
+          "1": "Jan", "2": "Feb", "3": "Mar", "4": "Apr",
+          "5": "May", "6": "Jun", "7": "Jul", "8": "Aug",
+          "9": "Sep", "10": "Oct", "11": "Nov", "12": "Dec"
+        }
+      },
+      "summary": {
+        "revenue": "Revenue",
+        "grossProfit": "Gross profit",
+        "operatingResult": "Operating result",
+        "margin": "Margin",
+        "vsPrior": "vs. prior year"
+      },
+      "vat": {
+        "title": "For reference: VAT for the fiscal year",
+        "salesVat": "Output VAT",
+        "inputVat": "Input VAT",
+        "balance": "Net VAT payable / refund"
+      },
+      "disclaimer": "Provisional report based on transactions booked at the time of generation. Final figures are determined by the certified annual financial statement or tax assessment.",
+      "pdf": {
+        "kicker": "BWA · Short-term profit & loss",
+        "title": "Business analysis (BWA)",
+        "period": "Fiscal year",
+        "createdAt": "Created on",
+        "method": "Method",
+        "preparedBy": "Generated with zoonox on {date}. Amounts in EUR.",
+        "signaturePlace": "Place, date",
+        "signatureLine": "Signature"
+      }
+    }
+  },
+  "taxes": {
+    "pageTitle": "Taxes",
+    "title": "Taxes",
+    "subtitle": "Tax reports and analyses",
+    "tabs": {
+      "vatReturn": "VAT Return",
+      "profitLoss": "EÜR",
+      "profitLossGuV": "GuV",
+      "journal": "Journal",
+      "datevExport": "DATEV export"
+    },
+    "datevExport": {
+      "pageTitle": "DATEV export",
+      "title": "DATEV export",
+      "subtitle": "Hand over bookkeeping data and receipts as a DATEV-compliant ZIP to your tax advisor.",
+      "noPermission": "You don't have permission to start a DATEV export."
+    },
+    "journal": {
+      "pageTitle": "Journal",
+      "title": "Accounting journal",
+      "subtitle": "Complete, tamper-evident list of all bookings (GoBD).",
+      "empty": "No journal entries found.",
+      "truncated": "Showing the latest 200 entries. Refine the date range to see more.",
+      "filters": {
+        "searchPlaceholder": "Search number, description or source ID…",
+        "allSources": "All sources",
+        "allStatuses": "All statuses"
+      },
+      "table": {
+        "number": "No.",
+        "date": "Date",
+        "description": "Description",
+        "source": "Source",
+        "status": "Status",
+        "total": "Amount"
+      },
+      "sourceType": {
+        "INVOICE": "Outgoing invoice",
+        "INVOICE_PAYMENT": "Invoice payment",
+        "DOCUMENT": "Incoming document",
+        "DOCUMENT_PAYMENT": "Document payment",
+        "BANK_TRANSACTION": "Bank transaction",
+        "MANUAL": "Manual",
+        "FIXED_ASSET_DEPRECIATION": "Fixed asset depreciation",
+        "FIXED_ASSET_ACQUISITION": "Fixed asset acquisition"
+      },
+      "status": {
+        "POSTED": "Posted",
+        "REVERSED": "Reversed"
+      },
+      "detail": {
+        "pageTitle": "Entry detail",
+        "title": "Entry #{number}",
+        "back": "Back to journal",
+        "date": "Booking date",
+        "sourceType": "Source type",
+        "source": "Source ID",
+        "createdBy": "Created by",
+        "system": "System",
+        "createdAt": "Created at",
+        "reversedAt": "Reversed at",
+        "reversedBy": "Reversed by",
+        "reverses": "Reverses",
+        "linesTitle": "Lines",
+        "lines": {
+          "account": "Account",
+          "description": "Description",
+          "vatCode": "VAT code",
+          "debit": "Debit",
+          "credit": "Credit",
+          "totals": "Totals"
+        }
+      }
+    },
+    "vatReturn": {
+      "pageTitle": "VAT Return",
+      "title": "VAT Advance Return (UStVA)",
+      "subtitle": "Overview of sales tax collected and deductible input VAT",
+      "period": "Period",
+      "periodMonthly": "Monthly",
+      "periodQuarterly": "Quarterly",
+      "year": "Year",
+      "month": "Month",
+      "quarter": "Quarter",
+      "quarterLabel": "Q{quarter}",
+      "months": {
+        "1": "January",
+        "2": "February",
+        "3": "March",
+        "4": "April",
+        "5": "May",
+        "6": "June",
+        "7": "July",
+        "8": "August",
+        "9": "September",
+        "10": "October",
+        "11": "November",
+        "12": "December"
+      },
+      "summary": {
+        "title": "Summary",
+        "salesTax": "Sales tax (collected)",
+        "inputTax": "Input VAT (paid)",
+        "payable": "Payable",
+        "payableHint": "This amount is due to the tax authority.",
+        "refund": "Refund",
+        "refundHint": "This amount will be refunded by the tax authority.",
+        "balanced": "Balanced"
+      },
+      "breakdown": {
+        "title": "Breakdown",
+        "rate": "Rate",
+        "net": "Net",
+        "vat": "VAT amount",
+        "salesStandard": "Taxable sales 19 %",
+        "salesReduced": "Taxable sales 7 %",
+        "inputStandard": "Input VAT from purchases 19 %",
+        "inputReduced": "Input VAT from purchases 7 %"
+      },
+      "empty": "No bookings in the selected period.",
+      "elster": {
+        "transferTitle": "{count, plural, =0 {Nothing to transfer} one {Enter this figure in Mein ELSTER} other {Enter these # figures in Mein ELSTER}}",
+        "transferHint": "The field names match Mein ELSTER. Copy the amount and paste it into the field of the same name.",
+        "transferEmpty": "There are no values for the VAT return in this period.",
+        "controlTitle": "Check",
+        "controlHint": "You do not enter these values — ELSTER calculates them. If they match this view after the transfer, nothing was mistyped.",
+        "sectionLabel": "Section {number} · {title}",
+        "showFullForm": "Show the complete form",
+        "hideFullForm": "Hide the complete form",
+        "fullFormHint": "Every field of the official USt 1 A form, including empty ones. Leave empty fields blank in ELSTER.",
+        "dauerfristTitle": "Do you use a permanent filing extension?",
+        "dauerfristHint": "If so, enter the assessed special prepayment yourself in code 39 (line 49), usually in the last return of the year. We do not fill this field because we do not know the assessed amount. The application itself uses form USt 1 H.",
+        "title": "VAT return form",
+        "subtitle": "The figures in the order of the official form — ready to transfer into Mein ELSTER",
+        "openForm": "Form view for ELSTER",
+        "backToOverview": "Back to overview",
+        "formYear": "Form {year}",
+        "fallbackTitle": "Using the {formYear} form for {requestedYear}",
+        "fallbackHint": "No dedicated form template is available for {requestedYear} yet. Showing the {formYear} version. Please compare against the current form in Mein ELSTER before submitting.",
+        "zeile": "Line",
+        "kz": "Code",
+        "field": "Description",
+        "amount": "Amount",
+        "copy": "Copy",
+        "copied": "Copied",
+        "computed": "calculated",
+        "notFilled": "not filled",
+        "payableTitle": "Remaining VAT prepayment",
+        "refundTitle": "Remaining surplus",
+        "payableHint": "Code 83, line 50 — this amount is payable to the tax office.",
+        "refundHint": "Code 83, line 50 — this amount will be refunded. Enter it with a minus sign in ELSTER.",
+        "balancedHint": "Code 83, line 50 — always fill this in, even when it is 0.00 €.",
+        "roundingTitle": "Rounding difference against the books: {amount}",
+        "roundingHint": "ELSTER calculates the tax from the base rounded to whole euros, while the books add up the per-document rounded amounts. A few cents are normal.",
+        "unmappedTitle": "Unassigned entries",
+        "unmappedHint": "These entries could not be assigned to a code and are missing from the amounts above. Please clarify before submitting.",
+        "unmappedNet": "Net",
+        "unmappedVat": "Tax",
+        "emptyTitle": "No entries in this period",
+        "emptyHint": "Once invoices and documents are booked, the values for the return appear here.",
+        "sourcesTitle": "Documents in this code",
+        "disclaimer": "These figures are derived from your bookings and are not tax advice. Please review before submitting."
+      },
+      "smallBusinessTitle": "Small business scheme active",
+      "smallBusinessHint": "You are registered as a small business per §19 UStG and do not charge VAT. A VAT advance return is generally not required. The numbers below show only input VAT paid on incoming invoices (not refundable) — available for review in case your status changes.",
+      "taxFree": {
+        "title": "Tax-free and special-regime turnover",
+        "subtitle": "Turnover without charged VAT — reports into separate UStVA Kennzahlen.",
+        "category": "Category",
+        "kennzahl": "Code",
+        "tags": {
+          "IG": "Intra-community supply (§ 4 Nr.1b)",
+          "NDS": "Service to EU business (§ 3a Abs.2)",
+          "18b": "Reverse charge EU (§ 18b)",
+          "13b": "Reverse charge domestic (§ 13b)",
+          "EXP": "Export to non-EU (§ 4 Nr.1a)",
+          "TE4": "VAT-exempt (§ 4)",
+          "OSS": "One-Stop-Shop (OSS)"
+        },
+        "kennzahlen": {
+          "IG": "KZ 41",
+          "NDS": "KZ 21",
+          "18b": "KZ 21",
+          "13b": "KZ 60",
+          "EXP": "KZ 43",
+          "TE4": "KZ 48",
+          "OSS": "OSS return"
+        }
+      },
+      "sources": {
+        "title": "Related items",
+        "open": "Show related items",
+        "close": "Close"
+      }
+    },
+    "profitLoss": {
+      "pageTitle": "EÜR",
+      "pageTitleGuV": "GuV",
+      "title": "Income-Surplus Statement (EÜR)",
+      "titleGuV": "Profit & Loss Statement",
+      "subtitle": "Profit determination over a freely selectable period",
+      "from": "From date",
+      "to": "To date",
+      "method": "Calculation method",
+      "methodEUR": "EÜR (cash basis)",
+      "methodGuV": "P&L (accrual basis)",
+      "methodEURShort": "Cash",
+      "methodGuVShort": "Accrual",
+      "exportPdf": "Export PDF",
+      "methodInfo": "EÜR (Einnahmen-Überschuss-Rechnung): Simplified profit determination per §4 (3) EStG for freelancers and small businesses. Based on the actual payment date (cash basis).\n\nP&L (Gewinn- und Verlustrechnung): Double-entry bookkeeping with accrual accounting. Income and expenses are recorded in the period they are economically earned/incurred (accrual basis).",
+      "summary": {
+        "income": "Income",
+        "expense": "Expenses",
+        "result": "Profit",
+        "loss": "Loss",
+        "margin": "Margin"
+      },
+      "vatContext": {
+        "title": "VAT in period",
+        "hint": "Informational only — does not affect profit determination.",
+        "sales": "Sales VAT",
+        "input": "Input VAT",
+        "payable": "Payable"
+      },
+      "breakdown": {
+        "incomeTitle": "Income",
+        "expenseTitle": "Expenses",
+        "category": "Category",
+        "amount": "Amount",
+        "noData": "No data in the selected period."
+      },
+      "sources": {
+        "title": "Related documents",
+        "open": "Show related documents",
+        "close": "Close"
+      }
+    },
+    "taxAdvisor": {
+      "pageTitle": "My Tax Advisor",
+      "title": "My Tax Advisor",
+      "subtitle": "Data export and connection to your tax advisor",
+      "datevTitle": "DATEV-compliant export",
+      "datevDescription": "Export booking data and document images as a DATEV-compliant ZIP — ready to import into DATEV Kanzlei-Rechnungswesen or Unternehmen online.",
+      "datevButton": "Start DATEV export",
+      "advisorTitle": "Connect to tax advisor",
+      "advisorDescription": "Link your tax advisor to automatically share relevant documents and reports.",
+      "advisorButton": "Coming soon",
+      "comingSoon": "This feature will be available soon.",
+      "invitePanel": {
+        "title": "Tax advisor access",
+        "description": "Invite your tax advisor so they can review documents, bookings and bank entries, leave comments and approve months. No DATEV license required.",
+        "inviteButton": "Invite tax advisor",
+        "inviteDisabledHint": "Only Admin/Owner can invite tax advisors.",
+        "statusActive": "Active",
+        "statusPending": "Invitation pending",
+        "removeButton": "Disconnect",
+        "removeConfirm": "Disconnect {name} from this workspace? The tax advisor will immediately lose access."
+      },
+      "inviteDialog": {
+        "title": "Invite tax advisor",
+        "salutation": "Salutation",
+        "salutationMr": "Mr",
+        "salutationMrs": "Mrs",
+        "salutationDiverse": "Diverse",
+        "salutationNone": "No salutation",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "customMessage": "Cover message",
+        "resetTemplate": "Reset template",
+        "messageHint": "The salutation (\"Dear …\") and the access details (login link + initial password) are added automatically — you don't need to include them.",
+        "submit": "Invite",
+        "cancel": "Cancel",
+        "close": "Close",
+        "done": "Done",
+        "successTitle": "Invitation created.",
+        "successEmailSent": "An email with your cover message and access details has been sent.",
+        "successEmailFailed": "The email could not be sent (Brevo not configured). Please share the initial password manually.",
+        "initialPassword": "Initial password",
+        "copy": "Copy",
+        "copied": "Copied",
+        "initialPasswordHint": "Will be reset on first login.",
+        "defaultMessage": "I'm using zoonox to issue invoices, capture documents and run my bookkeeping. Zoonox offers a free tax advisor portal.\n\nThere you'll find current financial reports, booking overviews and all documents. You can use the export to import my data into your firm software (DATEV). With direct access you can review my books live, leave comments and release months.\n\nThe link below grants you access to {workspace}.\n\nKind regards\n{inviter}",
+        "errors": {
+          "FORBIDDEN": "Only Owner and Admin may invite tax advisors.",
+          "EMAIL_INVALID": "Please enter a valid email address.",
+          "FIRST_NAME_REQUIRED": "Please enter a first name.",
+          "MESSAGE_TOO_LONG": "Cover message is too long (max. 4000 characters).",
+          "ALREADY_MEMBER": "This tax advisor is already a member of this workspace.",
+          "UNKNOWN": "Unknown error."
+        }
+      },
+      "monthCloseCard": {
+        "title": "Month-end close",
+        "description": "Submit each month for your tax advisor to review. Once approved, the month is marked closed and protected from accidental edits.",
+        "lastBookableMonth": "Last bookable month",
+        "statusOpen": "Still open",
+        "statusSubmitted": "Under review",
+        "statusClosed": "Closed",
+        "openButton": "Go to month-end close"
+      },
+      "datevDialog": {
+        "title": "DATEV export (file export)",
+        "sectionGeneral": "General export settings",
+        "sectionPeriod": "Export period",
+        "sectionDocuments": "Documents to export",
+        "sectionData": "Data to export",
+        "sectionAdvanced": "Advanced",
+        "consultantNumber": "Consultant number",
+        "clientNumber": "Client number",
+        "numbersTooltip": "Ask your tax advisor which consultant and client number to use for the DATEV export. As long as you don't have them, you can leave the default 0 — the tax advisor can correct them during import.",
+        "fiscalYearStart": "Fiscal year start",
+        "dateFrom": "Start date",
+        "dateTo": "End date",
+        "includeInvoices": "Outgoing invoices & credit notes",
+        "includeIncoming": "Incoming documents",
+        "includeBank": "Bank movements",
+        "includeBankHint": "Generates a Belegliste-Bank.csv listing every bank movement in the period (date, amount, counterparty, reference, status, linked document).",
+        "includeBookings": "Booking data (Buchungsstapel + master data)",
+        "includeBelegbilder": "Include document images",
+        "belegbilderHint": "Original PDFs/images are placed under Belege/ in the ZIP; a Belegliste maps them to bookings.",
+        "locked": "Lock booking batch",
+        "lockedHint": "DATEV imports the bookings as locked (no further changes).",
+        "includeReversed": "Include reversed bookings",
+        "includeReversedHint": "By default only currently valid bookings are exported.",
+        "submit": "Start export",
+        "cancel": "Cancel",
+        "close": "Close",
+        "doneTitle": "Export created successfully",
+        "doneStats": "{entries} bookings, {documents} incoming documents, {invoices} outgoing invoices, {bank} bank movements exported.",
+        "doneMissing": "{count} document file(s) could not be read and were skipped."
+      }
+    }
+  },
+  "skrAccounts": {
+    "groups": {
+      "assets": "Fixed assets",
+      "purchasing": "Purchase of goods",
+      "personnel": "Costs of personnel",
+      "premises": "Room costs",
+      "insurance": "Insurance / Contributions",
+      "vehicle": "Vehicle costs",
+      "marketing": "Marketing / Travel expenses",
+      "distribution": "Distribution costs",
+      "depreciation": "Depreciation",
+      "other": "Other operating expenses",
+      "revenue": "Revenue",
+      "taxes": "Tax accounts"
+    },
+    "accounts": {
+      "SKR03": {
+        "0027": "EDV-Software",
+        "0035": "Business equipment",
+        "0400": "Operating equipment",
+        "0410": "Business equipment",
+        "0420": "Office equipment",
+        "0430": "Shop interior",
+        "0440": "car",
+        "0450": "truck",
+        "0480": "GWG up to 800 €",
+        "0485": "GWG Pool (250,01–1.000 €)",
+        "1570": "Deductible input VAT",
+        "1571": "Deductible input VAT 7 %",
+        "1576": "Deductible input VAT 19 %",
+        "1770": "Sales tax (VAT payable)",
+        "1771": "Sales tax 7 %",
+        "1776": "Sales tax 19 %",
+        "3000": "Use of raw materials, auxiliary materials and operating materials",
+        "3100": "Third-party services",
+        "3200": "Goods received",
+        "3300": "Goods received (7% VAT)",
+        "3400": "Goods received (19% VAT)",
+        "4100": "Wages",
+        "4110": "Productive wages",
+        "4120": "Salaries",
+        "4130": "Statutory social security contributions",
+        "4140": "Voluntary social security contributions",
+        "4200": "Premises costs",
+        "4210": "Rent (real estate)",
+        "4220": "Lease",
+        "4230": "Heating",
+        "4240": "Gas, electricity, water",
+        "4250": "Cleaning",
+        "4260": "Maintenance of business premises",
+        "4300": "Insurance",
+        "4360": "Premiums",
+        "4380": "Auto insurance",
+        "4390": "Other Insurance",
+        "4500": "Vehicle Expenses",
+        "4510": "Vehicle Taxes",
+        "4520": "Vehicle Insurance",
+        "4530": "Ongoing Vehicle Operating Costs",
+        "4540": "Vehicle Repairs",
+        "4550": "Vehicle Leasing",
+        "4570": "Ongoing Vehicle Costs (Freelancers)",
+        "4580": "Other vehicle expenses",
+        "4600": "Advertising expenses",
+        "4610": "Advertising expenses",
+        "4630": "Gifts deductible, without s. 37b EStG",
+        "4635": "Gifts non-deductible, without s. 37b EStG",
+        "4640": "Corporate hospitalityexpenses",
+        "4650": "Entertainment costs",
+        "4654": "Non-deductible entertainment costs",
+        "4660": "Employee travel costs",
+        "4670": "Business Owner travel costs",
+        "4673": "Business Owner travel costs - cost of travel",
+        "4674": "Business owner travel costs additional subsistence expenses",
+        "4676": "Business owner travel costs accommodation costs and incidental ",
+        "4700": "Selling and distribution expenses",
+        "4710": "Packaging materials",
+        "4730": "Outgoing freight",
+        "4750": "Transport insurance",
+        "4800": "Repairs and maintenance of technical equipment and machinery",
+        "4805": "Repairs and maintenance of other equipment, operating and office equipment",
+        "4806": "Hardware and software maintenance expenses",
+        "4822": "Depreciation of intangible fixed assets",
+        "4824": "Depreciation and amortization of goodwill",
+        "4830": "Depreciation of tangible fixed assets (excluding depreciation of motor vehicles and buildings)",
+        "4855": "Immediate write-off of low-value assets",
+        "4900": "Other operating expenses",
+        "4910": "Postage",
+        "4920": "Telephone",
+        "4921": "Telephone",
+        "4925": "Internet",
+        "4930": "Office supplies",
+        "4940": "Newspapers, books, digital media",
+        "4945": "Training costs",
+        "4946": "FremdaVoluntary social benefits",
+        "4950": "Legal and consulting costs",
+        "4955": "Bookkeeping expenses",
+        "4957": "Period-end closing andaudit cost",
+        "4960": "Rent of fixtures and fittings (movable assets)",
+        "4964": "Expenses for temporary transfer of rights",
+        "4969": "Environmental remediation and waste disposal expenses",
+        "4970": "Incidental monetary transaction costs",
+        "4980": "Other operating supplies",
+        "8000": "Sales",
+        "8100": "Tax-exempt turnover section 4 no. 8 ff. UStG",
+        "8120": "Tax-exempt turnover section 4 no. 1a UStG",
+        "8125": "Tax-exempt intra-Community deliveries section 4 no. 1b UStG",
+        "8200": "Revenue",
+        "8290": "Revenue 0 % VAT",
+        "8300": "Revenue 7 % VAT",
+        "8400": "Revenue 19 % VAT",
+        "8500": "Special operating income, remuneration for work performed",
+        "8700": "Erlöse aus Vermietung",
+        "8900": "Sonstige Erlöse",
+        "8910": "Erträge aus Anlagenabgängen",
+        "8920": "Erträge aus Währungsdifferenzen"
+      },
+      "SKR04": {
+        "0027": "EDV-Software",
+        "0400": "Technische Anlagen und Maschinen",
+        "0410": "Maschinen",
+        "0420": "Maschinenwerkzeuge",
+        "0600": "Betriebs- und Geschäftsausstattung",
+        "0620": "Büroeinrichtung",
+        "0640": "Ladeneinrichtung",
+        "0650": "PKW",
+        "0670": "LKW",
+        "0690": "GWG bis 800 €",
+        "1400": "Deductible input VAT",
+        "1401": "Deductible input VAT 7 %",
+        "1406": "Deductible input VAT 19 %",
+        "3800": "Sales tax (VAT payable)",
+        "3801": "Sales tax 7 %",
+        "3806": "Sales tax 19 %",
+        "5000": "Einsatz Roh-, Hilfs- u. Betriebsstoffe",
+        "5100": "Einkauf Roh- und Hilfsstoffe",
+        "5200": "Wareneingang",
+        "5300": "Wareneingang 7 % VSt",
+        "5400": "Wareneingang 19 % VSt",
+        "5900": "Fremdleistungen",
+        "4000": "Erlöse",
+        "4100": "Steuerfreie Umsätze §4 UStG",
+        "4120": "Steuerfreie ig. Lieferungen §4.1b",
+        "4125": "Steuerfreie Ausfuhren §4.1a",
+        "4200": "Erlöse 7 %",
+        "4300": "Erlöse 7 % (ermäßigt)",
+        "4400": "Erlöse 19 %",
+        "4500": "Provisionserlöse",
+        "4800": "Erlöse aus Vermietung",
+        "4900": "Sonstige Erlöse",
+        "6000": "Aufwendungen für Löhne",
+        "6010": "Löhne produktiv",
+        "6020": "Gehälter",
+        "6030": "Gesetzl. soziale Aufwendungen",
+        "6040": "Freiwillige soziale Aufwendungen",
+        "6300": "Sonstige betriebliche Aufwendungen",
+        "6310": "Miete (unbewegliche WG)",
+        "6315": "Mietnebenkosten",
+        "6320": "Heizung",
+        "6325": "Gas, Strom, Wasser",
+        "6330": "Reinigung",
+        "6335": "Instandhaltung betriebl. Räume",
+        "6400": "Versicherungen",
+        "6410": "Beiträge",
+        "6420": "Kfz-Versicherungen",
+        "6500": "Kfz-Kosten",
+        "6510": "Kfz-Steuern",
+        "6520": "Kfz-Versicherung",
+        "6530": "Laufende Kfz-Betriebskosten",
+        "6540": "Kfz-Reparaturen",
+        "6550": "Kfz-Leasing",
+        "6560": "Sonstige Kfz-Kosten",
+        "6600": "Werbekosten",
+        "6610": "Werbekosten",
+        "6620": "Geschenke abzugsfähig",
+        "6625": "Geschenke nicht abzugsfähig",
+        "6630": "Repräsentationskosten",
+        "6640": "Bewirtungskosten (70 %)",
+        "6644": "Nicht abzugsf. Bewirtung (30 %)",
+        "6650": "Reisekosten Arbeitnehmer",
+        "6660": "Reisekosten Unternehmer",
+        "6663": "Reisekosten Unternehmer Fahrtkosten",
+        "6664": "Reisekosten Unternehmer Verpflegung",
+        "6666": "Reisekosten Unternehmer Übernachtung",
+        "6700": "Kosten der Warenabgabe",
+        "6710": "Verpackungsmaterial",
+        "6730": "Ausgangsfrachten",
+        "6800": "Abschreibungen Sachanlagen",
+        "6805": "Reparaturen / Instandhaltung",
+        "6810": "Abschreibungen immaterielle VG",
+        "6815": "Wartungskosten für Software",
+        "6820": "Abschreibungen GWG",
+        "6825": "Sofortabschreibung dig. WG",
+        "6850": "Porto",
+        "6855": "Telefon / Internet",
+        "6860": "Bürobedarf",
+        "6870": "Zeitschriften / Bücher",
+        "6875": "Fortbildungskosten",
+        "6880": "Fremdarbeiten / Freiberufler",
+        "6890": "Rechts- und Beratungskosten",
+        "6895": "Buchführungskosten",
+        "6900": "Abschluss- und Prüfungskosten",
+        "6910": "Miete für Einrichtungen",
+        "6920": "Leasing",
+        "6930": "Nebenkosten des Geldverkehrs",
+        "6940": "Bankgebühren / Kontoführung",
+        "6950": "Sonstige Aufwendungen betrieblich"
+      }
+    }
+  },
+  "assets": {
+    "pageTitle": "Fixed assets",
+    "title": "Fixed asset register",
+    "subtitle": "All depreciable assets, schedules and net book values at a glance.",
+    "backToDocuments": "Back to receipts",
+    "new": "New asset",
+    "newFromDocument": "Create from receipt",
+    "tabs": {
+      "all": "All",
+      "active": "Active",
+      "planned": "Planned",
+      "fully": "Fully depreciated",
+      "disposed": "Disposed"
+    },
+    "table": {
+      "assetNumber": "Inv. no.",
+      "name": "Name",
+      "acquisitionDate": "Acquired",
+      "acquisitionCost": "Cost",
+      "bookValue": "Book value",
+      "monthlyAmount": "Monthly",
+      "totalDepreciated": "Cum. depr.",
+      "status": "Status",
+      "category": "Category",
+      "method": "Method",
+      "untitled": "Untitled",
+      "lastError": "Last depreciation posting error",
+      "dueTooltip": "{count, plural, =1 {# month not yet posted} other {# months not yet posted}}"
+    },
+    "empty": {
+      "title": "No assets yet",
+      "subtitle": "Mark a receipt as an asset, or add one manually.",
+      "cta": "Add asset manually"
+    },
+    "status": {
+      "planned": "Planned",
+      "active": "Active",
+      "fully_depreciated": "Fully depreciated",
+      "disposed": "Disposed"
+    },
+    "method": {
+      "linear": "Straight-line",
+      "immediate": "Immediate write-off (low value)",
+      "pool": "Pool",
+      "degressive": "Declining balance"
+    },
+    "category": {
+      "tangible": "Other tangible fixed assets",
+      "it_hardware": "IT hardware",
+      "it_software": "Software / licenses",
+      "vehicle": "Vehicle",
+      "machinery": "Machinery",
+      "building": "Building",
+      "intangible": "Intangible assets",
+      "other": "Other"
+    },
+    "form": {
+      "title": "Create asset",
+      "subtitle": "Add a fixed asset to the depreciation register.",
+      "sectionMaster": "Master data",
+      "sectionValues": "Acquisition",
+      "sectionPlan": "Depreciation",
+      "sectionAccounts": "Accounts (SKR)",
+      "sectionReceipt": "Receipt",
+      "name": "Name",
+      "namePlaceholder": "e.g. MacBook Pro 14\"",
+      "description": "Description (optional)",
+      "category": "Category",
+      "method": "Method",
+      "acquisitionDate": "Acquisition date",
+      "acquisitionCost": "Acquisition cost (gross)",
+      "vatRate": "VAT rate",
+      "netAmount": "Net (depreciation base)",
+      "usefulLifeYears": "Useful life (years)",
+      "usefulLifeMonths": "Useful life (months)",
+      "scrapValue": "Scrap / residual value",
+      "skrAssetAccount": "Asset account",
+      "skrDepreciationAccount": "Depreciation account",
+      "monthlyAmount": "Monthly depreciation",
+      "submit": "Create asset",
+      "submitting": "Creating …",
+      "cancel": "Cancel",
+      "errors": {
+        "nameRequired": "Name is required.",
+        "costPositive": "Acquisition cost must be greater than 0.",
+        "usefulLifeRequired": "Useful life is required.",
+        "failed": "Could not create asset."
+      },
+      "gwgHint": "Net ≤ €800: immediate write-off (GWG) suggested.",
+      "smallBusinessHint": "Small-business scheme (§ 19 UStG): no input VAT deduction — depreciation base is the gross amount.",
+      "linkedDocument": "Linked to receipt",
+      "noLinkedDocument": "No receipt linked (manual entry)"
+    },
+    "detail": {
+      "scheduleTitle": "Depreciation schedule",
+      "scheduleSubtitle": "Planned and posted monthly depreciations.",
+      "period": "Period",
+      "amount": "Depreciation",
+      "bookValueBefore": "BV before",
+      "bookValueAfter": "BV after",
+      "postedAt": "Posted on",
+      "notPosted": "planned",
+      "postNow": "Post now",
+      "posting": "Posting …",
+      "disposeTitle": "Dispose asset",
+      "disposeButton": "Dispose asset",
+      "disposalDate": "Disposal date",
+      "disposalProceeds": "Sale proceeds (gross)",
+      "disposalReason": "Reason",
+      "disposeSubmit": "Post disposal",
+      "deleteTitle": "Delete asset",
+      "deleteHint": "Deletion is only possible before the first posting.",
+      "deleteButton": "Delete asset",
+      "linkedDocument": "Source receipt",
+      "monthlyAmountLabel": "Monthly",
+      "remainingMonths": "Remaining",
+      "duePending": "{count, plural, =1 {# month not yet posted} other {# months not yet posted}}",
+      "dueHint": "Acquisition month and past months that haven't been posted to the ledger yet. Each month is recorded as its own journal entry with the correct economic posting date.",
+      "postAllDue": "{count, plural, =1 {Post # month now} other {Post all # months}}",
+      "autoPostInfo": "Future months are posted automatically",
+      "autoPostHint": "The depreciation worker runs monthly on the 1st at 02:00 (Europe/Berlin). Missed months are caught up automatically on the next run."
+    },
+    "upload": {
+      "pickFile": "Upload receipt (PDF, PNG, JPG)",
+      "uploading": "Uploading …",
+      "hint": "Optional. Max 10 MB. OCR runs in the background automatically.",
+      "remove": "Remove",
+      "errors": {
+        "type": "File type not supported. Accepted: PDF, PNG, JPG.",
+        "size": "File too large. Max 10 MB.",
+        "uploadFailed": "Upload failed. Please try again."
+      }
+    },
+    "documentToggle": {
+      "title": "Depreciation",
+      "treatAsAsset": "Treat as fixed asset",
+      "treatAsAssetHint": "This receipt is not expensed immediately but depreciated over the useful life.",
+      "usefulLifeYears": "Useful life",
+      "yearsUnit": "years",
+      "category": "Category",
+      "linked": "Linked to asset",
+      "viewAsset": "View asset",
+      "createOnSave": "The asset will be created when you save.",
+      "lockedHint": "This receipt is already finalised — asset marking is locked.",
+      "ocrHint": "Larger amount detected — should this receipt be depreciated as a fixed asset?",
+      "remove": "Remove asset"
+    }
+  },
+  "onboarding": {
+    "welcome": {
+      "eyebrow": "Welcome aboard",
+      "title": "Welcome to zoonox",
+      "body": "Great to have you here. Let's set up your workspace — you'll be ready for your first invoice in just a few minutes.",
+      "features": {
+        "invoices": {
+          "title": "Create invoices",
+          "desc": "Create and send legally compliant invoices in minutes."
+        },
+        "documents": {
+          "title": "Capture receipts",
+          "desc": "Upload receipts — we read the data automatically."
+        },
+        "taxes": {
+          "title": "Stay on top of taxes",
+          "desc": "Keep revenue, expenses and deadlines in view at all times."
+        }
+      },
+      "cta": "Let's go",
+      "skip": "Skip onboarding",
+      "close": "Close"
+    },
+    "checklist": {
+      "title": "Getting started",
+      "subtitle": "Set up your workspace in just a few minutes.",
+      "progress": "{done} of {total} done",
+      "dismiss": "Hide checklist",
+      "items": {
+        "company": {
+          "title": "Complete company details",
+          "desc": "Name, address and tax number for your invoices."
+        },
+        "contact": {
+          "title": "Add your first contact",
+          "desc": "Create your first customer or supplier."
+        },
+        "invoice": {
+          "title": "Create your first invoice",
+          "desc": "Write and send your first invoice."
+        },
+        "document": {
+          "title": "Upload your first receipt",
+          "desc": "Upload a receipt or incoming invoice."
+        }
+      },
+      "allDone": {
+        "title": "Nice — everything's set up",
+        "body": "Your workspace is ready to go. You can hide this card now.",
+        "cta": "Hide card"
+      }
+    },
+    "hints": {
+      "step": "Step {current} of {total}",
+      "gotIt": "Got it",
+      "skip": "End tour",
+      "settings-nav": {
+        "title": "First: your company details",
+        "body": "Add your company details under Settings — they appear on every invoice. Click in here to start."
+      },
+      "settings-company-form": {
+        "title": "Almost there",
+        "body": "Enter your name, address and tax number here, then save. That makes your invoices legally compliant."
+      },
+      "new-invoice": {
+        "title": "Ready for your first invoice",
+        "body": "Once your company details are in place, create your first invoice here with one click."
+      }
+    }
+  },
+  "firm": {
+    "closing": {
+      "pageTitle": "Month-end close",
+      "title": "Month-end close",
+      "description": "Submit each month for your tax advisor to review. Once approved, the month is marked closed.",
+      "table": {
+        "month": "Month",
+        "status": "Status",
+        "readiness": "Ready?",
+        "history": "History",
+        "actions": "Actions"
+      },
+      "status": {
+        "open": "Open",
+        "submitted": "Under review",
+        "closed": "Closed"
+      },
+      "history": {
+        "submittedAt": "Submitted {date}",
+        "submittedAtBy": "Submitted {date} by {name}",
+        "finalizedAt": "Closed {date}",
+        "finalizedAtBy": "Closed {date} by {name}"
+      },
+      "actions": {
+        "submit": "Submit",
+        "submitDisabledHint": "Please invite a tax advisor first to enable submitting.",
+        "reopen": "Needs corrections",
+        "reopenPlaceholder": "Note to client (e.g. missing document) …",
+        "reopenCancel": "Cancel",
+        "reopenSubmit": "Send back",
+        "finalize": "Close month",
+        "locked": "Locked",
+        "unfinalize": "Unlock"
+      },
+      "confirm": {
+        "finalizeTitle": "Close this month?",
+        "finalizeDescription": "You are marking {month} {year} as definitively closed. Documents and bookings dated in this month will then show a lock notice. The GoBD immutability of existing invoices is independent and unchanged. The lock can be released via \"Unlock\" while you have Owner rights.",
+        "finalizeConfirm": "Close",
+        "unfinalizeTitle": "Unlock?",
+        "unfinalizeDescription": "You are releasing the lock for {month} {year}. The month becomes open again in the list. GoBD-finalized invoices and documents remain unchanged.",
+        "unfinalizeConfirm": "Unlock",
+        "cancel": "Cancel"
+      },
+      "readiness": {
+        "documentsBooked": "Documents booked",
+        "bankCleared": "Bank entries cleared",
+        "commentsAnswered": "Comments answered",
+        "openSuffix": "{count} open"
+      },
+      "noAccountantBanner": {
+        "title": "No tax advisor linked yet",
+        "description": "Once a tax advisor is invited, you can submit months for review.",
+        "cta": "Invite tax advisor"
+      },
+      "errors": {
+        "FORBIDDEN": "No permission.",
+        "INVALID_PERIOD": "Invalid period.",
+        "ALREADY_CLOSED": "This month is already closed.",
+        "NOT_CLOSED": "Month is not closed.",
+        "UNKNOWN": "Unknown error."
+      }
+    },
+    "clients": {
+      "pageTitle": "Clients",
+      "title": "Clients",
+      "description": "Overview of all clients with status for {month}. Click a client to switch the active workspace.",
+      "empty": "No clients assigned.",
+      "active": "Active",
+      "lastUpload": "Last upload",
+      "lastUploadNone": "No upload yet",
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "daysAgo": "{count} days ago",
+      "weeksAgo": "{count} weeks ago",
+      "currentMonth": "Current month",
+      "monthStatusOpen": "Open",
+      "monthStatusSubmitted": "Under review",
+      "monthStatusClosed": "Closed",
+      "openTransactions": "Unmatched bank entries",
+      "openTransactionsCount": "{count} open",
+      "openTransactionsNone": "None open"
+    }
+  },
+  "comments": {
+    "title": "Comments",
+    "titleBank": "Notes on this entry",
+    "openCount": "{count} open",
+    "empty": "No comments yet. Leave a hint for the tax advisor or vice versa.",
+    "placeholder": "Add a comment…",
+    "send": "Send",
+    "reply": "Reply",
+    "replyPlaceholder": "Reply…",
+    "replyCancel": "Cancel",
+    "replySend": "Reply",
+    "resolved": "Resolved",
+    "markResolved": "Mark as resolved",
+    "reopen": "Reopen",
+    "delete": "Delete",
+    "confirmDelete": "Really delete this comment?",
+    "unknownAuthor": "Unknown",
+    "actionsLabel": "Actions",
+    "openBadge": "{count} open comments",
+    "errors": {
+      "EMPTY": "Comment cannot be empty.",
+      "TOO_LONG": "Comment too long (max. 5000 characters).",
+      "FORBIDDEN": "No permission.",
+      "ENTITY_NOT_FOUND": "Target entity not found.",
+      "INVALID_ENTITY_TYPE": "Invalid entity type.",
+      "PARENT_NOT_FOUND": "Reply to unknown comment.",
+      "NOT_FOUND": "Comment not found.",
+      "ONLY_AUTHOR_CAN_DELETE": "Only the author may delete this comment.",
+      "UNKNOWN": "Unknown error."
+    }
+  },
+  "monthClose": {
+    "banner": {
+      "submittedTitle": "{month} {year} is under review by the tax advisor.",
+      "submittedDescription": "Please don't make any changes until the month is released, otherwise it has to be resubmitted.",
+      "closedTitle": "{month} {year} is closed.",
+      "closedDescription": "Documents and bookings in this month should remain unchanged."
+    },
+    "emails": {
+      "submitted": {
+        "subject": "{workspace}: {month} {year} ready for review",
+        "previewLine": "{workspace}: {month} {year} ready for review",
+        "heading": "{month} {year} ready for review",
+        "greeting": "Hi {name},",
+        "body": "{submitter} has submitted {month} {year} of {workspace} for review. You can go through the bookings in the dashboard, leave comments, or release the month.",
+        "openButton": "Open month",
+        "footer": "This email was automatically sent by {platform}."
+      }
+    }
+  }
+}

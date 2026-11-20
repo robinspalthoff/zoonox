@@ -1,0 +1,1656 @@
+// Prisma Schema — zoonox
+// Multi-tenant. Auth models are NextAuth-compatible.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Rollen ───────────────────────────────────────────────────────────────────
+
+enum Role {
+  SUPER_ADMIN // Plattform-Admin (Betreiber-intern)
+  ADMIN
+  USER
+}
+
+enum TenantRole {
+  OWNER // Inhaber, kann Tenant löschen / billing
+  ADMIN // Voller Zugriff, kein Billing
+  MEMBER // Standard-User
+  ACCOUNTANT // Steuerberater (read-write business data)
+}
+
+// ─── Tenant ───────────────────────────────────────────────────────────────────
+
+model Tenant {
+  id        String   @id @default(cuid())
+  slug      String   @unique // Path-Routing: /t/[slug]
+  name      String
+  plan      String   @default("free") // free | starter | pro | enterprise
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  members                 TenantUser[]
+  companySettings         CompanySettings?
+  contacts                Contact[]
+  invoices                Invoice[]
+  recurringInvoices       RecurringInvoice[]
+  documents               Document[]
+  bankAccounts            BankAccount[]
+  bankConnections         BankConnection[]
+  bankTransactions        BankTransaction[]
+  cashbookEntries         CashbookEntry[]
+  journalEntries          JournalEntry[]
+  journalSequence         JournalSequence?
+  auditLogs               AuditLog[]
+  fixedAssets             FixedAsset[]
+  fixedAssetDepreciations FixedAssetDepreciation[]
+  fixedAssetSequence      FixedAssetSequence?
+  numberRanges            NumberRange[]
+  quotes                  Quote[]
+  orderConfirmations      OrderConfirmation[]
+  mobileUploadSessions    MobileUploadSession[]
+  comments                Comment[]
+  monthCloses             MonthClose[]
+  inboundMailbox          InboundMailbox?
+  inboundMailLogs         InboundMailLog[]
+
+  @@map("tenants")
+}
+
+model TenantUser {
+  id        String     @id @default(cuid())
+  tenantId  String
+  tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      TenantRole @default(MEMBER)
+  isDefault Boolean    @default(false) // Default-Tenant beim Login
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@unique([tenantId, userId])
+  @@index([userId])
+  @@map("tenant_users")
+}
+
+// ─── Auth (NextAuth.js kompatibel) ────────────────────────────────────────────
+
+model User {
+  id                 String    @id @default(cuid())
+  email              String    @unique
+  emailVerified      DateTime?
+  firstName          String?
+  lastName           String?
+  image              String?
+  password           String?
+  role               Role      @default(USER)
+  isActive           Boolean   @default(true)
+  mustChangePassword Boolean   @default(false)
+  twoFactorEnabled   Boolean   @default(false)
+  twoFactorSecret    String? // Base32 TOTP-Secret, nur gesetzt solange 2FA aktiv
+  onboardingState    Json? // First-run onboarding: welcome/checklist dismissal + seen hints
+  notificationsSeenAt DateTime? // Header-Bell: alles ab diesem Zeitpunkt gilt als gesehen
+  dismissedNotifications Json? // Header-Bell: { [synthetischeId]: createdAtISO } — als erledigt markierte abgeleitete (System-)Notifications
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  accounts           Account[]
+  sessions           Session[]
+  auditLogs          AuditLog[]
+  invoices           Invoice[]
+  recurringInvoices  RecurringInvoice[]
+  documents          Document[]
+  journalEntries     JournalEntry[]
+  tenantUsers        TenantUser[]
+  fixedAssets        FixedAsset[]
+  quotes             Quote[]
+  orderConfirmations OrderConfirmation[]
+  mobileUploadSessions MobileUploadSession[]
+  comments             Comment[]
+  resolvedComments     Comment[]    @relation("CommentResolver")
+  submittedMonthCloses MonthClose[] @relation("MonthCloseSubmitter")
+  finalizedMonthCloses MonthClose[] @relation("MonthCloseFinalizer")
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+// ─── Audit-Log (DSGVO) ───────────────────────────────────────────────────────
+
+enum AuditAction {
+  LOGIN
+  LOGOUT
+  USER_CREATED
+  USER_UPDATED
+  USER_DEACTIVATED
+  USER_REACTIVATED
+  PASSWORD_CHANGED
+  TWO_FACTOR_ENABLED
+  TWO_FACTOR_DISABLED
+  SETTINGS_CHANGED
+  CLIENT_CREATED
+  CLIENT_UPDATED
+  CLIENT_DELETED
+  CONTACT_CREATED
+  CONTACT_UPDATED
+  CONTACT_DELETED
+  INVOICE_CREATED
+  INVOICE_UPDATED
+  INVOICE_SENT
+  INVOICE_PAID
+  INVOICE_PAYMENT_REVERTED
+  INVOICE_CANCELLED
+  INVOICE_FINALIZED
+  INVOICE_CREDIT_NOTE_CREATED
+  INVOICE_EINVOICE_GENERATED
+  DOCUMENT_PAID
+  DOCUMENT_REOPENED
+  BANK_ACCOUNT_CREATED
+  BANK_ACCOUNT_UPDATED
+  BANK_ACCOUNT_DELETED
+  BANK_TRANSACTION_CREATED
+  BANK_TRANSACTION_IMPORTED
+  BANK_TRANSACTION_MATCHED
+  BANK_TRANSACTION_AUTO_MATCHED
+  BANK_CONNECTION_AUTHORIZED
+  BANK_CONNECTION_SYNCED
+  BANK_CONNECTION_EXPIRED
+  BANK_CONNECTION_REVOKED
+  CASHBOOK_ENTRY_CREATED
+  CASHBOOK_ENTRY_UPDATED
+  CASHBOOK_ENTRY_DELETED
+  FIXED_ASSET_CREATED
+  FIXED_ASSET_UPDATED
+  FIXED_ASSET_DISPOSED
+  FIXED_ASSET_DELETED
+  FIXED_ASSET_DEPRECIATION_POSTED
+  DOCUMENT_VIEWED
+  DOCUMENT_DOWNLOADED
+  DOCUMENT_DELETED
+  QUOTE_CREATED
+  QUOTE_UPDATED
+  QUOTE_SENT
+  QUOTE_ACCEPTED
+  QUOTE_REJECTED
+  QUOTE_EXPIRED
+  QUOTE_CONVERTED
+  QUOTE_DELETED
+  ORDER_CONFIRMATION_CREATED
+  ORDER_CONFIRMATION_UPDATED
+  ORDER_CONFIRMATION_SENT
+  ORDER_CONFIRMATION_INVOICED
+  ORDER_CONFIRMATION_CANCELLED
+  ORDER_CONFIRMATION_DELETED
+  COMMENT_CREATED
+  COMMENT_RESOLVED
+  COMMENT_REOPENED
+  COMMENT_DELETED
+  MONTH_CLOSE_SUBMITTED
+  MONTH_CLOSE_REOPENED
+  MONTH_CLOSE_FINALIZED
+}
+
+model AuditLog {
+  id         String      @id @default(cuid())
+  tenantId   String? // NULL nur für plattform-globale Events (Login)
+  tenant     Tenant?     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  userId     String?
+  action     AuditAction
+  entityType String?
+  entityId   String?
+  details    Json?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime    @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId])
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+  @@index([entityType, entityId])
+  @@map("audit_logs")
+}
+
+// ─── Tax Mode ────────────────────────────────────────────────────────────────
+
+enum TaxMode {
+  STANDARD // Regelbesteuerung (19%/7%)
+  SMALL_BUSINESS // Kleinunternehmerregelung §19 UStG
+}
+
+enum SkrType {
+  SKR03 // Standardkontenrahmen 03 (Dienstleistung/Freie Berufe)
+  SKR04 // Standardkontenrahmen 04 (Industrie/Handel)
+}
+
+// ─── Accounting Mode ─────────────────────────────────────────────────────────
+//
+// Single source-of-truth switch for whether the system writes balanced
+// double-entry journal entries (DACH Doppik) or simple single-line cash
+// records (US/freelancer/Kleinunternehmer style). Reports that read from
+// the journal must respect this mode.
+enum AccountingMode {
+  SINGLE_ENTRY // 1 line per entry — cash/EÜR style, no balancing required
+  DOUBLE_ENTRY // sum(debit) == sum(credit) per entry — Doppik
+}
+
+// ─── Profit/Loss Method ──────────────────────────────────────────────────────
+//
+// Steuert, nach welchem Prinzip die zentrale Gewinnermittlung (Tab
+// dashboard/taxes/profit-loss) rechnet. EÜR = Zufluss-/Abflussprinzip
+// (§4 Abs. 3 EStG), GUV = periodengerechte Soll-/Realisationsrechnung.
+// Die BWA kann unabhängig davon ad hoc die jeweils andere Methode zeigen.
+enum ProfitLossMethod {
+  EUR // Einnahmen-Überschuss-Rechnung (Zufluss-/Abflussprinzip)
+  GUV // Gewinn- und Verlustrechnung (Soll-/Realisationsprinzip)
+}
+
+// ─── Company Settings (Singleton) ────────────────────────────────────────────
+
+model CompanySettings {
+  id               String         @id @default(cuid())
+  tenantId         String         @unique
+  tenant           Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  name             String? // Firmenname / Handelsname
+  nameSuffix       String? // Firmenzusatz — wird auf Dokumenten an den Namen angehängt
+  ownerName        String? // Inhaber (Pflicht bei Einzelunternehmen)
+  legalForm        String? // Rechtsform-Kategorie (Code: SOLE_PROPRIETOR, PRIVATE_COMPANY …)
+  address          String?
+  city             String?
+  zip              String?
+  country          String         @default("DE")
+  email            String?
+  senderEmail      String? // Absender-E-Mail für Rechnungsversand
+  senderName       String? // Absendername (z.B. "Accounting Team")
+  phone            String?
+  website          String?
+  taxId            String? // Steuernummer
+  vatId            String? // USt-IdNr.
+  registerCourt    String? // Amtsgericht / Registergericht
+  registerNumber   String? // Handelsregisternummer (z.B. HRB 12345)
+  managingDirector String? // Geschäftsführer (GmbH/UG, distinct from Inhaber)
+  taxMode          TaxMode        @default(STANDARD) // Regelbesteuerung oder Kleinunternehmer
+  bankName         String?
+  iban             String?
+  bic              String?
+  logoBase64       String?        @db.Text // Base64-kodiertes Logo
+  invoicePrefix    String         @default("RE") // Präfix für Rechnungsnummern
+  defaultNotes     String?        @db.Text // Standard-Fußnote auf Rechnungen
+  defaultIntroText String?        @db.Text // Standard-Einleitungstext auf Rechnungen
+  skrType          SkrType        @default(SKR03) // SKR03 oder SKR04
+  accountingMode   AccountingMode @default(DOUBLE_ENTRY) // Buchungsmodus
+  profitLossMethod ProfitLossMethod @default(EUR) // Berechnungsart der zentralen Auswertung
+  updatedAt        DateTime       @updatedAt
+
+  @@map("company_settings")
+}
+
+// ─── Contacts ────────────────────────────────────────────────────────────────
+
+// Rolle eines Kontakts. Mehrfachzuordnung erlaubt — ein Kontakt kann
+// zugleich Kunde und Lieferant sein.
+enum ContactRole {
+  CUSTOMER // Kunde / Debitor
+  SUPPLIER // Lieferant / Kreditor
+  PARTNER // Partner / sonstiger Geschäftskontakt
+  OTHER // Sonstige
+}
+
+model Contact {
+  id                String        @id @default(cuid())
+  tenantId          String
+  tenant            Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  name              String // Firmenname / Vollständiger Name
+  customerNumber    String? // Kundennummer (Debitorennummer, 4-stellig)
+  supplierNumber    String? // Lieferantennummer (Kreditorennummer, 5-stellig)
+  roles             ContactRole[] // Kunde / Lieferant / Partner / Sonstige (mehrere möglich)
+  // ── Ansprechperson ──────────────────────────────────────────────────────
+  contactSalutation String? // Anrede (MR / MRS / DIVERSE)
+  contactTitle      String? // Titel (Dr., Prof. …)
+  contactFirstName  String? // Vorname der Ansprechperson
+  contactLastName   String? // Nachname der Ansprechperson
+  contactPosition   String? // Position der Ansprechperson
+  // ── Adresse ─────────────────────────────────────────────────────────────
+  address           String?
+  city              String?
+  zip               String?
+  country           String        @default("DE")
+  // ── Kontaktdetails ──────────────────────────────────────────────────────
+  email             String?
+  phone             String?
+  website           String?
+  // ── Zahlungsinformationen ───────────────────────────────────────────────
+  iban              String?
+  bic               String?
+  vatId             String? // USt-IdNr. des Kontakts
+  taxId             String? // Steuernummer des Kontakts
+  notes             String?       @db.Text
+  // ── Zahlungskonditionen (werden in Rechnungen/Belegen vorbefüllt) ──────
+  paymentTermDays   Int? // Standard-Zahlungsziel in Tagen (z.B. 14)
+  discountDays      Int? // Skonto-Frist in Tagen (z.B. 7)
+  discountPercent   Decimal?      @db.Decimal(5, 2) // Skontosatz in % (z.B. 2.00)
+  isActive          Boolean       @default(true)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  invoices           Invoice[]
+  recurringInvoices  RecurringInvoice[]
+  quotes             Quote[]
+  orderConfirmations OrderConfirmation[]
+  documents          Document[]
+
+  @@index([tenantId])
+  @@map("contacts")
+}
+
+// ─── VAT Regulation ──────────────────────────────────────────────────────────
+
+enum VatRegulation {
+  STANDARD // Umsatzsteuerpflichtige Umsätze (default)
+  SMALL_BUSINESS_19 // Kleinunternehmerregelung §19 UStG
+  TAX_EXEMPT_4 // Steuerfreie Umsätze §4 UStG
+  REVERSE_CHARGE_13B // Reverse Charge gem. §13b UStG (domestic)
+  REVERSE_CHARGE_18B // Reverse Charge gem. §18b UStG (EU)
+  INTRA_COMMUNITY_DELIVERY // Innergemeinschaftliche Lieferungen
+  OSS // One-Stop-Shop
+  EXPORT // Ausfuhren (non-EU)
+  NON_DOMESTIC_SERVICE // Nicht im Inland steuerbare Leistung (non-EU)
+}
+
+// ─── Invoices ─────────────────────────────────────────────────────────────────
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+enum InvoiceType {
+  INVOICE
+  CREDIT_NOTE
+  /// Rechnungskorrektur per §31 Abs. 5 UStDV — corrects specific items of
+  /// an issued invoice (the original keeps its status). Contains negated
+  /// original line items plus the corrected positives; total = delta.
+  CORRECTION
+}
+
+model Invoice {
+  id               String        @id @default(cuid())
+  tenantId         String
+  tenant           Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  number           String // RE-2025-001 (eindeutig pro Tenant)
+  type             InvoiceType   @default(INVOICE) // INVOICE or CREDIT_NOTE
+  status           InvoiceStatus @default(DRAFT)
+  contactId        String
+  contact          Contact       @relation(fields: [contactId], references: [id])
+  issueDate        DateTime      @default(now())
+  dueDate          DateTime?
+  serviceDate      DateTime? // Leistungsdatum
+  serviceDateEnd   DateTime? // Leistungszeitraum bis
+  // Derivative fields: `subtotal` und `taxAmount` werden beim Schreiben aus
+  // den LineItems berechnet (unitPrice × quantity → amount, aggregiert mit
+  // vatRate). Reports greifen NICHT auf diese Felder zu, sondern lesen aus
+  // dem Journal. Für PDF/XRechnung bleiben sie als gerenderte Snapshots
+  // zum Ausgabezeitpunkt bestehen (keine eigenständige Quelle mehr).
+  subtotal         Decimal       @db.Decimal(10, 2) // [derived] Nettobetrag (nach Positions- und Gesamtrabatt)
+  taxAmount        Decimal       @db.Decimal(10, 2) // [derived] MwSt-Betrag gesamt (auf rabattierten Netto)
+  total            Decimal       @db.Decimal(10, 2) // Bruttobetrag
+  // Gesamtrabatt — wird nach Aggregation der Positionsbeträge angewandt.
+  // `globalDiscountType`: null/percent/amount. `globalDiscountValue`: %-Satz
+  // (0..100) bei percent, sonst Euro-Betrag. Resultierender Rabatt-Euro wird
+  // beim PDF/Preview-Render aus diesen beiden + subtotal-vor-Rabatt berechnet.
+  globalDiscountType  String?
+  globalDiscountValue Decimal? @db.Decimal(10, 2)
+  notes            String?       @db.Text
+  introText        String?       @db.Text // Einleitungstext (über Positionen)
+  vatRegulation    VatRegulation @default(STANDARD) // Umsatzsteuerregelung
+  // Whether the EPC ("GiroCode") payment QR-Code is printed on the invoice PDF.
+  paymentQrEnabled Boolean       @default(true)
+  createdById      String?
+  createdBy        User?         @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  // ── E-Rechnung (XRechnung / ZUGFeRD) ────────────────────────────────────────
+  leitwegId      String? // Leitweg-ID (Pflichtfeld B2G / Behörden-Rechnungen)
+  buyerReference String? // Bestellreferenz des Käufers (BT-10, EN 16931)
+  eInvoiceXml    String? @db.Text // Archiviertes E-Rechnungs-XML (GoBD 10 Jahre)
+
+  // ── GoBD Immutability ────────────────────────────────────────────────────────
+  finalizedAt    DateTime? // Set at point of no return (first SENT/PAID)
+  paidAt         DateTime? // Set when status transitions to PAID
+  paymentMethod  PaymentMethod? // How the invoice was paid
+  pdfHash        String? // SHA-256 hex of the sent PDF
+  // R2 storage key of the PDF as it was sent. Set on first finalization;
+  // the archived object is Object-Lock-protected (GoBD §147 AO, 10 years).
+  // Re-sends reuse this exact PDF — never re-render — so "sent == archived".
+  pdfStoragePath String?
+
+  // ── Storno (Credit Note) Relation ────────────────────────────────────────────
+  creditNoteForId String? // If set: this is a Gutschrift for that invoice
+  creditNoteFor   Invoice?  @relation("CreditNotes", fields: [creditNoteForId], references: [id])
+  creditNotes     Invoice[] @relation("CreditNotes")
+
+  // ── Recurring (Wiederkehrende Rechnung) ─────────────────────────────────────
+  // If non-null: this invoice was auto-generated from a RecurringInvoice schedule.
+  // Past invoices remain GoBD-immutable; the link is read-only and informational.
+  recurringInvoiceId String?
+  recurringInvoice   RecurringInvoice? @relation("RecurringInvoiceGenerated", fields: [recurringInvoiceId], references: [id], onDelete: SetNull)
+
+  // ── Source documents (Angebot / Auftragsbestätigung) ────────────────────
+  // Set when this invoice was created from a Quote or OrderConfirmation. The
+  // link is one-way and informational — the source document keeps its
+  // status (ACCEPTED + CONVERTED for Quotes, INVOICED for AB).
+  quoteId             String?
+  quote               Quote?             @relation("QuoteInvoices", fields: [quoteId], references: [id], onDelete: SetNull)
+  orderConfirmationId String?
+  orderConfirmation   OrderConfirmation? @relation("OrderConfirmationInvoices", fields: [orderConfirmationId], references: [id], onDelete: SetNull)
+
+  lineItems    InvoiceLineItem[]
+  auditHashes  InvoiceAuditHash[]
+  documents    Document[]
+  transactions BankTransaction[]
+
+  @@unique([tenantId, number])
+  @@index([tenantId])
+  @@index([contactId])
+  @@index([status])
+  @@index([issueDate])
+  @@index([creditNoteForId])
+  @@index([recurringInvoiceId])
+  @@index([quoteId])
+  @@index([orderConfirmationId])
+  @@map("invoices")
+}
+
+// ─── Quotes (Angebote) ────────────────────────────────────────────────────────
+//
+// Pre-sale document the customer can accept or reject. Quotes are NOT
+// GoBD-relevant — they remain editable in DRAFT, and once finalized (SENT) only
+// the status changes, the document content stays editable until conversion.
+//
+// Lifecycle:
+//   DRAFT → SENT → ACCEPTED / REJECTED / EXPIRED
+//   When the user creates an OrderConfirmation or Invoice from this quote, the
+//   `convertedAt` timestamp is set and the status flips to ACCEPTED if it
+//   wasn't already there. `convertedAt != null` is the "CONVERTED marker"
+//   surfaced in the UI as a separate badge — it tells the user the quote has
+//   been successfully turned into a follow-up document.
+
+enum QuoteStatus {
+  DRAFT
+  SENT
+  ACCEPTED
+  REJECTED
+  EXPIRED
+}
+
+model Quote {
+  id             String      @id @default(cuid())
+  tenantId       String
+  tenant         Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  number         String // AN-2026-001 (eindeutig pro Tenant)
+  status         QuoteStatus @default(DRAFT)
+  contactId      String
+  contact        Contact     @relation(fields: [contactId], references: [id])
+  issueDate      DateTime    @default(now())
+  // Gültig bis — Stichtag, ab dem das Angebot automatisch als EXPIRED gilt
+  // (sofern es nicht zuvor angenommen oder abgelehnt wurde).
+  validUntil     DateTime?
+  // Optional: Leistungszeitraum, der bei Konvertierung in die Rechnung
+  // übernommen werden kann.
+  serviceDate    DateTime?
+  serviceDateEnd DateTime?
+
+  subtotal      Decimal       @db.Decimal(10, 2)
+  taxAmount     Decimal       @db.Decimal(10, 2)
+  total         Decimal       @db.Decimal(10, 2)
+  // Gesamtrabatt (siehe Invoice für Semantik).
+  globalDiscountType  String?
+  globalDiscountValue Decimal? @db.Decimal(10, 2)
+  notes         String?       @db.Text
+  introText     String?       @db.Text
+  vatRegulation VatRegulation @default(STANDARD)
+
+  // ── Conversion tracking ─────────────────────────────────────────────────
+  // Set the first time an OrderConfirmation or Invoice is created from this
+  // quote. Stays set even if the linked follow-up doc is later deleted —
+  // signals "this quote was successful at least once".
+  convertedAt DateTime?
+
+  createdById String?
+  createdBy   User?    @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  lineItems          QuoteLineItem[]
+  orderConfirmations OrderConfirmation[] @relation("QuoteOrderConfirmations")
+  invoices           Invoice[]           @relation("QuoteInvoices")
+
+  @@unique([tenantId, number])
+  @@index([tenantId])
+  @@index([contactId])
+  @@index([status])
+  @@index([issueDate])
+  @@map("quotes")
+}
+
+model QuoteLineItem {
+  id          String  @id @default(cuid())
+  quoteId     String
+  quote       Quote   @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  position    Int
+  description String
+  quantity    Decimal @db.Decimal(10, 3)
+  unit        String?
+  unitPrice   Decimal @db.Decimal(10, 2)
+  vatRate     Int
+  discountType  String?
+  discountValue Decimal? @db.Decimal(10, 2)
+  amount      Decimal @db.Decimal(10, 2) // Netto nach Positions-Rabatt
+
+  @@index([quoteId])
+  @@map("quote_line_items")
+}
+
+// ─── Order Confirmations (Auftragsbestätigungen) ──────────────────────────────
+//
+// Confirmation that an order has been received and will be fulfilled. AB is
+// typically created from an accepted Quote and itself precedes the Invoice.
+//
+// Lifecycle: DRAFT → SENT → INVOICED / CANCELLED.
+// `quoteId` is set when the AB was generated from a Quote (optional —
+// standalone ABs are allowed). When an Invoice is created from this AB, the
+// status flips to INVOICED.
+
+enum OrderConfirmationStatus {
+  DRAFT
+  SENT
+  INVOICED
+  CANCELLED
+}
+
+model OrderConfirmation {
+  id             String                  @id @default(cuid())
+  tenantId       String
+  tenant         Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  number         String // AB-2026-001
+  status         OrderConfirmationStatus @default(DRAFT)
+  contactId      String
+  contact        Contact                 @relation(fields: [contactId], references: [id])
+  issueDate      DateTime                @default(now())
+  // Erwartetes Lieferdatum bzw. Leistungsdatum, optional.
+  deliveryDate   DateTime?
+  serviceDate    DateTime?
+  serviceDateEnd DateTime?
+
+  subtotal      Decimal       @db.Decimal(10, 2)
+  taxAmount     Decimal       @db.Decimal(10, 2)
+  total         Decimal       @db.Decimal(10, 2)
+  // Gesamtrabatt (siehe Invoice für Semantik).
+  globalDiscountType  String?
+  globalDiscountValue Decimal? @db.Decimal(10, 2)
+  notes         String?       @db.Text
+  introText     String?       @db.Text
+  vatRegulation VatRegulation @default(STANDARD)
+
+  // ── Source quote (optional) ─────────────────────────────────────────────
+  quoteId String?
+  quote   Quote?  @relation("QuoteOrderConfirmations", fields: [quoteId], references: [id], onDelete: SetNull)
+
+  createdById String?
+  createdBy   User?    @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  lineItems OrderConfirmationLineItem[]
+  invoices  Invoice[]                   @relation("OrderConfirmationInvoices")
+
+  @@unique([tenantId, number])
+  @@index([tenantId])
+  @@index([contactId])
+  @@index([status])
+  @@index([issueDate])
+  @@index([quoteId])
+  @@map("order_confirmations")
+}
+
+model OrderConfirmationLineItem {
+  id                  String            @id @default(cuid())
+  orderConfirmationId String
+  orderConfirmation   OrderConfirmation @relation(fields: [orderConfirmationId], references: [id], onDelete: Cascade)
+  position            Int
+  description         String
+  quantity            Decimal           @db.Decimal(10, 3)
+  unit                String?
+  unitPrice           Decimal           @db.Decimal(10, 2)
+  vatRate             Int
+  discountType        String?
+  discountValue       Decimal?          @db.Decimal(10, 2)
+  amount              Decimal           @db.Decimal(10, 2) // Netto nach Positions-Rabatt
+
+  @@index([orderConfirmationId])
+  @@map("order_confirmation_line_items")
+}
+
+// ─── GoBD Tamper-Proof Audit Hash (append-only) ───────────────────────────────
+
+model InvoiceAuditHash {
+  id           String   @id @default(cuid())
+  invoiceId    String
+  invoice      Invoice  @relation(fields: [invoiceId], references: [id])
+  hash         String // SHA-256 hex digest of the PDF
+  algorithm    String   @default("sha256")
+  pdfSizeBytes Int // Size of hashed PDF in bytes
+  createdAt    DateTime @default(now())
+  createdById  String? // userId who triggered the send
+
+  @@index([invoiceId])
+  @@map("invoice_audit_hashes")
+}
+
+model InvoiceLineItem {
+  id          String  @id @default(cuid())
+  invoiceId   String
+  invoice     Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  position    Int // Reihenfolge
+  description String
+  quantity    Decimal @db.Decimal(10, 3)
+  unit        String? // Einheit (Stk., Std., etc.)
+  unitPrice   Decimal @db.Decimal(10, 2) // Netto-Einzelpreis (Listpreis vor Rabatt)
+  vatRate     Int // 0, 7 oder 19
+  // Positions-Rabatt. discountType: null/percent/amount. discountValue: %-Satz
+  // bei percent, sonst Euro-Abzug auf qty × unitPrice. `amount` ist bereits
+  // der rabattierte Netto-Betrag — Source of Truth fürs Journal.
+  discountType  String?
+  discountValue Decimal? @db.Decimal(10, 2)
+  amount      Decimal @db.Decimal(10, 2) // Netto nach Positions-Rabatt (vor Gesamtrabatt)
+
+  @@index([invoiceId])
+  @@map("invoice_line_items")
+}
+
+// ─── Recurring Invoices (Wiederkehrende Rechnungen) ─────────────────────────
+//
+// A RecurringInvoice is a *template* — it does not appear in the customer's
+// invoice ledger. A long-running worker process (apps/dashboard/scripts/worker.ts)
+// picks up schedules where `nextRunAt <= now` and clones them into concrete
+// Invoice rows. Template edits affect future generations only — past invoices
+// stay GoBD-immutable.
+
+enum RecurringInterval {
+  DAYS_7
+  DAYS_14
+  MONTHLY
+  MONTHS_2
+  QUARTERLY // every 3 months
+  HALF_YEARLY // every 6 months
+  YEARLY
+  YEARS_2
+  YEARS_3
+  YEARS_4
+  YEARS_5
+}
+
+enum RecurringStatus {
+  ACTIVE // generation enabled, picks fire when due
+  PAUSED // user-disabled, nextRunAt ignored
+  COMPLETED // endDate reached, no further generations
+}
+
+model RecurringInvoice {
+  id        String  @id @default(cuid())
+  tenantId  String
+  tenant    Tenant  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  contactId String
+  contact   Contact @relation(fields: [contactId], references: [id])
+
+  // ── Recurrence config (user-facing) ─────────────────────────────────────
+  firstIssueDate DateTime // first invoice's issueDate; defines the recurrence anchor
+  endDate        DateTime? // if set, no generations with issueDate > endDate
+  interval       RecurringInterval
+  status         RecurringStatus   @default(ACTIVE)
+  autoSend       Boolean           @default(false) // if true: generated invoices auto-finalize + email
+
+  // ── Generation state (worker-managed) ───────────────────────────────────
+  nextRunAt           DateTime // next scheduled issueDate; advanced after each successful generation
+  lastRunAt           DateTime? // when the last invoice was generated
+  generatedCount      Int       @default(0)
+  // Soft-lock to coordinate multiple workers / prevent concurrent generation
+  // of the same schedule. Set to now() when a worker claims a row, cleared
+  // on success/failure. Stale locks (> 10 min) are treated as abandoned.
+  processingStartedAt DateTime?
+  // Last error message (if any) — surfaced in the UI for the user to react.
+  lastError           String?   @db.Text
+
+  // ── Invoice template content (cloned into each generated Invoice) ────────
+  notes           String?       @db.Text
+  introText       String?       @db.Text
+  vatRegulation   VatRegulation @default(STANDARD)
+  paymentTermDays Int? // days from issueDate → dueDate; null = no due date
+  leitwegId       String?
+  buyerReference  String?
+
+  // ── Display label so the user can find this schedule quickly ────────────
+  // e.g. "Hosting-Gebühr ACME" — defaults to "Vorlage <client.name>" if blank.
+  title String?
+
+  lineItems         RecurringInvoiceLineItem[]
+  generatedInvoices Invoice[]                  @relation("RecurringInvoiceGenerated")
+
+  createdById String?
+  createdBy   User?    @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([tenantId])
+  @@index([contactId])
+  // Hot path for the worker: fetch ACTIVE schedules with nextRunAt <= now.
+  @@index([status, nextRunAt])
+  @@map("recurring_invoices")
+}
+
+model RecurringInvoiceLineItem {
+  id                 String           @id @default(cuid())
+  recurringInvoiceId String
+  recurringInvoice   RecurringInvoice @relation(fields: [recurringInvoiceId], references: [id], onDelete: Cascade)
+  position           Int
+  description        String
+  quantity           Decimal          @db.Decimal(10, 3)
+  unit               String?
+  unitPrice          Decimal          @db.Decimal(10, 2)
+  vatRate            Int
+
+  @@index([recurringInvoiceId])
+  @@map("recurring_invoice_line_items")
+}
+
+// ─── Documents (OCR / DMS) ──────────────────────────────────────────────────
+
+// Steuerliche Behandlung einer Eingangsleistung.
+//
+// Bestimmt, in welche Kennzahl der UStVA der Beleg fließt. Der Regelfall
+// (inländische Rechnung mit ausgewiesener Vorsteuer) braucht keinen Eintrag —
+// er ist als `null` abgebildet.
+enum InputVatKind {
+  // § 13b Absatz 1 UStG — sonstige Leistung nach § 3a Absatz 2 UStG eines im
+  // übrigen Gemeinschaftsgebiet ansässigen Unternehmers. Der häufigste Fall:
+  // Software-, Werbe- und Plattformleistungen aus dem EU-Ausland.
+  // → UStVA Kz 46/47, Vorsteuer Kz 67
+  REVERSE_CHARGE_EU_SERVICE
+  // § 13b Absatz 2 Nummer 1, 2, 4 bis 12 UStG — Werklieferungen im Ausland
+  // ansässiger Unternehmer, Bauleistungen, Gebäudereinigung, Schrott, …
+  // → UStVA Kz 84/85, Vorsteuer Kz 67
+  REVERSE_CHARGE_OTHER
+  // § 13b Absatz 2 Nummer 3 UStG — Umsätze, die unter das GrEStG fallen.
+  // → UStVA Kz 73/74, Vorsteuer Kz 67
+  REVERSE_CHARGE_GRESTG
+  // Innergemeinschaftlicher Erwerb von Gegenständen (Wareneinkauf aus der EU).
+  // → UStVA Kz 89/93/90, Vorsteuer Kz 61
+  INTRA_COMMUNITY_ACQUISITION
+  // Entstandene Einfuhrumsatzsteuer (§ 15 Absatz 1 Satz 1 Nummer 2 UStG).
+  // → UStVA Kz 62
+  IMPORT_VAT
+}
+
+// Bearbeitungsstand eines Belegs.
+//
+// WICHTIG: DONE bedeutet ausschließlich "vom Nutzer fertiggestellt", nicht
+// "OCR fertig". Beides war früher derselbe Wert, was dazu führte, dass ein
+// frisch hochgeladener Beleg als abgeschlossen galt und sich zum Beispiel
+// nicht mehr als Anlagegut markieren ließ.
+//
+// Ob die Texterkennung durch ist, steht in Document.ocrCompletedAt.
+enum DocumentStatus {
+  PENDING // Hochgeladen, wartet auf OCR
+  PROCESSING // OCR läuft
+  DONE // Vom Nutzer fertiggestellt
+  DRAFT // In Bearbeitung — auch der Zustand direkt nach der Texterkennung
+  FAILED // OCR fehlgeschlagen
+  PAID // Fertiggestellt und bezahlt
+}
+
+enum DocumentCategory {
+  INVOICE_INCOMING // Eingangsrechnung
+  RECEIPT // Beleg / Quittung
+  CONTRACT // Vertrag
+  CREDIT_NOTE // Gutschrift (eingehend)
+  DELIVERY_NOTE // Lieferschein
+  OTHER // Sonstiges
+}
+
+enum DocumentType {
+  INCOME // Einnahme
+  EXPENSE // Ausgabe
+}
+
+// Eingangskanal eines Belegs — rein informativ (Quell-Badge in der Belegliste).
+enum DocumentSource {
+  MANUAL // Klassischer Datei-Upload im Dashboard
+  MOBILE // Mobile-Upload-Session (QR-Code)
+  EMAIL // Per E-Mail an die Mandanten-Inbound-Adresse weitergeleitet
+}
+
+model Document {
+  id          String           @id @default(cuid())
+  tenantId    String
+  tenant      Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  fileName    String
+  fileType    String // MIME type — server-sniffed from magic bytes, not the client header
+  fileSize    Int // Bytes
+  storagePath String // Relative path in storage
+  fileHash    String? // SHA-256 hex of the uploaded bytes — tamper detection (GoBD) + exact-duplicate lookup
+  // Semantic duplicate fingerprint: sha256(vendor_normalized|amount_cents|date_YYYYMMDD).
+  // Wird nach OCR aus recognizedSupplier + recognizedAmount + recognizedDate berechnet.
+  // Trifft auch Duplikate, deren Datei-Bytes sich unterscheiden (Re-Scan, Re-Export).
+  fingerprint String?
+  status      DocumentStatus   @default(PENDING)
+  // Eingangskanal — informativ für die Quell-Anzeige in der Belegliste.
+  source      DocumentSource   @default(MANUAL)
+  // Soft-delete marker. Booked documents (DONE/PAID) are GoBD-retention-bound:
+  // "deleting" one reverses its journal entries and sets deletedAt, but the
+  // row and the Object-Lock-protected file are retained. Un-booked documents
+  // are hard-deleted instead. Lists/reports filter on `deletedAt: null`.
+  deletedAt   DateTime?
+  payment     DocumentPayment?
+
+  // OCR results
+  ocrText       String? @db.Text // Raw OCR text
+  ocrConfidence Float? // 0-1 confidence score
+  // Zeitpunkt, zu dem die Texterkennung durchgelaufen ist.
+  //
+  // Getrennt vom Status, weil "OCR fertig" und "vom Nutzer fertiggestellt"
+  // zwei verschiedene Dinge sind. Wer wissen will, ob ein Beleg gebucht ist,
+  // fragt ohnehin das Journal — siehe lib/documents/delete.ts.
+  ocrCompletedAt DateTime?
+
+  // Recognized fields (from OCR)
+  recognizedAmount      Decimal?          @db.Decimal(10, 2)
+  recognizedDate        DateTime?
+  recognizedSupplier    String?
+  recognizedDocNumber   String? // Extracted document number (Belegnummer)
+  recognizedDueDate     DateTime? // Extracted due date
+  // Kurzbezeichnung des Beleg-Inhalts (z.B. "Mobilfunk Mai 2026") —
+  // OCR-vorbelegt für das description-Feld der ersten Belegposition.
+  recognizedDescription String?
+  suggestedCategory     DocumentCategory?
+
+  // Recognized fields – VAT
+  recognizedVatRate Decimal? @db.Decimal(5, 2) // Extracted VAT rate in % (e.g. 19.00)
+
+  // Manual / confirmed values
+  category        DocumentCategory @default(OTHER)
+  bookingAccount  String? // SKR booking account number (e.g. "4920")
+  vatRate         Decimal?         @db.Decimal(5, 2) // Confirmed VAT rate in % (e.g. 19.00)
+  // Steuerliche Behandlung der Eingangsleistung. Null = Regelfall (inländische
+  // Rechnung mit ausgewiesener Vorsteuer → UStVA Kz 66).
+  //
+  // Die Sonderfälle drehen die Steuerschuld um: bei Reverse Charge und beim
+  // innergemeinschaftlichen Erwerb rechnet der Lieferant netto ab, wir schulden
+  // die Umsatzsteuer selbst und ziehen sie im selben Zug als Vorsteuer ab. Ohne
+  // diese Kennzeichnung landet so ein Beleg entweder gar nicht oder fälschlich
+  // in Kz 66 der Voranmeldung.
+  inputVatKind    InputVatKind?
+  deliveryDate    DateTime? // Lieferdatum (single date or range start)
+  deliveryDateEnd DateTime? // Lieferzeitraum bis (range end, optional)
+  dueDate         DateTime? // Confirmed due date
+  documentType    DocumentType? // Belegart: Einnahme / Ausgabe
+  documentNumber  String? // Confirmed document number
+  tags            String[] // Free-form tags
+
+  // ── Fremdwährung ─────────────────────────────────────────────────────────
+  // ISO-4217-Code der Belegwährung. Beträge in lineItems sind in dieser
+  // Währung gespeichert. `exchangeRate` ist der EUR-Wechselkurs am Belegdatum
+  // (1 Fremdwährungseinheit = `exchangeRate` EUR). Für EUR-Belege bleibt der
+  // Kurs leer. Quelle ist standardmäßig der ECB-Referenzkurs via frankfurter.app,
+  // der Nutzer darf ihn manuell überschreiben.
+  currency        String           @default("EUR")
+  exchangeRate    Decimal?         @db.Decimal(14, 6)
+
+  notes String? @db.Text
+
+  // Relations
+  lineItems       DocumentLineItem[]
+  invoiceId       String? // Link to an invoice (optional)
+  invoice         Invoice?           @relation(fields: [invoiceId], references: [id], onDelete: SetNull)
+  // Lieferant (Kreditor) — verknüpfter Kontakt. Bei eingehenden Rechnungen
+  // gesetzt; bleibt null wenn Beleg keinen Geschäftskontakt hat (z.B. Tankbeleg
+  // ohne Lieferantenpflege). `recognizedSupplier` bleibt als OCR-Freitext-
+  // Fallback erhalten und wird angezeigt, wenn `contactId` null ist.
+  contactId       String?
+  contact         Contact?           @relation(fields: [contactId], references: [id], onDelete: SetNull)
+  uploadedById    String?
+  uploadedBy      User?              @relation(fields: [uploadedById], references: [id], onDelete: SetNull)
+  transactions    BankTransaction[]
+  cashbookEntries CashbookEntry[]
+  fixedAsset      FixedAsset?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tenantId])
+  @@index([status])
+  @@index([uploadedById])
+  @@index([invoiceId])
+  @@index([contactId])
+  @@index([tenantId, fingerprint])
+  @@index([tenantId, fileHash])
+  @@map("documents")
+}
+
+model DocumentLineItem {
+  id         String   @id @default(cuid())
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  position     Int      @default(0)
+  description  String? // Leistungsbeschreibung
+  skrAccount   String? // SKR-Kontonummer (z.B. "4920")
+  depreciation String? // Abschreibungshinweis
+  amount       Decimal? @db.Decimal(10, 2) // Nettobetrag
+  vatRule      String? // Steuerschlüssel (z.B. "VSt 19%")
+  vatRate      Decimal? @db.Decimal(5, 2) // MwSt-Satz in %
+  // Steuerbetrag laut Beleg. Normalerweise leer — dann wird die Steuer aus
+  // `total` und `vatRate` abgeleitet.
+  //
+  // Nötig, weil Lieferanten die Steuer je Position runden dürfen (§ 14 UStG)
+  // und die Summe dann von der Rückrechnung aus dem Bruttobetrag abweicht.
+  // Beispiel: 2 × 5,29 € netto → je 1,0051 € Steuer, gerundet je 1,01 €,
+  // in Summe 2,02 €. Aus 12,60 € brutto zurückgerechnet käme 2,01 € heraus.
+  // Für den Vorsteuerabzug zählt der in der Rechnung ausgewiesene Betrag,
+  // also muss er sich hier festhalten lassen.
+  vatAmount    Decimal? @db.Decimal(10, 2)
+  // Single source of truth: `total` (brutto) + `vatRate`. Netto und USt werden
+  // bei Bedarf daraus berechnet, damit nichts veralten kann. Die ehemals
+  // gespeicherten Spalten `totalNet` / `salesTax` wurden in der Migration
+  // 20260424100000_drop_derived_document_line_fields entfernt.
+  total        Decimal? @db.Decimal(10, 2) // Bruttobetrag
+
+  createdAt DateTime @default(now())
+
+  @@index([documentId])
+  @@map("document_line_items")
+}
+
+enum PaymentMethod {
+  BANK_TRANSFER
+  CASH
+  CREDIT_CARD
+  PAYPAL
+}
+
+/// Grund einer Abweichung zwischen Belegbetrag und Zahlungsbetrag.
+/// Reine Audit-Spur — die Differenz wird (noch) nicht automatisch im Journal
+/// auf ein eigenes Konto gebucht; das folgt in einem späteren Schritt.
+enum PaymentDifferenceReason {
+  ROUNDING // Rundungsdifferenz (z.B. 0,01 € durch Skonto-Berechnung)
+  SKONTO   // Skonto-Abzug bei pünktlicher Zahlung
+  FX       // Kursdifferenz bei Fremdwährungszahlung
+  OTHER    // Sonstige Abweichung
+}
+
+model DocumentPayment {
+  id            String        @id @default(cuid())
+  documentId    String        @unique
+  document      Document      @relation(fields: [documentId], references: [id])
+  paidAt        DateTime
+  method        PaymentMethod
+  amount        Decimal?      @db.Decimal(10, 2)
+  reference     String?
+  notes         String?       @db.Text
+  bankAccountId String?
+  bankAccount   BankAccount?  @relation(fields: [bankAccountId], references: [id], onDelete: SetNull)
+  // Die konkrete BankTransaktion, die diese Zahlung repräsentiert, wird über
+  // BankTransaction.documentId (status=MATCHED) verknüpft — keine separate
+  // FK hier nötig. Mehrere Document-Transactions sind möglich (Teilzahlungen),
+  // aber im MVP gibt es genau eine je Beleg.
+  // Differenz zwischen Beleg-Brutto und tatsächlicher Zahlung. `amount` ist
+  // bereits die tatsächliche Zahlung; hier nur der Grund + Klarschrift-Notiz,
+  // damit der Steuerberater im OPOS/Audit-Log nachvollziehen kann, warum
+  // weniger/mehr gezahlt wurde.
+  differenceReason PaymentDifferenceReason?
+  differenceNote   String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([documentId])
+  @@index([bankAccountId])
+  @@map("document_payments")
+}
+
+// ─── Bank ────────────────────────────────────────────────────────────────────
+
+enum TransactionStatus {
+  UNMATCHED
+  MATCHED
+  IGNORED
+}
+
+enum BankAccountType {
+  BANK
+  CLEARING
+}
+
+enum ImportSource {
+  MANUAL
+  CSV
+  MT940
+  CAMT053
+  ENABLE_BANKING // Direct PSD2 open-banking sync via Enable Banking
+}
+
+// Lifecycle of an Enable Banking (PSD2) bank connection / consent.
+enum BankConnectionStatus {
+  PENDING // /auth started, awaiting PSU redirect back to our callback
+  ACTIVE // Session created, consent valid, accounts linked
+  EXPIRED // Consent past valid_until — user must re-authorize
+  REVOKED // User (or bank) revoked the consent / we disconnected it
+  ERROR // Authorization or session creation failed
+}
+
+enum CashbookEntryType {
+  INCOME
+  EXPENSE
+}
+
+model BankAccount {
+  id             String          @id @default(cuid())
+  tenantId       String
+  tenant         Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  name           String
+  type           BankAccountType @default(BANK)
+  bankName       String?
+  iban           String?
+  bic            String?
+  currency       String          @default("EUR")
+  openingBalance Decimal         @default(0) @db.Decimal(10, 2)
+  bookingAccount String?
+  isDefault      Boolean         @default(false)
+  isActive       Boolean         @default(true)
+  // Persisted CSV column mapping for this account. Shape is versioned;
+  // see lib/csv-mapping.ts (CsvMappingPreset). NULL = no preset yet.
+  csvMapping     Json?
+  // Enable Banking linkage. `externalAccountId` is the EB account `uid`
+  // used to fetch balances/transactions; NULL for manual/CSV accounts.
+  externalAccountId String?
+  bankConnectionId  String?
+  bankConnection    BankConnection? @relation(fields: [bankConnectionId], references: [id], onDelete: SetNull)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  transactions BankTransaction[]
+  payments     DocumentPayment[]
+
+  @@unique([tenantId, externalAccountId])
+  @@index([tenantId])
+  @@index([bankConnectionId])
+  @@map("bank_accounts")
+}
+
+// A single PSD2 open-banking connection to one ASPSP (bank) obtained via
+// Enable Banking. Holds the consent/session state so we can re-sync
+// transactions without re-authorizing until `validUntil` passes.
+model BankConnection {
+  id           String               @id @default(cuid())
+  tenantId     String
+  tenant       Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  aspspName    String // e.g. "Nordea" / sandbox mock ASPSP name
+  aspspCountry String // ISO country code, e.g. "DE"
+  psuType      String               @default("business") // "business" | "personal"
+  status       BankConnectionStatus @default(PENDING)
+  // Random anti-CSRF value round-tripped through the EB `state` parameter.
+  authState    String               @unique
+  sessionId    String? // EB session_id returned by POST /sessions
+  validUntil   DateTime? // Consent expiry (access.valid_until)
+  authorizedAt DateTime?
+  lastSyncedAt DateTime?
+  error        String? // Last error message, if status == ERROR
+  createdBy    String? // userId that initiated the connection
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+
+  bankAccounts BankAccount[]
+
+  @@index([tenantId])
+  @@map("bank_connections")
+}
+
+model BankTransaction {
+  id              String            @id @default(cuid())
+  tenantId        String
+  tenant          Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  bankAccountId   String
+  bankAccount     BankAccount       @relation(fields: [bankAccountId], references: [id], onDelete: Cascade)
+  date            DateTime // Buchungsdatum
+  valueDate       DateTime? // Wertstellungsdatum
+  amount          Decimal           @db.Decimal(10, 2) // Positive = income, negative = expense
+  currency        String            @default("EUR")
+  counterpartName String?
+  counterpartIban String?
+  purpose         String?           @db.Text // Verwendungszweck
+  category        String? // Free-form or SKR account
+  status          TransactionStatus @default(UNMATCHED)
+  importSource    ImportSource      @default(MANUAL)
+  externalId      String? // For dedup on CSV reimport
+  documentId      String?
+  document        Document?         @relation(fields: [documentId], references: [id], onDelete: SetNull)
+  invoiceId       String?
+  invoice         Invoice?          @relation(fields: [invoiceId], references: [id], onDelete: SetNull)
+  isPrivate       Boolean           @default(false) // Privatentnahme/-einlage; excluded from P&L aggregates
+  // Flagged when the link was created by the auto-assignment routine
+  // rather than a manual user pick. Used to render a separate "Auto"
+  // badge in the table and to power the auto-match summary stats.
+  autoMatched     Boolean           @default(false)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  @@unique([bankAccountId, externalId])
+  @@index([tenantId])
+  @@index([bankAccountId])
+  @@index([date])
+  @@index([status])
+  @@index([documentId])
+  @@index([invoiceId])
+  @@map("bank_transactions")
+}
+
+model CashbookEntry {
+  id          String            @id @default(cuid())
+  tenantId    String
+  tenant      Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  date        DateTime
+  amount      Decimal           @db.Decimal(10, 2) // Always positive
+  entryType   CashbookEntryType // INCOME or EXPENSE
+  description String
+  category    String?
+  // Umsatzsteuersatz in Prozent. `amount` ist immer der Bruttobetrag.
+  //
+  // Null bedeutet "ohne Steuer" — etwa Privateinlagen, durchlaufende Posten
+  // oder Kleinunternehmer. Ohne Satz entsteht keine Steuerzeile und der
+  // Vorgang taucht nicht in der Umsatzsteuer-Voranmeldung auf.
+  vatRate     Decimal?          @db.Decimal(5, 2)
+  // Steuerbetrag laut Beleg, falls er von der Rückrechnung aus `amount` und
+  // `vatRate` abweicht — gleiche Begründung wie bei DocumentLineItem.vatAmount.
+  vatAmount   Decimal?          @db.Decimal(10, 2)
+  documentId  String?
+  document    Document?         @relation(fields: [documentId], references: [id], onDelete: SetNull)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([tenantId])
+  @@index([date])
+  @@index([documentId])
+  @@map("cashbook_entries")
+}
+
+// ─── Journal (append-only bookkeeping ledger) ────────────────────────────────
+//
+// GoBD-konformes Buchungsjournal. Schreibt für jede wirtschaftliche Operation
+// (Rechnung versendet, Beleg gebucht, Zahlung) einen Entry mit balancierten
+// Lines (Doppik) bzw. einer einzigen Line (Single-Entry/Kleinunternehmer/US).
+// Reports lesen perspektivisch ausschließlich aus diesem Journal.
+
+enum JournalSourceType {
+  INVOICE
+  INVOICE_PAYMENT
+  DOCUMENT
+  DOCUMENT_PAYMENT
+  BANK_TRANSACTION
+  MANUAL
+  FIXED_ASSET_ACQUISITION
+  FIXED_ASSET_DEPRECIATION
+  FIXED_ASSET_DISPOSAL
+}
+
+enum JournalEntryStatus {
+  POSTED
+  REVERSED
+}
+
+model JournalSequence {
+  // PK = tenantId: jeder Tenant hat seinen eigenen lückenlosen Zähler
+  tenantId   String   @id
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  lastNumber Int      @default(0)
+  updatedAt  DateTime @updatedAt
+
+  @@map("journal_sequence")
+}
+
+model JournalEntry {
+  id           String             @id @default(cuid())
+  tenantId     String
+  tenant       Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  number       Int // Lückenlose, fortlaufende Belegnummer (eindeutig pro Tenant)
+  date         DateTime // Buchungsdatum (wirtschaftlicher Zeitpunkt)
+  description  String
+  sourceType   JournalSourceType
+  sourceId     String? // ID des auslösenden Records (Invoice/Document/...)
+  status       JournalEntryStatus @default(POSTED)
+  reversedById String? // Falls storniert: Verweis auf Storno-Entry
+  reversedBy   JournalEntry?      @relation("JournalReversal", fields: [reversedById], references: [id])
+  reverses     JournalEntry[]     @relation("JournalReversal")
+  reversedAt   DateTime?
+  createdAt    DateTime           @default(now())
+  createdById  String?
+  createdBy    User?              @relation(fields: [createdById], references: [id], onDelete: SetNull)
+
+  lines JournalLine[]
+
+  @@unique([tenantId, number])
+  @@index([tenantId])
+  @@index([date])
+  @@index([sourceType, sourceId])
+  @@index([status])
+  @@map("journal_entries")
+}
+
+model JournalLine {
+  id          String       @id @default(cuid())
+  entryId     String
+  entry       JournalEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  position    Int          @default(0)
+  accountCode String // SKR-Konto (z.B. "8400", "1576", "1200")
+  debit       Decimal      @default(0) @db.Decimal(12, 2) // Soll
+  credit      Decimal      @default(0) @db.Decimal(12, 2) // Haben
+  vatCode     String? // Steuerschlüssel (z.B. "VSt19", "USt19")
+  vatAmount   Decimal?     @db.Decimal(12, 2)
+  description String?
+
+  @@index([entryId])
+  @@index([accountCode])
+  @@map("journal_lines")
+}
+
+// ─── Fixed Assets (AfA / Anlagenverzeichnis) ─────────────────────────────────
+//
+// Anlagegüter werden über ihre Nutzungsdauer abgeschrieben (§ 7 EStG) statt
+// im Anschaffungsmonat voll als Aufwand zu verbuchen. Jeder Asset hat einen
+// Abschreibungsplan (FixedAssetDepreciation, eine Zeile pro Monat) der vom
+// Worker monatlich gegen das Journal gebucht wird.
+//
+// Method-Matrix (MVP):
+//   LINEAR     — gleichbleibender Monatsbetrag über Nutzungsdauer, pro rata
+//                temporis im Anschaffungs- und Abgangsmonat (§ 7 Abs. 1)
+//   IMMEDIATE  — Sofortabschreibung im Anschaffungsmonat (GWG ≤ 800 € netto,
+//                § 6 Abs. 2 EStG; oder dig. Wirtschaftsgüter)
+//   POOL       — Reserviert für Sammelposten-AfA (250-1.000 €, 5 Jahre).
+//                Nicht im MVP — Buchungslogik fällt momentan auf LINEAR zurück.
+//   DEGRESSIVE — Reserviert für degressive AfA. Nicht im MVP.
+
+enum FixedAssetMethod {
+  LINEAR
+  IMMEDIATE
+  POOL
+  DEGRESSIVE
+}
+
+enum FixedAssetCategory {
+  TANGIBLE // Sonstige bewegliche Sachanlagen (Büromöbel etc.)
+  IT_HARDWARE // Computer, Server, Hardware
+  IT_SOFTWARE // Software, Lizenzen
+  VEHICLE // Fahrzeuge
+  MACHINERY // Maschinen, Werkzeuge
+  BUILDING // Gebäude, bauliche Anlagen
+  INTANGIBLE // Sonstige immaterielle Vermögensgegenstände
+  OTHER
+}
+
+enum FixedAssetStatus {
+  PLANNED // angelegt, aber noch keine Buchung erfolgt
+  ACTIVE // läuft im Abschreibungsplan
+  FULLY_DEPRECIATED // bookValue ≤ scrapValue, keine weiteren Buchungen
+  DISPOSED // veräußert / verschrottet
+}
+
+// Lückenlose Inventarnummer pro Tenant (AN-2026-0001, …).
+model FixedAssetSequence {
+  tenantId   String   @id
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  lastNumber Int      @default(0)
+  updatedAt  DateTime @updatedAt
+
+  @@map("fixed_asset_sequence")
+}
+
+model FixedAsset {
+  id       String @id @default(cuid())
+  tenantId String
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  // Inventarnummer (lückenlos pro Tenant), z.B. "AN-2026-0001"
+  assetNumber String
+  name        String
+  description String? @db.Text
+
+  category FixedAssetCategory @default(TANGIBLE)
+  method   FixedAssetMethod   @default(LINEAR)
+  status   FixedAssetStatus   @default(PLANNED)
+
+  // Quellbeleg — optional (manuelle Anlage / Altbestand ohne Beleg möglich).
+  // 1:1, weil ein Beleg höchstens *ein* Anlagegut darstellt.
+  documentId String?   @unique
+  document   Document? @relation(fields: [documentId], references: [id], onDelete: SetNull)
+
+  // ── Anschaffungswerte (Stammdaten, immutable ab erster Buchung) ─────────
+  acquisitionDate DateTime // wirtschaftlicher Anschaffungszeitpunkt
+  acquisitionCost Decimal  @db.Decimal(12, 2) // Bruttobetrag der Rechnung
+  netAmount       Decimal  @db.Decimal(12, 2) // Netto = AfA-Basis (BMF: ohne VSt)
+  vatAmount       Decimal  @default(0) @db.Decimal(12, 2)
+  vatRate         Decimal? @db.Decimal(5, 2) // 0 / 7 / 19
+
+  // ── Abschreibungsplan ───────────────────────────────────────────────────
+  usefulLifeMonths  Int // Nutzungsdauer in Monaten (z.B. 36 = 3 Jahre)
+  depreciationStart DateTime // erster Monat der AfA (= acquisitionDate first-of-month)
+  monthlyAmount     Decimal  @db.Decimal(12, 2) // berechneter Monatsbetrag (linear)
+  scrapValue        Decimal  @default(0) @db.Decimal(12, 2) // Restbuchwert am Ende (Erinnerungs-Euro etc.)
+  bookValue         Decimal  @db.Decimal(12, 2) // aktueller Restbuchwert (mirrored vom letzten Buchungslauf)
+  totalDepreciated  Decimal  @default(0) @db.Decimal(12, 2) // kumulierte AfA bis dato
+  lastPostedYear    Int? // Jahr der letzten Buchung
+  lastPostedMonth   Int? // Monat (1-12) der letzten Buchung
+
+  // SKR-Konten — aufgelöst zum Zeitpunkt der Anlage; können bei Bedarf
+  // override-bar sein. Default kommt aus rules.ts (SKR03/SKR04 + Kategorie).
+  skrAssetAccount        String // z.B. "0420" Büroeinrichtung (Soll bei Anschaffung)
+  skrDepreciationAccount String // z.B. "4830" Abschreibungen (Soll bei AfA)
+
+  // ── Abgang ──────────────────────────────────────────────────────────────
+  disposalDate     DateTime?
+  disposalProceeds Decimal?  @db.Decimal(12, 2) // Verkaufserlös brutto
+  disposalReason   String? // SOLD | SCRAPPED | DONATED | OTHER (free text reicht im MVP)
+
+  // Soft-lock für den Worker (analog RecurringInvoice). Stale > 10min = abandoned.
+  processingStartedAt DateTime?
+  lastError           String?   @db.Text
+
+  createdById String?
+  createdBy   User?    @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  depreciations FixedAssetDepreciation[]
+
+  @@unique([tenantId, assetNumber])
+  @@index([tenantId])
+  @@index([tenantId, status])
+  @@index([tenantId, acquisitionDate])
+  @@index([documentId])
+  // Hot path for the worker: scan ACTIVE assets with an unposted period.
+  @@index([status, depreciationStart])
+  @@map("fixed_assets")
+}
+
+// Append-only Plan/Journal pro AfA-Monat. Idempotent via @@unique.
+model FixedAssetDepreciation {
+  id       String     @id @default(cuid())
+  tenantId String
+  tenant   Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  assetId  String
+  asset    FixedAsset @relation(fields: [assetId], references: [id], onDelete: Cascade)
+
+  periodYear      Int
+  periodMonth     Int // 1-12
+  amount          Decimal @db.Decimal(12, 2)
+  bookValueBefore Decimal @db.Decimal(12, 2)
+  bookValueAfter  Decimal @db.Decimal(12, 2)
+
+  // Verknüpfung in Hauptbuch (null bei reinem Plan vor Posting).
+  journalEntryId String?
+  postedAt       DateTime?
+  createdAt      DateTime  @default(now())
+
+  @@unique([assetId, periodYear, periodMonth])
+  @@index([tenantId])
+  @@index([assetId])
+  @@index([tenantId, periodYear, periodMonth])
+  @@map("fixed_asset_depreciations")
+}
+
+// ─── Number Ranges ───────────────────────────────────────────────────────────
+//
+// Per-tenant, per-document-type configurable number sequences.
+// Format placeholders: {PREFIX}, {YYYY}, {YY}, {MM}, {DD}, {NUMBER}.
+// {NUMBER} is left-padded to `minDigits`. `yearlyReset` restarts the counter
+// at 1 on the first issue of a new calendar year (tracked via `lastYear`).
+// Counter advances are issued inside a transaction — see lib/number-ranges.
+
+enum NumberRangeType {
+  INVOICE
+  CREDIT_NOTE
+  QUOTE
+  ORDER_CONFIRMATION
+  DELIVERY_NOTE
+  CUSTOMER
+  SUPPLIER
+}
+
+model NumberRange {
+  tenantId    String
+  tenant      Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  type        NumberRangeType
+  // Free-form pattern with {PREFIX}/{YYYY}/{YY}/{MM}/{DD}/{NUMBER} placeholders.
+  format      String
+  // Convenience field expanded by {PREFIX} so users don't have to retype it.
+  prefix      String
+  // Counter that will be used for the next issue. Editable so users can
+  // continue an existing numbering when migrating from another tool.
+  nextNumber  Int             @default(1)
+  // Minimum width of the {NUMBER} placeholder — pads with leading zeros.
+  minDigits   Int             @default(3)
+  // Restart the counter on year change (the standard for German invoicing).
+  yearlyReset Boolean         @default(true)
+  // Year of the last issue — drives the yearly reset.
+  lastYear    Int?
+  updatedAt   DateTime        @updatedAt
+
+  @@id([tenantId, type])
+  @@map("number_ranges")
+}
+
+// ─── Mobile Upload Sessions ───────────────────────────────────────────────────
+// Kurzlebiger Capability-Token, der einem Handy einen schreibenden Document-
+// Upload erlaubt, ohne das User-Login auf das Gerät zu replizieren. Token wird
+// am Desktop als QR angezeigt, das Handy ruft /m/u/{token} auf und postet das
+// Foto an /api/mobile-upload/{token}. Scope: nur „Document anlegen", tenant-
+// und user-gebunden, 15-Min-TTL, rate-limited.
+model MobileUploadSession {
+  id        String   @id @default(cuid())
+  token     String   @unique // base64url, ≥32 Bytes Entropie
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  revokedAt DateTime?
+  // IDs der über diesen Token angelegten Dokumente — Desktop pollt darauf,
+  // braucht keine Verbindung zur Document-Tabelle.
+  documentIds String[] @default([])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tenantId])
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("mobile_upload_sessions")
+}
+
+// ─── Inbound-Mail-Belegerfassung ──────────────────────────────────────────────
+//
+// Jeder Mandant bekommt eine unrätselbare Alias-Adresse
+// (beleg-<token>@<INBOUND_EMAIL_DOMAIN>). Mails dorthin werden von Brevo Inbound
+// Parsing an unseren Webhook geliefert; die Anhänge laufen durch dieselbe
+// Ingest-/OCR-Pipeline wie manuelle Uploads und landen als PENDING-Entwurf.
+//
+// Das `token` ist der primäre Auth-Faktor (random, nicht erratbar) und bei Leak
+// über die Settings rotierbar. `allowedSenders` ist eine optionale Absender-
+// Allowlist (leer = alle Absender erlaubt).
+model InboundMailbox {
+  id             String   @id @default(cuid())
+  tenantId       String   @unique
+  tenant         Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  token          String   @unique // Teil der Alias-Adresse, rotierbar
+  active         Boolean  @default(true)
+  allowedSenders String[] @default([]) // optionale Absender-Allowlist (leer = alle)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("inbound_mailboxes")
+}
+
+// Audit-/Idempotenz-Log eingehender Mails. `messageId` ist unique und schützt
+// gegen doppelt zugestellte Webhooks. `status` dokumentiert das Ergebnis pro
+// Mail, `documentIds` hält die daraus erzeugten Belege fest.
+model InboundMailLog {
+  id           String   @id @default(cuid())
+  tenantId     String?
+  tenant       Tenant?  @relation(fields: [tenantId], references: [id], onDelete: SetNull)
+  fromAddress  String
+  subject      String?
+  messageId    String?  @unique // Idempotenz gegen Doppel-Webhooks
+  status       String // RECEIVED | PROCESSED | REJECTED | NO_ATTACHMENT
+  rejectReason String?
+  documentIds  String[] @default([]) // erzeugte Belege
+  createdAt    DateTime @default(now())
+
+  @@index([tenantId])
+  @@index([createdAt])
+  @@map("inbound_mail_logs")
+}
+
+// ─── Comments (Steuerberater-Workflow) ────────────────────────────────────────
+//
+// Polymorpher Kommentar-Faden, der an einen Beleg, eine Buchung, eine Rechnung
+// oder eine Bank-Transaktion angeheftet werden kann. `entityType` ist als
+// String gespeichert (lose Kopplung, kein Cross-Table-FK), `entityId` zeigt
+// auf den Datensatz. Mandant- und Steuerberater-Kommentare landen im selben
+// Faden — die Unterscheidung passiert über die `TenantRole` des Authors.
+//
+// `resolvedAt`/`resolvedById` markieren erledigt. `parentId` lässt einfache
+// Threads zu (1 Ebene reicht im MVP — wir setzen kein hartes Constraint).
+
+enum CommentEntityType {
+  DOCUMENT
+  INVOICE
+  JOURNAL_ENTRY
+  BANK_TRANSACTION
+}
+
+model Comment {
+  id           String            @id @default(cuid())
+  tenantId     String
+  tenant       Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  entityType   CommentEntityType
+  entityId     String
+  authorId     String?
+  author       User?             @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  body         String            @db.Text
+  // Threaded replies. Self-referential, optional. Cascade off — keep replies
+  // when a parent is soft-deleted (we just set deletedAt on the parent).
+  parentId     String?
+  parent       Comment?          @relation("CommentReplies", fields: [parentId], references: [id], onDelete: SetNull)
+  replies      Comment[]         @relation("CommentReplies")
+  resolvedAt   DateTime?
+  resolvedById String?
+  resolvedBy   User?             @relation("CommentResolver", fields: [resolvedById], references: [id], onDelete: SetNull)
+  deletedAt    DateTime?
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  @@index([tenantId, entityType, entityId])
+  @@index([tenantId, resolvedAt])
+  @@index([authorId])
+  @@map("comments")
+}
+
+// ─── Month Close (Freigabe-Workflow Mandant ↔ Steuerberater) ──────────────────
+//
+// Pro Tenant + Jahr/Monat genau eine Zeile. Status-Lifecycle:
+//   OPEN → SUBMITTED → CLOSED, mit Rückkehr SUBMITTED → OPEN bei „Korrekturen
+//   nötig". Der Lock ist weich — die UI zeigt einen Banner an Belegen/
+//   Buchungen mit Datum im geschlossenen Monat, blockiert Edits aber nicht
+//   technisch. GoBD-Immutability greift unabhängig davon weiter über
+//   `finalizedAt` an Invoice / Journal.
+//
+// `submittedById` ist der Mandant, der eingereicht hat. `finalizedById` ist
+// der Steuerberater (oder Owner), der den Monat abgeschlossen hat.
+// `reviewNotes` ist ein freier Text, den der Steuerberater bei Rückgabe
+// hinterlässt.
+
+enum MonthCloseStatus {
+  OPEN
+  SUBMITTED
+  CLOSED
+}
+
+model MonthClose {
+  id             String           @id @default(cuid())
+  tenantId       String
+  tenant         Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  year           Int
+  month          Int // 1-12
+  status         MonthCloseStatus @default(OPEN)
+  submittedAt    DateTime?
+  submittedById  String?
+  submittedBy    User?            @relation("MonthCloseSubmitter", fields: [submittedById], references: [id], onDelete: SetNull)
+  finalizedAt    DateTime?
+  finalizedById  String?
+  finalizedBy    User?            @relation("MonthCloseFinalizer", fields: [finalizedById], references: [id], onDelete: SetNull)
+  reviewNotes    String?          @db.Text
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  @@unique([tenantId, year, month])
+  @@index([tenantId])
+  @@index([tenantId, status])
+  @@map("month_closes")
+}

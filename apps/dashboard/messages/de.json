@@ -1,0 +1,3241 @@
+{
+  "common": {
+    "nav": {
+      "overview": "Übersicht",
+      "invoices": "Rechnungen",
+      "invoicesAll": "Alle Rechnungen",
+      "invoicesRecurring": "Wiederkehrend",
+      "orders": "Aufträge",
+      "quotes": "Angebote",
+      "orderConfirmations": "Auftragsbestätigungen",
+      "documents": "Belege",
+      "documentsAll": "Alle Belege",
+      "documentsAssets": "Anlagen",
+      "bank": "Bank",
+      "bankOverview": "Übersicht",
+      "bankAccounts": "Konten",
+      "bankCashbook": "Kassenbuch",
+      "contacts": "Kontakte",
+      "reports": "Auswertungen",
+      "reportsTaxes": "Steuern",
+      "reportsOpenItems": "Offene Posten",
+      "reportsBwa": "BWA",
+      "taxAdvisor": "Steuerberater",
+      "team": "Team",
+      "auditLog": "Audit-Log",
+      "settings": "Einstellungen",
+      "settingsUser": "Benutzer",
+      "settingsCompany": "Unternehmen",
+      "settingsAccounting": "Buchhaltung",
+      "settingsNumberRanges": "Nummernkreise",
+      "settingsEmailInbound": "Belege per E-Mail",
+      "settingsAppearance": "Darstellung",
+      "firm": "Kanzlei",
+      "firmClients": "Mandanten",
+      "firmClosing": "Monatsabschluss",
+      "changePassword": "Passwort ändern",
+      "logout": "Abmelden",
+      "collapse": "Einklappen",
+      "expand": "Ausklappen"
+    },
+    "actions": {
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "delete": "Löschen",
+      "edit": "Bearbeiten",
+      "new": "Neu",
+      "back": "Zurück"
+    },
+    "tenantSwitcher": {
+      "label": "Workspace wechseln",
+      "edit": "Workspace umbenennen",
+      "editTitle": "Workspace",
+      "editDescription": "Der Name erscheint im Header und in Listenansichten.",
+      "nameLabel": "Name",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "errorEmpty": "Bitte einen Namen angeben.",
+      "errorGeneric": "Workspace konnte nicht gespeichert werden."
+    },
+    "pagination": {
+      "rowsPerPage": "Zeilen pro Seite",
+      "range": "{from}–{to} von {total}",
+      "pageOf": "Seite {page} / {totalPages}",
+      "prev": "Vorherige Seite",
+      "next": "Nächste Seite"
+    }
+  },
+  "auth": {
+    "login": {
+      "pageTitle": "Login",
+      "subtitle": "Anmelden um fortzufahren",
+      "email": "E-Mail",
+      "emailPlaceholder": "name@firma.de",
+      "password": "Passwort",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Anmelden",
+      "submitting": "Anmelden…",
+      "errorInvalid": "E-Mail oder Passwort ungültig.",
+      "noAccount": "Noch kein Konto?",
+      "signupCta": "Konto erstellen",
+      "signupDisabled": "Die Registrierung ist derzeit nicht möglich – die App befindet sich in einer geschlossenen Testphase.",
+      "setupComplete": "Konto erfolgreich erstellt. Du kannst dich jetzt anmelden.",
+      "passwordChanged": "Passwort erfolgreich geändert. Bitte mit dem neuen Passwort anmelden.",
+      "twoFactorSubtitle": "Zwei-Faktor-Bestätigung",
+      "code": "Bestätigungscode",
+      "codeHint": "Gib den 6-stelligen Code aus deiner Authenticator-App ein.",
+      "verify": "Bestätigen",
+      "verifying": "Wird geprüft…",
+      "back": "Zurück",
+      "errorCodeInvalid": "Code ungültig oder abgelaufen.",
+      "googleCta": "Mit Google anmelden",
+      "googleLoading": "Weiterleitung zu Google…",
+      "or": "oder"
+    },
+    "signup": {
+      "pageTitle": "Konto erstellen",
+      "haveAccount": "Schon ein Konto? Anmelden",
+      "next": "Weiter",
+      "back": "Zurück",
+      "submitting": "Wird verarbeitet…",
+      "steps": {
+        "name": "Name",
+        "email": "E-Mail",
+        "company": "Firma",
+        "security": "Sicherheit"
+      },
+      "welcome": {
+        "eyebrow": "Konto einrichten",
+        "title": "Willkommen bei zoonox.",
+        "subtitle": "Bestätige kurz deine Angaben — alles andere kannst du später anpassen.",
+        "heroTitle": "Schön, dass du da bist.",
+        "heroSubtitle": "Wir richten gemeinsam die wichtigsten Dinge ein.",
+        "bullets": {
+          "nameEmail": "Name & E-Mail",
+          "company": "Dein Workspace",
+          "security": "Passwort & Sicherheit"
+        },
+        "cta": "Los geht's →",
+        "or": "oder",
+        "googleCta": "Mit Google fortfahren",
+        "googleLoading": "Weiterleitung zu Google…"
+      },
+      "name": {
+        "title": "Wie heißt du?",
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "hint": "Damit wir dich korrekt ansprechen können."
+      },
+      "email": {
+        "title": "Deine E-Mail-Adresse.",
+        "label": "E-Mail-Adresse",
+        "hint": "Diese Adresse nutzt du zur Anmeldung und für wichtige Benachrichtigungen.",
+        "toLogin": "Zur Anmeldung"
+      },
+      "company": {
+        "title": "Dein Unternehmen.",
+        "name": "Firmenname",
+        "namePlaceholder": "z.B. {firstName}'s Workspace",
+        "nameHint": "Optional. Falls leer, leiten wir den Workspace-Namen aus deinem Vornamen ab.",
+        "settingsNote": "Adresse, Bankverbindung und weitere Angaben kannst du später in den Einstellungen hinterlegen."
+      },
+      "security": {
+        "title": "Fast fertig.",
+        "password": "Passwort",
+        "confirmPassword": "Passwort bestätigen",
+        "passwordHint": "Mindestens 12 Zeichen.",
+        "twoFa": "Zwei-Faktor-Authentifizierung",
+        "twoFaHint": "Empfohlen — schützt dein Konto mit einem zusätzlichen Code aus deiner Authenticator-App.",
+        "twoFaLoading": "QR-Code wird erzeugt…",
+        "twoFaSetupIntro": "Scanne den QR-Code mit deiner Authenticator-App (z.B. Google Authenticator, 1Password, Authy) und gib den angezeigten 6-stelligen Code ein.",
+        "twoFaManualKey": "Oder Schlüssel manuell eingeben:",
+        "twoFaCode": "6-stelliger Code",
+        "submit": "Abschließen →"
+      },
+      "done": {
+        "title": "Alles bereit, {firstName}!",
+        "subtitle": "Dein Konto ist eingerichtet. Erstelle deine erste Rechnung oder erkunde das Dashboard.",
+        "cta": "Zum Dashboard →"
+      },
+      "errors": {
+        "firstNameRequired": "Vorname ist erforderlich.",
+        "lastNameRequired": "Nachname ist erforderlich.",
+        "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse ein.",
+        "emailTaken": "Diese E-Mail ist bereits registriert.",
+        "passwordTooShort": "Passwort muss mindestens 12 Zeichen haben.",
+        "passwordMismatch": "Passwörter stimmen nicht überein.",
+        "twoFaCodeInvalid": "Der Code ist ungültig oder abgelaufen.",
+        "twoFaSetupError": "Der QR-Code konnte nicht erzeugt werden. Bitte versuche es erneut."
+      }
+    },
+    "changePassword": {
+      "pageTitle": "Passwort ändern",
+      "title": "Passwort ändern",
+      "subtitle": "Bitte vergib ein neues Passwort für dein Konto.",
+      "newPassword": "Neues Passwort",
+      "confirmNewPassword": "Neues Passwort bestätigen",
+      "passwordPlaceholder": "••••••••••••",
+      "passwordHint": "Mindestens 12 Zeichen.",
+      "submit": "Passwort speichern",
+      "submitting": "Wird gespeichert…"
+    },
+    "noTenant": {
+      "pageTitle": "Kein Workspace",
+      "title": "Kein Workspace zugewiesen",
+      "subtitle": "Dein Konto ist keinem Workspace zugeordnet. Bitte kontaktiere den Administrator deiner Organisation, damit du eingeladen wirst.",
+      "signOut": "Abmelden"
+    }
+  },
+  "dashboard": {
+    "title": "Übersicht",
+    "subtitle": "Willkommen zurück. Hier ist der aktuelle Stand.",
+    "eyebrow": "Übersicht",
+    "greeting": {
+      "morning": "Guten Morgen",
+      "afternoon": "Guten Tag",
+      "evening": "Guten Abend",
+      "night": "Gute Nacht"
+    },
+    "heroSubtitle": "Das steht heute für dich an.",
+    "heroSummaryNone": "Alles im Blick — keine offenen Baustellen.",
+    "heroSummaryOverdue": "{count, plural, =1 {# überfällige Rechnung} other {# überfällige Rechnungen}}",
+    "heroSummaryDraft": "{count, plural, =1 {# Entwurf} other {# Entwürfe}} wartet",
+    "stats": {
+      "openInvoices": "Offene Rechnungen",
+      "overdueInvoices": "Überfällig",
+      "revenuePeriod": "Umsatz",
+      "profitPeriod": "Gewinn",
+      "trendVsPrev": "ggü. Vorperiode",
+      "trendAttention": "Benötigt Aufmerksamkeit",
+      "trendCalm": "Alles im Griff",
+      "trendThisWeek": "+{count} diese Woche"
+    },
+    "taxAdvisor": {
+      "label": "Steuerberater",
+      "title": "Jetzt anbinden",
+      "description": "Direkt mit deinem Steuerberater zusammenarbeiten.",
+      "cta": "Öffnen"
+    },
+    "periods": {
+      "this-month": "Aktueller Monat",
+      "last-month": "Letzter Monat",
+      "last-30d": "Letzte 30 Tage",
+      "last-3m": "Letzte 3 Monate",
+      "last-6m": "Letzte 6 Monate",
+      "last-12m": "Letzte 12 Monate",
+      "this-year": "Aktuelles Jahr",
+      "last-year": "Letztes Jahr"
+    },
+    "receivables": {
+      "title": "Offene Forderungen",
+      "periodIndependent": "Offene Forderungen werden unabhängig vom gewählten Zeitraum angezeigt.",
+      "overdue": "Fällige Rechnungen ({count})",
+      "open": "Offene Rechnungen ({count})",
+      "empty": "Keine offenen Forderungen."
+    },
+    "quotes": {
+      "title": "Angebote",
+      "viewAll": "Alle ansehen",
+      "open": "Offene Angebote",
+      "acceptanceRate": "Akzeptanzquote",
+      "last30Days": "letzte 30 Tage",
+      "expiringSoon": "Bald ablaufend",
+      "next7Days": "nächste 7 Tage"
+    },
+    "score": {
+      "title": "Buchhaltungsscore",
+      "tooltip": "Der Buchhaltungsscore berechnet sich aus dem Anteil bearbeiteter Banktransaktionen (verbucht oder ignoriert).",
+      "openUnmatched": "{count, plural, =1 {# offene Transaktion} other {# offene Transaktionen}}",
+      "allDone": "Alles bearbeitet",
+      "empty": "Noch keine Banktransaktionen importiert."
+    },
+    "chart": {
+      "title": "Ertrag und Aufwand",
+      "subtitle": "Einnahmen aus bezahlten Rechnungen und Ausgaben aus erfassten Belegen.",
+      "income": "Ertrag",
+      "expense": "Aufwand",
+      "empty": "Keine Daten in dieser Periode."
+    },
+    "cashflow": {
+      "title": "Liquiditätsprognose",
+      "subtitle": "Kontostand-Verlauf und 30/60/90-Tage-Projektion.",
+      "currentBalance": "Kontostand",
+      "legendActual": "Ist-Kontostand",
+      "legendForecast": "Prognose",
+      "today": "Heute",
+      "dayLabel": "{day} T",
+      "forecastTag": "(Prognose)",
+      "nextExpenses": "Nächste erwartete Ausgaben",
+      "nextExpenseHint": "Nächste: {name} am {date}",
+      "nextExpenseNone": "Keine wiederkehrenden Ausgaben erkannt",
+      "openInvoices": "Offene Rechnungen",
+      "openInvoiceHint": "{count, plural, =0 {Keine offenen Rechnungen} one {# offene Rechnung} other {# offene Rechnungen}}",
+      "cushion": "Verfügbares Liquiditätskissen",
+      "cushionHint": "Projizierter Tiefstand am {date}",
+      "empty": "Noch keine Bankdaten für eine Prognose.",
+      "emptyCta": "Bankkonto verbinden"
+    },
+    "recentInvoices": {
+      "title": "Letzte Rechnungen",
+      "viewAll": "Alle anzeigen",
+      "empty": "Keine Rechnungen in dieser Ansicht."
+    },
+    "filters": {
+      "all": "Alle",
+      "DRAFT": "Entwurf",
+      "SENT": "Versendet",
+      "PAID": "Bezahlt",
+      "OVERDUE": "Überfällig",
+      "CANCELLED": "Storniert"
+    },
+    "quickActions": {
+      "title": "Schnellaktionen",
+      "newInvoice": "Neue Rechnung",
+      "newClient": "Neuer Kontakt",
+      "uploadDocument": "Beleg hochladen"
+    },
+    "activity": {
+      "title": "Letzte Aktivität",
+      "empty": "Noch keine Aktivität."
+    }
+  },
+  "invoices": {
+    "pageTitle": "Rechnungen",
+    "creditNoteType": "Gutschrift",
+    "correctionType": "Korrektur",
+    "badges": {
+      "creditNote": "Gutschrift",
+      "correction": "Korrektur"
+    },
+    "transactions": {
+      "creditNoteFor": "Gutschrift zu",
+      "correctionFor": "Korrektur zu",
+      "cancelledBy": "Storniert durch",
+      "correctedBy": "Korrigiert durch"
+    },
+    "recurringBadge": "Aus wiederkehrender Vorlage — zum Template",
+    "title": "Rechnungen",
+    "subtitle": "Alle Rechnungen im Überblick.",
+    "new": "Neue Rechnung",
+    "newMenu": {
+      "label": "Weitere Rechnungstypen",
+      "oneOff": {
+        "title": "Einmalige Rechnung",
+        "description": "Klassische Rechnung mit Sofort-Versand."
+      },
+      "recurring": {
+        "title": "Wiederkehrende Rechnung",
+        "description": "Vorlage, die nach Zeitplan automatisch Rechnungen erzeugt."
+      }
+    },
+    "recurring": {
+      "pageTitle": "Wiederkehrende Rechnungen",
+      "newPageTitle": "Neue wiederkehrende Rechnung",
+      "detailPageTitle": "Wiederkehrende Rechnung",
+      "title": "Wiederkehrende Rechnungen",
+      "subtitle": "Vorlagen, aus denen automatisch Rechnungen erstellt werden.",
+      "new": "Neue wiederkehrende Rechnung",
+      "newTitle": "Neue wiederkehrende Rechnung anlegen",
+      "newSubtitle": "Lege fest, in welchem Rhythmus eine Rechnung erzeugt wird. Du kannst alles später noch ändern.",
+      "backToInvoices": "Zurück zu Rechnungen",
+      "backToList": "Zurück zur Übersicht",
+      "noClients": "Lege zuerst einen Kunden an, dem die wiederkehrende Rechnung gestellt werden soll.",
+      "createClientCta": "Kunde anlegen",
+      "detailDefaultTitle": "Vorlage für {client}",
+      "detailSubtitle": "Kunde: {client} · Bisher erzeugte Rechnungen: {count}",
+      "completedHint": "Diese Serie ist abgeschlossen — das Enddatum wurde erreicht. Es werden keine weiteren Rechnungen mehr generiert.",
+      "lastErrorTitle": "Letzte Generierung fehlgeschlagen",
+      "empty": {
+        "title": "Noch keine wiederkehrenden Rechnungen",
+        "subtitle": "Lege eine Vorlage an, um z.B. monatliche Hosting-Gebühren oder jährliche Wartungsverträge automatisch zu erzeugen.",
+        "cta": "Erste wiederkehrende Rechnung anlegen"
+      },
+      "table": {
+        "title": "Titel",
+        "untitled": "(Ohne Titel)",
+        "client": "Kunde",
+        "interval": "Intervall",
+        "nextRun": "Nächste Generierung",
+        "generated": "Erstellt",
+        "status": "Status",
+        "autoSendTooltip": "Auto-Versand aktiv",
+        "hasErrorTooltip": "Letzter Lauf fehlgeschlagen — Details auf der Vorlagenseite"
+      },
+      "status": {
+        "active": "Aktiv",
+        "paused": "Pausiert",
+        "completed": "Abgeschlossen"
+      },
+      "intervals": {
+        "days7": "Alle 7 Tage",
+        "days14": "Alle 14 Tage",
+        "monthly": "Monatlich",
+        "months2": "Alle 2 Monate",
+        "quarterly": "Vierteljährlich",
+        "halfYearly": "Halbjährlich",
+        "yearly": "Jährlich",
+        "years2": "Alle 2 Jahre",
+        "years3": "Alle 3 Jahre",
+        "years4": "Alle 4 Jahre",
+        "years5": "Alle 5 Jahre"
+      },
+      "form": {
+        "createTitle": "Neue Vorlage",
+        "editTitle": "Vorlage bearbeiten",
+        "sectionBasics": "Grunddaten",
+        "sectionRecurrence": "Wiederholung",
+        "sectionItems": "Positionen",
+        "optional": "optional",
+        "titleLabel": "Bezeichnung der Vorlage",
+        "titlePlaceholder": "z.B. Hosting-Gebühr ACME",
+        "client": "Kunde",
+        "selectClient": "Kunde auswählen…",
+        "paymentTermDays": "Zahlungsziel (Tage)",
+        "firstIssueDate": "Erste Rechnung am",
+        "firstIssueDateLockedHint": "Diese Vorlage hat bereits Rechnungen erzeugt — der laufende Rhythmus wird durch eine Änderung nicht zurückgesetzt.",
+        "endDate": "Letzte mögliche Generierung",
+        "interval": "Rechnungsintervall",
+        "autoGenerate": {
+          "title": "Automatische Generierung",
+          "description": "Rechnungen werden im Intervall automatisch erzeugt."
+        },
+        "autoSend": {
+          "title": "Automatischer Versand",
+          "description": "Erzeugte Rechnung direkt per E-Mail an den Kunden senden.",
+          "requiresAutoGenerate": "Automatische Generierung muss aktiv sein."
+        },
+        "item": {
+          "description": "Beschreibung",
+          "quantity": "Menge",
+          "unit": "Einheit",
+          "unitPrice": "Einzelpreis",
+          "vatRate": "USt.",
+          "add": "Position hinzufügen",
+          "remove": "Position entfernen"
+        },
+        "totals": {
+          "net": "Netto",
+          "vat": "USt.",
+          "gross": "Brutto"
+        },
+        "introText": "Einleitungstext",
+        "introTextPlaceholder": "Optional — erscheint oberhalb der Positionen auf jeder erzeugten Rechnung.",
+        "notes": "Fußnote",
+        "notesPlaceholder": "Optional — erscheint unterhalb der Positionen.",
+        "submitCreate": "Vorlage anlegen",
+        "submitUpdate": "Änderungen speichern",
+        "submitCreateAndRun": "Vorlage anlegen & Rechnung erstellen",
+        "submitUpdateAndRun": "Speichern & Rechnung erstellen",
+        "submitting": "Wird gespeichert…",
+        "cancel": "Abbrechen",
+        "immediateNoticeTitle": "Erste Rechnung wird sofort erstellt",
+        "immediateNoticeDraft": "Da die erste Rechnung auf heute (oder ein vergangenes Datum) datiert ist, erzeugen wir sie direkt beim Speichern als Entwurf.",
+        "immediateNoticeAutoSend": "Da die erste Rechnung auf heute (oder ein vergangenes Datum) datiert ist und Auto-Versand aktiv ist, erzeugen wir die Rechnung direkt beim Speichern und senden sie per E-Mail.",
+        "errors": {
+          "itemDescription": "Position {position}: Beschreibung fehlt.",
+          "itemQuantity": "Position {position}: Menge muss größer als 0 sein.",
+          "itemPrice": "Position {position}: Einzelpreis muss größer als 0 sein."
+        }
+      },
+      "detailActions": {
+        "runNow": "Jetzt generieren",
+        "runNowSuccess": "Rechnung {number} wurde erzeugt.",
+        "pause": "Pausieren",
+        "resume": "Aktivieren",
+        "delete": "Vorlage löschen",
+        "deleteConfirm": "Wirklich löschen?"
+      },
+      "history": {
+        "title": "Bisher erzeugte Rechnungen",
+        "number": "Nummer",
+        "issueDate": "Datum",
+        "status": "Status",
+        "total": "Brutto",
+        "scheduleLabel": "{client} · {count} Rechnungen erzeugt",
+        "scheduleHint": "Aktionen wirken auf den gesamten Zeitplan, nicht auf einzelne Rechnungen."
+      },
+      "nextDates": {
+        "title": "Nächste Termine",
+        "next": "Nächste",
+        "pausedHint": "pausiert, keine Generierung bis Aktivierung"
+      }
+    },
+    "newTitle": "Neue Rechnung",
+    "editTitle": "Rechnung {number} bearbeiten",
+    "edit": "Bearbeiten",
+    "empty": "Noch keine Rechnungen.",
+    "downloadPdf": "Rechnung herunterladen",
+    "markAsSent": "Als versendet markieren",
+    "markAsPaid": "Als bezahlt markieren",
+    "markAsRefunded": "Als erstattet markieren",
+    "revertPayment": "Zahlung rückgängig",
+    "markPaid": {
+      "title": "Als bezahlt markieren",
+      "paidAt": "Zahlungsdatum",
+      "method": "Zahlungsart",
+      "methods": {
+        "BANK_TRANSFER": "Überweisung",
+        "CASH": "Bar",
+        "CREDIT_CARD": "Kreditkarte",
+        "PAYPAL": "PayPal"
+      },
+      "linkTx": "Bankbewegung verknüpfen",
+      "linkTxHint": "Optional: Zuordnung zu einer offenen Banktransaktion.",
+      "noTxAvailable": "Keine offenen Banktransaktionen verfügbar.",
+      "noneLinked": "Keine Verknüpfung",
+      "unknownCounterpart": "Unbekannter Empfänger",
+      "exactMatch": "Exakter Betrag",
+      "cancel": "Abbrechen",
+      "confirm": "Als bezahlt markieren"
+    },
+    "cancel": "Stornieren",
+    "cancelConfirmTitle": "Rechnung stornieren?",
+    "cancelConfirmMessage": "Diese Aktion kann nicht rückgängig gemacht werden. Die Rechnung wird dauerhaft storniert.",
+    "cancelConfirmAction": "Ja, stornieren",
+    "cancelConfirmAbort": "Abbrechen",
+    "createCreditNote": "Gutschrift erstellen",
+    "correctInvoice": "Rechnung korrigieren",
+    "correction": {
+      "pageTitle": "Rechnungskorrektur",
+      "pageTitleFor": "Rechnungskorrektur zu {number}",
+      "title": "Rechnung korrigieren",
+      "subtitle": "Passe die Positionen an. Die Originalrechnung bleibt erhalten, die Korrektur enthält die korrigierten Werte und verweist auf das Original.",
+      "backToInvoice": "Zurück zur Rechnung",
+      "originalInvoice": "Originalrechnung",
+      "ref": {
+        "number": "Nummer",
+        "date": "Datum",
+        "contact": "Kunde",
+        "total": "Betrag"
+      },
+      "fields": {
+        "issueDate": "Datum der Korrektur",
+        "notes": "Notiz"
+      },
+      "items": {
+        "title": "Korrigierte Positionen",
+        "subtitle": "Passe die Positionen so an, wie die Rechnung lauten sollte.",
+        "add": "Position hinzufügen",
+        "remove": "Position entfernen",
+        "vatLocked": "USt wird aus der Original-Rechnung übernommen und kann nicht geändert werden.",
+        "cols": {
+          "description": "Beschreibung",
+          "quantity": "Menge",
+          "unit": "Einheit",
+          "unitPrice": "Einzelpreis",
+          "vat": "USt",
+          "amount": "Betrag"
+        }
+      },
+      "totals": {
+        "subtotal": "Nettobetrag",
+        "tax": "USt",
+        "total": "Gesamtbetrag (Brutto)"
+      },
+      "cancel": "Abbrechen",
+      "submit": "Korrektur als Entwurf erstellen",
+      "notesDefault": "Rechnungskorrektur zu Rechnung {number}",
+      "errors": {
+        "noItems": "Mindestens eine Position mit Beschreibung erforderlich."
+      }
+    },
+    "creditNoteConfirmTitle": "Gutschrift erstellen (GoBD-Storno)?",
+    "creditNoteConfirmMessage": "Rechnung {number} wird storniert und eine neue Gutschrift mit negativen Beträgen angelegt.",
+    "creditNoteGoBDNote": "GoBD-Hinweis: Finalisierte Rechnungen können nicht direkt bearbeitet oder gelöscht werden. Die Korrektur erfolgt ausschließlich durch eine Gutschrift (Storno-Beleg).",
+    "creditNoteConfirmAction": "Gutschrift erstellen",
+    "creditNoteMarkRefunded": "Gutschrift direkt als erstattet markieren",
+    "storno": "Stornieren",
+    "stornoConfirmTitle": "Rechnung stornieren?",
+    "stornoConfirmMessage": "Die Rechnung {number} wird zurückgezogen. Es wird eine Storno-Rechnung mit negativen Beträgen angelegt, die das Original neutralisiert. Der Kunde sollte über den Storno informiert werden.",
+    "stornoGoBDNote": "GoBD-konform: Das Original bleibt im System erhalten und wird auf „Storniert“ gesetzt; die Storno-Rechnung neutralisiert es buchhalterisch. Da bisher kein Geld geflossen ist, ist keine Rückzahlung nötig.",
+    "stornoConfirmAction": "Storno-Rechnung erstellen",
+    "creditNoteForLabel": "Gutschrift zu Rechnung:",
+    "creditNoteCreatedLabel": "Storniert — Gutschrift erstellt:",
+    "immutableBadge": "Unveränderlich (GoBD)",
+    "finalizedAtLabel": "Finalisiert am",
+    "pdfHashTitle": "PDF-Prüfsumme (GoBD)",
+    "pdfHashDescription": "SHA-256-Hashwert des zum Zeitpunkt des Versands erzeugten PDFs. Dient als manipulationssicherer Nachweis gegenüber Finanzbehörden.",
+    "sendEmail": "Per E-Mail senden",
+    "resendEmail": "Erneut senden",
+    "sendCreditNoteEmail": "Gutschrift senden",
+    "resendCreditNoteEmail": "Gutschrift erneut senden",
+    "sendEmailTitle": "Rechnung per E-Mail versenden",
+    "sendCreditNoteEmailTitle": "Gutschrift per E-Mail versenden",
+    "sendEmailRecipient": "Empfänger",
+    "sendEmailMessage": "Persönliche Nachricht (optional)",
+    "sendEmailAction": "E-Mail senden",
+    "sendEmailSuccess": "E-Mail wurde erfolgreich versendet.",
+    "sendEmailNoClient": "Kein Kunde oder keine E-Mail-Adresse hinterlegt.",
+    "sendEmailCopyToSelf": "Kopie an mich senden",
+    "readyToSend": {
+      "title": "Rechnung bereit zum Versenden",
+      "subtitle": "Überprüfe die Vorschau links und klicke dann auf „Per Mail senden“.",
+      "cta": "Per Mail senden"
+    },
+    "fields": {
+      "number": "Rechnungsnummer",
+      "client": "Kunde",
+      "issueDate": "Rechnungsdatum",
+      "dueDate": "Fälligkeitsdatum",
+      "serviceDate": "Leistungsdatum",
+      "serviceDateEnd": "Leistungszeitraum bis",
+      "status": "Status",
+      "subtotal": "Nettobetrag",
+      "taxAmount": "MwSt.",
+      "total": "Gesamtbetrag",
+      "notes": "Anmerkungen"
+    },
+    "status": {
+      "DRAFT": "Entwurf",
+      "SENT": "Versendet",
+      "PAID": "Bezahlt",
+      "OVERDUE": "Überfällig",
+      "CANCELLED": "Storniert"
+    },
+    "lineItems": {
+      "title": "Positionen",
+      "addItem": "Position hinzufügen",
+      "description": "Beschreibung",
+      "quantity": "Menge",
+      "unitPrice": "Einzelpreis (Netto)",
+      "vatRate": "MwSt.",
+      "amount": "Betrag (Netto)",
+      "remove": "Entfernen"
+    },
+    "serviceDate": "Leistungsdatum",
+    "serviceDateEnd": "Leistungszeitraum bis",
+    "unit": "Einheit",
+    "summary": {
+      "subtotal": "Nettobetrag",
+      "vat19": "MwSt. 19 %",
+      "vat7": "MwSt. 7 %",
+      "total": "Gesamtbetrag (Brutto)",
+      "totalSmallBusiness": "Gesamtbetrag"
+    },
+    "table": {
+      "number": "Nummer",
+      "client": "Kunde",
+      "issueDate": "Datum",
+      "dueDate": "Fällig",
+      "total": "Betrag",
+      "status": "Status",
+      "actions": "Aktionen"
+    },
+    "form": {
+      "invoiceType": {
+        "standard": "Rechnung",
+        "eInvoice": "E-Rechnung"
+      },
+      "saving": "Wird gespeichert…",
+      "creating": "Wird erstellt…",
+      "preview": "Vorschau",
+      "previewDraft": "Vorschau (Entwurf)",
+      "reviewAndSend": "Überprüfen & Versenden",
+      "recipient": "Empfänger",
+      "selectClientPlaceholder": "— Kunden auswählen —",
+      "newClientTooltip": "Neuen Kunden anlegen",
+      "recipientName": "Empfängername",
+      "recipientNamePlaceholder": "Wie auf der Rechnung angezeigt",
+      "street": "Straße & Hausnummer",
+      "streetPlaceholder": "Musterstraße 1",
+      "zip": "PLZ",
+      "city": "Stadt",
+      "country": "Land",
+      "invoiceDetails": "Rechnungsdetails",
+      "creditNoteDetails": "Gutschrift-Details",
+      "numberAutoAssigned": "(wird automatisch vergeben)",
+      "serviceDateMode": {
+        "date": "Datum",
+        "period": "Zeitraum"
+      },
+      "serviceDateFrom": "Von",
+      "serviceDateTo": "Bis",
+      "paymentQr": {
+        "label": "Zahlungs-QR-Code",
+        "hint": "EPC-QR-Code zum Scannen & Bezahlen auf der Rechnung",
+        "lockedHint": "Nach dem Festschreiben der Rechnung nicht mehr änderbar"
+      },
+      "eInvoiceSection": "E-Rechnung",
+      "eInvoiceEmailLabel": "E-Mail-Adresse",
+      "eInvoiceEmailSubLabel": "(Rechnungsempfänger)",
+      "eInvoiceEmailPlaceholder": "rechnung@kunde.de",
+      "buyerRef": "Kundenreferenz / Leitweg-ID",
+      "buyerRefTooltip": "Sollte dir keine Referenz vorliegen, gib einfach 00 an. Ist der Empfänger eine Behörde, nutze die Leitweg-ID (z.B. 991-1234512345-06).",
+      "introText": "Anschreiben",
+      "introTextPlaceholder": "Sehr geehrte Damen und Herren,\n\nvielen Dank für Ihren Auftrag…",
+      "defaultIntroText": "Sehr geehrte Damen und Herren,\n\nvielen Dank für Ihren Auftrag und das damit verbundene Vertrauen!\nHiermit stellen wir Ihnen die folgenden Leistungen in Rechnung:",
+      "discount": "Rabatt",
+      "globalDiscountAdd": "Gesamtrabatt hinzufügen",
+      "globalDiscountLabel": "Gesamtrabatt",
+      "globalDiscountRemove": "Gesamtrabatt entfernen",
+      "summary": "Zusammenfassung",
+      "moreOptions": "Weitere Optionen",
+      "skonto": "Skonto anbieten",
+      "skontoPercent": "Skonto (%)",
+      "skontoDays": "Zahlungsziel (Tage)",
+      "skontoHint": "Hinweis auf Rechnung:",
+      "skontoText": "Skonto: {pct}% bei Zahlung innerhalb von {days} Tagen.",
+      "emailRequired": "E-Mail-Adresse ist für E-Rechnungen Pflicht.",
+      "clientRequired": "Bitte wähle einen Kunden aus."
+    },
+    "newClient": {
+      "title": "Neuer Kunde",
+      "namePlaceholder": "Muster GmbH",
+      "creating": "Wird erstellt…",
+      "create": "Kunde erstellen"
+    },
+    "deleteDraft": {
+      "title": "Entwurf löschen?",
+      "message": "Der Entwurf wird vollständig aus der Datenbank entfernt. Die Rechnungsnummer wird nicht verbraucht und steht der nächsten Rechnung zur Verfügung.",
+      "confirm": "Endgültig löschen",
+      "button": "Löschen"
+    },
+    "tabs": {
+      "all": "Alle",
+      "open": "Offen",
+      "overdue": "Überfällig",
+      "draft": "Entwürfe",
+      "paid": "Bezahlt"
+    },
+    "quickActions": {
+      "title": "Aktionen",
+      "resendEmail": "E-Mail erneut senden",
+      "markAsPaid": "Als bezahlt markieren",
+      "createCreditNote": "Gutschrift erstellen",
+      "useAsTemplate": "Als Vorlage für neue Rechnung",
+      "delete": "Entwurf löschen",
+      "resendSuccess": "E-Mail erneut versendet.",
+      "resendError": "E-Mail konnte nicht versendet werden."
+    },
+    "search": {
+      "placeholder": "Nummer oder Kunde suchen…"
+    },
+    "vatRegulation": {
+      "title": "Umsatzsteuerregelung",
+      "groups": {
+        "domestic": "In Deutschland",
+        "eu": "Im EU-Ausland",
+        "nonEu": "Außerhalb der EU",
+        "smallBusiness": "Kleinunternehmer"
+      },
+      "options": {
+        "standard": "Umsatzsteuerpflichtige Umsätze",
+        "taxExempt4": "Steuerfreie Umsätze §4 UStG",
+        "reverseCharge13b": "Reverse Charge gem. §13b UStG",
+        "reverseCharge18b": "Reverse Charge gem. §18b UStG",
+        "intraCommunityDelivery": "Innergemeinschaftliche Lieferungen",
+        "oss": "OSS – One-Stop-Shop",
+        "export": "Ausfuhren",
+        "nonDomesticService": "Nicht im Inland steuerbare Leistung",
+        "smallBusiness19": "Kleinunternehmer — §19 UStG"
+      },
+      "tooltips": {
+        "standard": "Standardmäßige umsatzsteuerpflichtige Umsätze mit den regulären Steuersätzen (0 %, 7 % oder 19 %). Die häufigste Regelung für inländische B2B- und B2C-Geschäfte.",
+        "taxExempt4": "Diese Regel verwendest du für die nach §4 Nr. 8 bis 29 UStG umsatzsteuerbefreiten (Dienst-)Leistungen. Zum Beispiel, wenn du Versicherungsleistungen anbietest oder einen Heilberuf ausübst. In der UStVA wird dieser Umsatz in Feld 48 gemeldet.",
+        "reverseCharge13b": "Bei bestimmten Leistungen im Inland geht die Steuerschuldnerschaft auf den Leistungsempfänger über (§13b UStG). Gilt z. B. für Bauleistungen, Gebäudereinigung oder die Lieferung von Mobilfunkgeräten über 5.000 €. Du weist keine USt aus — der Empfänger schuldet sie.",
+        "reverseCharge18b": "Für Dienstleistungen an Unternehmen in einem anderen EU-Mitgliedstaat (B2B). Die Steuerschuldnerschaft geht auf den Leistungsempfänger über. Voraussetzung: Der Kunde hat eine gültige USt-IdNr. Die Meldung erfolgt in der Zusammenfassenden Meldung (ZM).",
+        "intraCommunityDelivery": "Steuerfreie Lieferung von Waren an ein Unternehmen in einem anderen EU-Mitgliedstaat (§4 Nr. 1b i.V.m. §6a UStG). Voraussetzung: gültige USt-IdNr. des Empfängers und Nachweis der Warenbewegung (Gelangensbestätigung).",
+        "oss": "One-Stop-Shop (OSS) für den grenzüberschreitenden Verkauf von Waren und bestimmte Dienstleistungen an Verbraucher (B2C) in der EU. Der jeweilige Steuersatz des Bestimmungslandes wird angewendet. Die Meldung erfolgt quartalsweise über das BZSt.",
+        "export": "Steuerfreie Ausfuhrlieferung an Empfänger außerhalb der EU (§4 Nr. 1a i.V.m. §6 UStG). Voraussetzung: Ausfuhrnachweis (z. B. Zollbescheinigung). In der UStVA in Feld 43 zu melden.",
+        "nonDomesticService": "Dienstleistungen, deren Leistungsort nach §3a UStG nicht im Inland liegt, z. B. Beratungsleistungen an Unternehmen in der Schweiz, USA oder anderen Drittländern. Keine deutsche USt wird ausgewiesen.",
+        "smallBusiness19": "Als Kleinunternehmer gemäß §19 UStG wird keine Umsatzsteuer erhoben. Diese Einstellung wird in den Unternehmenseinstellungen festgelegt."
+      },
+      "legalNotice": {
+        "taxExempt4": "Umsatzsteuerfreie Leistung gemäß §4 UStG.",
+        "reverseCharge13b": "Steuerschuldnerschaft des Leistungsempfängers gemäß §13b UStG.",
+        "reverseCharge18b": "Steuerschuldnerschaft des Leistungsempfängers gemäß §18b UStG. Die Umsatzsteuer ist vom Leistungsempfänger anzumelden und abzuführen.",
+        "intraCommunityDelivery": "Steuerfreie innergemeinschaftliche Lieferung gemäß §4 Nr. 1b i.V.m. §6a UStG.",
+        "oss": "Besteuerung nach dem One-Stop-Shop-Verfahren (OSS) gemäß §18j UStG.",
+        "export": "Steuerfreie Ausfuhrlieferung gemäß §4 Nr. 1a i.V.m. §6 UStG.",
+        "nonDomesticService": "Leistung nicht im Inland steuerbar gemäß §3a UStG.",
+        "smallBusiness19": "Gemäß §19 UStG wird keine Umsatzsteuer berechnet."
+      },
+      "smallBusinessSettingsHint": "Diese Einstellung wird in den Unternehmenseinstellungen unter Steuern verwaltet.",
+      "vatLocked": "MwSt. durch Umsatzsteuerregelung auf 0 % festgelegt"
+    }
+  },
+  "quotes": {
+    "pageTitle": "Angebote",
+    "title": "Angebote",
+    "subtitle": "Erstelle und verwalte Angebote für deine Kunden.",
+    "new": "Neues Angebot",
+    "newTitle": "Neues Angebot",
+    "editTitle": "Angebot {number} bearbeiten",
+    "empty": "Noch keine Angebote.",
+    "downloadPdf": "Angebot herunterladen",
+    "convertedBadge": "Verwertet",
+    "emptyState": {
+      "eyebrow": "Erste Schritte",
+      "title": "Erstelle dein erstes Angebot",
+      "subtitle": "Überzeuge Kunden mit professionellen Angeboten — und verwandle sie mit einem Klick in Aufträge oder Rechnungen.",
+      "bullet1": "Positionen aus deinem Katalog schnell zusammenstellen",
+      "bullet2": "Per PDF oder E-Mail an deinen Kunden senden",
+      "bullet3": "Angenommen? Direkt in AB oder Rechnung umwandeln",
+      "cta": "Angebot erstellen",
+      "helpText": "Tipp: ein einmal erstelltes Angebot kannst du jederzeit als Vorlage für künftige Angebote nutzen."
+    },
+    "tabs": {
+      "all": "Alle",
+      "draft": "Entwürfe",
+      "sent": "Versendet",
+      "accepted": "Angenommen",
+      "rejected": "Abgelehnt",
+      "expired": "Abgelaufen"
+    },
+    "status": {
+      "DRAFT": "Entwurf",
+      "SENT": "Versendet",
+      "ACCEPTED": "Angenommen",
+      "REJECTED": "Abgelehnt",
+      "EXPIRED": "Abgelaufen"
+    },
+    "table": {
+      "status": "Status",
+      "validUntil": "Gültig bis",
+      "number": "Nummer",
+      "client": "Kunde",
+      "issueDate": "Datum",
+      "total": "Gesamt",
+      "actions": "Aktionen"
+    },
+    "search": {
+      "placeholder": "Nummer oder Kunde suchen…"
+    },
+    "filters": {
+      "from": "Von",
+      "to": "Bis",
+      "reset": "Filter zurücksetzen"
+    },
+    "fields": {
+      "client": "Kunde",
+      "number": "Angebot-Nr.",
+      "issueDate": "Angebotsdatum",
+      "validUntil": "Gültig bis",
+      "serviceDate": "Leistungsdatum",
+      "serviceDateEnd": "Leistungszeitraum bis",
+      "notes": "Notizen"
+    },
+    "form": {
+      "recipient": "Empfänger",
+      "details": "Angebotsdetails",
+      "numberAutoAssigned": "wird automatisch vergeben",
+      "recipientName": "Empfängername",
+      "recipientNamePlaceholder": "Firma oder Person",
+      "street": "Straße & Hausnummer",
+      "streetPlaceholder": "Musterstraße 1",
+      "zip": "PLZ",
+      "city": "Stadt",
+      "country": "Land",
+      "introText": "Einleitungstext",
+      "introTextPlaceholder": "Sehr geehrte Damen und Herren, gerne unterbreiten wir Ihnen folgendes Angebot…",
+      "defaultIntroText": "Sehr geehrte Damen und Herren,\n\ngerne unterbreiten wir Ihnen folgendes Angebot.",
+      "preview": "Vorschau",
+      "previewDraft": "Vorschau (Entwurf)",
+      "save": "Speichern",
+      "saving": "Speichern…",
+      "creating": "Wird erstellt…",
+      "reviewAndSend": "Überprüfen & Versenden",
+      "clientRequired": "Bitte einen Kunden auswählen.",
+      "selectClientPlaceholder": "Kunde auswählen…",
+      "newClientTooltip": "Neuen Kunden anlegen",
+      "summary": "Zusammenfassung",
+      "serviceDateMode": {
+        "date": "Datum",
+        "period": "Zeitraum"
+      },
+      "serviceDateFrom": "Von",
+      "serviceDateTo": "Bis"
+    },
+    "lineItems": {
+      "title": "Positionen",
+      "description": "Beschreibung",
+      "quantity": "Menge",
+      "unitPrice": "Einzelpreis",
+      "vatRate": "USt.",
+      "amount": "Betrag",
+      "addItem": "Position hinzufügen"
+    },
+    "summary": {
+      "subtotal": "Nettobetrag",
+      "vat19": "MwSt. 19 %",
+      "vat7": "MwSt. 7 %",
+      "total": "Gesamtbetrag",
+      "totalSmallBusiness": "Gesamtbetrag"
+    },
+    "unit": "Einheit",
+    "actions": {
+      "markAsSent": "Als versendet markieren",
+      "markAsAccepted": "Als angenommen markieren",
+      "markAsRejected": "Als abgelehnt markieren",
+      "markAsExpired": "Als abgelaufen markieren",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "deleteDraft": "Entwurf löschen",
+      "createOrderConfirmation": "Auftragsbestätigung erstellen",
+      "createInvoice": "Rechnung erstellen"
+    },
+    "deleteConfirm": {
+      "title": "Angebot löschen?",
+      "message": "Dieses Angebot wird unwiderruflich gelöscht.",
+      "confirm": "Löschen",
+      "cancel": "Abbrechen"
+    },
+    "quickActions": {
+      "title": "Weitere Aktionen"
+    },
+    "transactions": {
+      "convertedToOC": "Auftragsbestätigung erstellt",
+      "convertedToInvoice": "Rechnung erstellt"
+    },
+    "skonto": "Skontosatz anbieten",
+    "skontoPercent": "Skonto (%)",
+    "skontoDays": "Zahlungsziel (Tage)",
+    "skontoHint": "Hinweis im Angebot:",
+    "skontoText": "Skonto: {pct}% bei Zahlung innerhalb von {days} Tagen.",
+    "moreOptions": "Erweiterte Optionen",
+    "convert": {
+      "title": "In Auftragsbestätigung übernehmen",
+      "subtitle": "Wähle die Positionen aus Angebot {number}, die übernommen werden sollen.",
+      "hint": "Standardmäßig werden alle Positionen mit ihrer ursprünglichen Menge übernommen. Du kannst einzelne abwählen oder die Menge anpassen.",
+      "loading": "Positionen werden geladen…",
+      "noLines": "Dieses Angebot enthält keine Positionen.",
+      "selectAll": "Alle auswählen",
+      "deselectAll": "Auswahl aufheben",
+      "quantity": "Menge",
+      "original": "Original",
+      "invalidQuantity": "Position {position}: Die Menge muss größer als 0 sein.",
+      "creating": "Wird erstellt…",
+      "confirm": "Auftragsbestätigung erstellen",
+      "cancel": "Abbrechen"
+    },
+    "sendEmail": {
+      "title": "Angebot {number} versenden",
+      "recipient": "Empfänger",
+      "message": "Persönliche Nachricht",
+      "messagePlaceholder": "Optional. Wird statt der Standard-Anrede in die E-Mail übernommen.",
+      "copyToSelf": "Kopie der E-Mail an mich senden (BCC)",
+      "send": "Angebot senden",
+      "sending": "Wird gesendet…",
+      "cancel": "Abbrechen",
+      "success": "Angebot wurde versendet.",
+      "error": "E-Mail-Versand fehlgeschlagen.",
+      "resend": "Erneut senden"
+    }
+  },
+  "orderConfirmations": {
+    "pageTitle": "Auftragsbestätigungen",
+    "title": "Auftragsbestätigungen",
+    "subtitle": "Bestätige eingehende Aufträge und überführe sie in Rechnungen.",
+    "new": "Neue Auftragsbestätigung",
+    "newTitle": "Neue Auftragsbestätigung",
+    "editTitle": "Auftragsbestätigung {number} bearbeiten",
+    "empty": "Noch keine Auftragsbestätigungen.",
+    "downloadPdf": "Auftragsbestätigung herunterladen",
+    "emptyState": {
+      "eyebrow": "Erste Schritte",
+      "title": "Lege deine erste Auftragsbestätigung an",
+      "subtitle": "Halte zugesagte Aufträge verbindlich fest und schaffe Klarheit auf beiden Seiten — bevor du fakturierst.",
+      "bullet1": "Aus einem angenommenen Angebot in einem Klick generieren",
+      "bullet2": "Liefertermin, Konditionen und Positionen sauber dokumentieren",
+      "bullet3": "Nach Fertigstellung direkt in eine Rechnung überführen",
+      "cta": "Auftragsbestätigung anlegen",
+      "helpText": "Tipp: Aus einem akzeptierten Angebot wird per Klick eine AB — alle Positionen werden übernommen."
+    },
+    "tabs": {
+      "all": "Alle",
+      "draft": "Entwürfe",
+      "sent": "Versendet",
+      "invoiced": "Fakturiert",
+      "cancelled": "Storniert"
+    },
+    "status": {
+      "DRAFT": "Entwurf",
+      "SENT": "Versendet",
+      "INVOICED": "Fakturiert",
+      "CANCELLED": "Storniert"
+    },
+    "table": {
+      "status": "Status",
+      "deliveryDate": "Liefertermin",
+      "number": "Nummer",
+      "client": "Kunde",
+      "issueDate": "Datum",
+      "total": "Gesamt",
+      "actions": "Aktionen"
+    },
+    "search": {
+      "placeholder": "Nummer oder Kunde suchen…"
+    },
+    "filters": {
+      "from": "Von",
+      "to": "Bis",
+      "reset": "Filter zurücksetzen"
+    },
+    "fields": {
+      "client": "Kunde",
+      "number": "AB-Nr.",
+      "issueDate": "AB-Datum",
+      "deliveryDate": "Liefertermin",
+      "serviceDate": "Leistungsdatum",
+      "serviceDateEnd": "Leistungszeitraum bis",
+      "notes": "Notizen"
+    },
+    "form": {
+      "recipient": "Empfänger",
+      "details": "Auftragsdetails",
+      "numberAutoAssigned": "wird automatisch vergeben",
+      "recipientName": "Empfängername",
+      "recipientNamePlaceholder": "Firma oder Person",
+      "street": "Straße & Hausnummer",
+      "streetPlaceholder": "Musterstraße 1",
+      "zip": "PLZ",
+      "city": "Stadt",
+      "country": "Land",
+      "introText": "Einleitungstext",
+      "introTextPlaceholder": "Sehr geehrte Damen und Herren, hiermit bestätigen wir Ihren Auftrag…",
+      "defaultIntroText": "Sehr geehrte Damen und Herren,\n\nvielen Dank für Ihren Auftrag, den wir Ihnen hiermit verbindlich bestätigen.",
+      "preview": "Vorschau",
+      "previewDraft": "Vorschau (Entwurf)",
+      "save": "Speichern",
+      "saving": "Speichern…",
+      "creating": "Wird erstellt…",
+      "reviewAndSend": "Überprüfen & Versenden",
+      "clientRequired": "Bitte einen Kunden auswählen.",
+      "selectClientPlaceholder": "Kunde auswählen…",
+      "newClientTooltip": "Neuen Kunden anlegen",
+      "summary": "Zusammenfassung",
+      "fromQuote": "Aus Angebot",
+      "serviceDateMode": {
+        "date": "Datum",
+        "period": "Zeitraum"
+      },
+      "serviceDateFrom": "Von",
+      "serviceDateTo": "Bis"
+    },
+    "lineItems": {
+      "title": "Positionen",
+      "description": "Beschreibung",
+      "quantity": "Menge",
+      "unitPrice": "Einzelpreis",
+      "vatRate": "USt.",
+      "amount": "Betrag",
+      "addItem": "Position hinzufügen"
+    },
+    "summary": {
+      "subtotal": "Nettobetrag",
+      "vat19": "MwSt. 19 %",
+      "vat7": "MwSt. 7 %",
+      "total": "Gesamtbetrag",
+      "totalSmallBusiness": "Gesamtbetrag"
+    },
+    "unit": "Einheit",
+    "actions": {
+      "markAsSent": "Als versendet markieren",
+      "markAsCancelled": "Stornieren",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "deleteDraft": "Entwurf löschen",
+      "createInvoice": "Rechnung erstellen"
+    },
+    "deleteConfirm": {
+      "title": "Auftragsbestätigung löschen?",
+      "message": "Diese Auftragsbestätigung wird unwiderruflich gelöscht.",
+      "confirm": "Löschen",
+      "cancel": "Abbrechen"
+    },
+    "quickActions": {
+      "title": "Weitere Aktionen"
+    },
+    "transactions": {
+      "fromQuote": "Aus Angebot",
+      "convertedToInvoice": "Rechnung erstellt"
+    },
+    "sendEmail": {
+      "title": "Auftragsbestätigung {number} versenden",
+      "recipient": "Empfänger",
+      "message": "Persönliche Nachricht",
+      "messagePlaceholder": "Optional. Wird statt der Standard-Anrede in die E-Mail übernommen.",
+      "copyToSelf": "Kopie der E-Mail an mich senden (BCC)",
+      "send": "AB senden",
+      "sending": "Wird gesendet…",
+      "cancel": "Abbrechen",
+      "success": "Auftragsbestätigung wurde versendet.",
+      "error": "E-Mail-Versand fehlgeschlagen.",
+      "resend": "Erneut senden"
+    }
+  },
+  "contacts": {
+    "pageTitle": "Kontakte",
+    "title": "Kontakte",
+    "subtitle": "Kunden, Lieferanten und Partner verwalten.",
+    "new": "Neuer Kontakt",
+    "newTitle": "Neuen Kontakt anlegen",
+    "noPermissionAccountant": "Die Kontaktverwaltung ist Sache des Mandanten — als Steuerberater hast du hier keinen Zugriff. Für die Buchhaltung relevante Kontaktdaten findest du direkt an Belegen und Rechnungen.",
+    "editTitle": "Kontakt bearbeiten",
+    "empty": "Noch keine Kontakte.",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "saveAndNew": "Speichern & neu",
+    "filter": {
+      "all": "Alle"
+    },
+    "roles": {
+      "CUSTOMER": "Kunde",
+      "SUPPLIER": "Lieferant",
+      "PARTNER": "Partner",
+      "OTHER": "Sonstige"
+    },
+    "salutations": {
+      "MR": "Herr",
+      "MRS": "Frau",
+      "DIVERSE": "Divers"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "sections": {
+      "basics": "Grunddaten",
+      "contactPerson": "Ansprechperson",
+      "address": "Adresse",
+      "contactDetails": "Kontaktdetails",
+      "payment": "Zahlungsinformationen",
+      "paymentTerms": "Zahlungskonditionen",
+      "notes": "Notizen"
+    },
+    "days": "Tage",
+    "fields": {
+      "roles": "Rollen",
+      "name": "Firmenname / Name",
+      "customerNumber": "Kundennummer",
+      "supplierNumber": "Lieferantennummer",
+      "paymentTermDays": "Zahlungsziel (Tage)",
+      "discountDays": "Skonto-Frist (Tage)",
+      "discountPercent": "Skonto (%)",
+      "discount": "Skonto",
+      "salutation": "Anrede",
+      "contactTitle": "Titel",
+      "contactFirstName": "Vorname",
+      "contactLastName": "Nachname",
+      "contactPosition": "Position",
+      "contactPositionPlaceholder": "z.B. Einkauf, Geschäftsführung",
+      "address": "Straße & Hausnummer",
+      "city": "Stadt",
+      "zip": "PLZ",
+      "country": "Land",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "website": "Website",
+      "iban": "IBAN",
+      "bic": "BIC",
+      "vatId": "USt-IdNr.",
+      "taxId": "Steuernummer",
+      "notes": "Notizen"
+    },
+    "table": {
+      "name": "Kontakt",
+      "customerNumber": "Kundennr.",
+      "supplierNumber": "Lieferantennr.",
+      "roles": "Rollen",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "city": "Ort",
+      "invoices": "Rechnungen",
+      "status": "Status",
+      "actions": "Aktionen"
+    },
+    "actions": {
+      "edit": "Bearbeiten",
+      "deactivate": "Deaktivieren",
+      "activate": "Aktivieren",
+      "delete": "Löschen",
+      "cancel": "Abbrechen",
+      "close": "Schließen"
+    },
+    "paymentTerms": {
+      "hint": "Standardwerte für Zahlungsziel und Skonto — werden in neuen Rechnungen/Belegen vorbefüllt."
+    },
+    "delete": {
+      "title": "Kontakt löschen",
+      "confirm": "Kontakt „{name}“ wirklich löschen?",
+      "errorTitle": "Löschen nicht möglich",
+      "hasInvoices": "Dieser Kontakt hat verknüpfte Rechnungen und kann nicht gelöscht werden. Du kannst ihn stattdessen deaktivieren."
+    },
+    "detail": {
+      "contactSection": "Kontakt",
+      "personLabel": "Ansprechperson",
+      "notesSection": "Notizen",
+      "invoiceCount": "Rechnungen gesamt",
+      "revenuePaid": "Umsatz (bezahlt)",
+      "openOverdue": "Offen / Überfällig",
+      "invoicesTitle": "Rechnungen",
+      "noInvoices": "Noch keine Rechnungen.",
+      "invoiceNumber": "Nummer",
+      "invoiceDate": "Datum",
+      "invoiceDue": "Fällig",
+      "invoiceAmount": "Betrag",
+      "invoiceStatus": "Status",
+      "payablesOpen": "Verbindlichkeit (offen)",
+      "incomingTitle": "Eingangsrechnungen",
+      "incomingSummary": "{count} Belege · {paid} bezahlt",
+      "noIncoming": "Noch keine Eingangsrechnungen.",
+      "docNumber": "Belegnr.",
+      "docStatus": {
+        "PAID": "Bezahlt",
+        "DONE": "Offen",
+        "DRAFT": "Entwurf",
+        "PENDING": "Wartend",
+        "PROCESSING": "Verarbeitung",
+        "FAILED": "Fehler"
+      }
+    }
+  },
+  "team": {
+    "pageTitle": "Team",
+    "title": "Team",
+    "subtitle": "Verwalte Teammitglieder und deren Zugriffsrechte.",
+    "invite": "Einladen",
+    "inviteUser": "Nutzer einladen",
+    "editUser": "Nutzer bearbeiten",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Max Mustermann",
+      "firstName": "Vorname",
+      "firstNamePlaceholder": "Max",
+      "lastName": "Nachname",
+      "lastNamePlaceholder": "Mustermann",
+      "email": "E-Mail",
+      "emailPlaceholder": "name@firma.de",
+      "role": "Rolle",
+      "submit": "Einladung senden",
+      "save": "Speichern",
+      "cancel": "Abbrechen"
+    },
+    "roles": {
+      "SUPER_ADMIN": "Super-Admin",
+      "ADMIN": "Admin",
+      "USER": "Nutzer"
+    },
+    "table": {
+      "name": "Name",
+      "email": "E-Mail",
+      "role": "Rolle",
+      "status": "Status",
+      "created": "Erstellt",
+      "actions": "Aktionen"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Deaktiviert"
+    },
+    "actions": {
+      "edit": "Bearbeiten",
+      "deactivate": "Deaktivieren",
+      "activate": "Aktivieren"
+    },
+    "tempPassword": {
+      "title": "Temporäres Passwort",
+      "description": "Gib dieses Passwort an den neuen Nutzer weiter. Es wird nur einmalig angezeigt.",
+      "warning": "Dieses Passwort kann nach dem Schließen nicht erneut angezeigt werden.",
+      "emailSent": "Eine Einladungs-Mail mit dem Passwort wurde versendet.",
+      "emailNotSent": "Hinweis: Es konnte keine Einladungs-Mail versendet werden — bitte das Passwort manuell weitergeben.",
+      "copy": "Kopieren",
+      "copied": "Kopiert!",
+      "close": "Schließen"
+    },
+    "inviteNotice": {
+      "existingEmailed": "Nutzer wurde dem Workspace hinzugefügt. Eine Benachrichtigungs-Mail wurde versendet.",
+      "existingNoEmail": "Nutzer wurde dem Workspace hinzugefügt."
+    },
+    "empty": "Noch keine Teammitglieder.",
+    "noPermission": "Du hast keine Berechtigung für diese Aktion."
+  },
+  "auditLog": {
+    "pageTitle": "Audit-Log",
+    "title": "Audit-Log",
+    "subtitle": "Vollständiges Protokoll aller Aktionen — DSGVO-konform.",
+    "filters": {
+      "from": "Von",
+      "to": "Bis",
+      "action": "Aktion",
+      "user": "Nutzer",
+      "all": "Alle",
+      "apply": "Filtern",
+      "reset": "Zurücksetzen",
+      "refresh": "Aktualisieren",
+      "export": "Exportieren"
+    },
+    "table": {
+      "date": "Zeitpunkt",
+      "user": "Nutzer",
+      "action": "Aktion",
+      "entity": "Objekt",
+      "ip": "IP-Adresse"
+    },
+    "actions": {
+      "LOGIN": "Anmeldung",
+      "LOGOUT": "Abmeldung",
+      "USER_CREATED": "Nutzer erstellt",
+      "USER_UPDATED": "Nutzer bearbeitet",
+      "USER_DEACTIVATED": "Nutzer deaktiviert",
+      "USER_REACTIVATED": "Nutzer reaktiviert",
+      "PASSWORD_CHANGED": "Passwort geändert",
+      "SETTINGS_CHANGED": "Einstellungen geändert",
+      "CONTACT_CREATED": "Kontakt erstellt",
+      "CONTACT_UPDATED": "Kontakt bearbeitet",
+      "CONTACT_DELETED": "Kontakt gelöscht",
+      "CLIENT_CREATED": "Kunde erstellt",
+      "CLIENT_UPDATED": "Kunde bearbeitet",
+      "CLIENT_DELETED": "Kunde gelöscht",
+      "INVOICE_CREATED": "Rechnung erstellt",
+      "INVOICE_UPDATED": "Rechnung bearbeitet",
+      "INVOICE_SENT": "Rechnung versendet",
+      "INVOICE_PAID": "Rechnung bezahlt",
+      "INVOICE_CANCELLED": "Rechnung storniert",
+      "INVOICE_FINALIZED": "Rechnung finalisiert (GoBD)",
+      "INVOICE_CREDIT_NOTE_CREATED": "Gutschrift erstellt (GoBD-Storno)",
+      "BANK_TRANSACTION_IMPORTED": "Banktransaktion importiert",
+      "BANK_TRANSACTION_MATCHED": "Banktransaktion verarbeitet",
+      "BANK_TRANSACTION_AUTO_MATCHED": "Banktransaktion automatisch verarbeitet",
+      "INVOICE_PAYMENT_REVERTED": "Zahlung auf Rechnung zurückgenommen",
+      "BANK_TRANSACTION_CREATED": "Banktransaktion erstellt",
+      "BANK_ACCOUNT_CREATED": "Bankkonto erstellt",
+      "BANK_ACCOUNT_DELETED": "Bankkonto gelöscht",
+      "BANK_ACCOUNT_UPDATED": "Bankkonto bearbeitet",
+      "DOCUMENT_VIEWED": "Beleg angesehen",
+      "DOCUMENT_DOWNLOADED": "Beleg heruntergeladen",
+      "DOCUMENT_DELETED": "Beleg gelöscht",
+      "QUOTE_CREATED": "Angebot erstellt",
+      "QUOTE_UPDATED": "Angebot bearbeitet",
+      "QUOTE_SENT": "Angebot versendet",
+      "QUOTE_ACCEPTED": "Angebot angenommen",
+      "QUOTE_REJECTED": "Angebot abgelehnt",
+      "QUOTE_EXPIRED": "Angebot abgelaufen",
+      "QUOTE_CONVERTED": "Angebot weiterverarbeitet",
+      "QUOTE_DELETED": "Angebot gelöscht",
+      "ORDER_CONFIRMATION_CREATED": "Auftragsbestätigung erstellt",
+      "ORDER_CONFIRMATION_UPDATED": "Auftragsbestätigung bearbeitet",
+      "ORDER_CONFIRMATION_SENT": "Auftragsbestätigung versendet",
+      "ORDER_CONFIRMATION_INVOICED": "Auftragsbestätigung fakturiert",
+      "ORDER_CONFIRMATION_CANCELLED": "Auftragsbestätigung storniert",
+      "ORDER_CONFIRMATION_DELETED": "Auftragsbestätigung gelöscht",
+      "TWO_FACTOR_ENABLED": "Zwei-Faktor-Authentifizierung aktiviert",
+      "TWO_FACTOR_DISABLED": "Zwei-Faktor-Authentifizierung deaktiviert",
+      "COMMENT_CREATED": "Kommentar erstellt",
+      "COMMENT_RESOLVED": "Kommentar gelöst",
+      "MONTH_CLOSE_REOPENED": "Monatsabschluss wieder geöffnet",
+      "MONTH_CLOSE_FINALIZED": "Monatsabschluss finalisiert",
+      "MONTH_CLOSE_SUBMITTED": "Monatsabschluss eingereicht"
+    },
+    "system": "System",
+    "empty": "Keine Einträge."
+  },
+  "notifications": {
+    "title": "Benachrichtigungen",
+    "subtitleWithCount": "{count, plural, one {# neue Benachrichtigung} other {# neue Benachrichtigungen}}",
+    "empty": "Keine neuen Benachrichtigungen.",
+    "systemAuthor": "System",
+    "markAllRead": "Alle als gelesen",
+    "markRead": "Als gelesen markieren",
+    "markUnread": "Als ungelesen markieren",
+    "resolveItem": "Als erledigt markieren",
+    "openItem": "Öffnen",
+    "unreadDot": "Ungelesen",
+    "entity": {
+      "INVOICE": "Rechnung",
+      "DOCUMENT": "Beleg",
+      "JOURNAL_ENTRY": "Buchung",
+      "BANK_TRANSACTION": "Bankbewegung"
+    },
+    "monthCloseSubmittedLabel": "Monatsabschluss eingereicht",
+    "monthCloseSubmittedBody": "{month} {year} wurde zur Prüfung eingereicht.",
+    "monthCloseReopenedLabel": "Klärung notwendig",
+    "monthCloseReopenedBody": "Der Steuerberater bittet um Klärung für {month} {year}."
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "subtitle": "Konto- und Unternehmenskonfiguration.",
+    "noPermission": "Du hast keine Berechtigung, diese Einstellungen zu bearbeiten.",
+    "user": {
+      "title": "Benutzer",
+      "subtitle": "Deine persönlichen Konto-Einstellungen."
+    },
+    "emailInbound": {
+      "title": "Belege per E-Mail",
+      "subtitle": "Leite Rechnungen an deine persönliche Adresse weiter — wir erfassen sie automatisch als Entwurf.",
+      "cardTitle": "Persönliche Belegadresse",
+      "help": "Leite Rechnungen an diese Adresse weiter oder richte beim Absender eine Weiterleitungsregel ein. Anhänge (PDF, PNG, JPG) werden automatisch ausgelesen und als Beleg-Entwurf gespeichert.",
+      "aliasLabel": "Deine Belegadresse",
+      "copy": "Kopieren",
+      "copied": "Kopiert",
+      "inactiveHint": "Der Posteingang ist deaktiviert — eingehende Mails werden derzeit nicht verarbeitet.",
+      "rotate": "Adresse neu generieren",
+      "rotateHelp": "Erzeugt eine neue Adresse und macht die alte ungültig — sinnvoll bei Spam oder wenn die Adresse versehentlich öffentlich wurde.",
+      "rotateConfirm": "Neue Adresse generieren? Die bisherige Adresse funktioniert danach nicht mehr.",
+      "notConfigured": "Diese Funktion ist serverseitig noch nicht aktiviert (INBOUND_EMAIL_DOMAIN fehlt). Bitte wende dich an den Administrator.",
+      "allowlistTitle": "Absender-Allowlist (optional)",
+      "allowlistHelp": "Wenn gesetzt, werden nur Mails dieser Absender verarbeitet — eine Adresse pro Zeile. Leer lassen, um alle Absender zuzulassen (empfohlen für Weiterleitungen).",
+      "allowlistPlaceholder": "rechnungen@lieferant.de\nbuchhaltung@partner.com",
+      "save": "Speichern",
+      "saved": "Gespeichert",
+      "logTitle": "Letzte Eingänge",
+      "logHelp": "Die zuletzt empfangenen Mails und ihr Verarbeitungsstatus.",
+      "logEmpty": "Noch keine Mails empfangen.",
+      "noSubject": "(Kein Betreff)",
+      "docCount": "{count, plural, one {# Beleg} other {# Belege}}",
+      "status": {
+        "PROCESSED": "Verarbeitet",
+        "REJECTED": "Abgelehnt",
+        "NO_ATTACHMENT": "Kein Anhang",
+        "RECEIVED": "Empfangen"
+      }
+    },
+    "companyPage": {
+      "title": "Unternehmen",
+      "subtitle": "Stammdaten deines Unternehmens — diese erscheinen auf deinen Rechnungen."
+    },
+    "accountingPage": {
+      "title": "Buchhaltung & Rechnungen",
+      "subtitle": "Besteuerungsart, Kontenrahmen und Standardwerte für Rechnungen."
+    },
+    "numberRanges": {
+      "pageTitle": "Nummernkreise",
+      "title": "Nummernkreise",
+      "subtitle": "Konfiguriere die Nummerierung für Belege und Kontakte.",
+      "save": "Speichern",
+      "saved": "Gespeichert",
+      "placeholdersLabel": "Platzhalter",
+      "columns": {
+        "type": "Typ",
+        "format": "Format",
+        "next": "Nächste Nummer",
+        "digits": "Stellen",
+        "preview": "Vorschau"
+      },
+      "types": {
+        "INVOICE": "Rechnungen",
+        "CREDIT_NOTE": "Gutschriften",
+        "QUOTE": "Angebote",
+        "ORDER_CONFIRMATION": "Auftragsbestätigungen",
+        "DELIVERY_NOTE": "Lieferscheine",
+        "CUSTOMER": "Kundennummern (Debitoren)",
+        "SUPPLIER": "Lieferantennummern (Kreditoren)"
+      }
+    },
+    "appearancePage": {
+      "title": "Darstellung & Sprache",
+      "subtitle": "Passe Erscheinungsbild und Sprache der Oberfläche an."
+    },
+    "account": {
+      "title": "Passwort ändern",
+      "subtitle": "Setze ein neues Passwort für dein Konto. Aus Sicherheitsgründen ist dein aktuelles Passwort erforderlich.",
+      "currentPassword": "Aktuelles Passwort",
+      "newPassword": "Neues Passwort",
+      "confirmPassword": "Neues Passwort bestätigen",
+      "passwordHint": "Mindestens 12 Zeichen.",
+      "submit": "Passwort speichern",
+      "submitting": "Wird gespeichert…",
+      "success": "Passwort erfolgreich geändert."
+    },
+    "profile": {
+      "title": "Profil",
+      "subtitle": "Dein Name und deine E-Mail-Adresse.",
+      "name": "Name",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "submit": "Profil speichern",
+      "submitting": "Wird gespeichert…",
+      "success": "Profil erfolgreich aktualisiert."
+    },
+    "twoFactor": {
+      "title": "Zwei-Faktor-Authentifizierung",
+      "subtitle": "Schütze dein Konto mit einem zusätzlichen Einmalcode beim Anmelden.",
+      "statusOn": "Aktiviert",
+      "statusOff": "Deaktiviert",
+      "enableTitle": "Zwei-Faktor-Authentifizierung aktivieren",
+      "enableIntro": "Scanne den QR-Code mit deiner Authenticator-App (z.B. Google Authenticator, 1Password) und gib anschließend den angezeigten Code ein.",
+      "manualKey": "Oder Schlüssel manuell eingeben:",
+      "code": "Code aus der App",
+      "confirmPassword": "Passwort zur Bestätigung",
+      "enableSubmit": "Aktivieren",
+      "disableTitle": "Zwei-Faktor-Authentifizierung deaktivieren",
+      "disableIntro": "Gib dein Passwort ein, um die Zwei-Faktor-Authentifizierung zu deaktivieren.",
+      "disableSubmit": "Deaktivieren",
+      "submitting": "Wird gespeichert…",
+      "cancel": "Abbrechen",
+      "loading": "QR-Code wird erstellt…",
+      "loadError": "QR-Code konnte nicht erstellt werden. Bitte versuche es erneut."
+    },
+    "company": {
+      "title": "Unternehmen",
+      "subtitle": "Diese Daten erscheinen auf deinen Rechnungen.",
+      "tabs": {
+        "general": "Allgemein",
+        "taxes": "Steuern",
+        "bank": "Bankverbindung",
+        "invoices": "Rechnungen",
+        "logo": "Logo",
+        "appearance": "Darstellung & Sprache",
+        "accounting": "Buchhaltung"
+      },
+      "sections": {
+        "company": "Firma",
+        "address": "Adresse",
+        "contact": "Kontaktinformationen",
+        "taxes": "Steuer- und Registernummern",
+        "bank": "Zahlungsinformationen",
+        "invoices": "Rechnungseinstellungen",
+        "logo": "Logo",
+        "taxMode": "Besteuerungsart"
+      },
+      "sectionsHint": {
+        "company": "Grunddaten deines Unternehmens. Diese erscheinen auf Rechnungen und Geschäftsdokumenten.",
+        "address": "Wird als deine Geschäftsadresse verwendet und erscheint in der Fußzeile der Rechnung.",
+        "taxes": "Steuer- und Registernummern für ordnungsgemäße Geschäftsdokumente.",
+        "contact": "Damit dich deine Kunden bei Rückfragen erreichen können.",
+        "bank": "Deine Bankverbindung für Zahlungen – erscheint auf deinen Rechnungen.",
+        "logo": "Dein Firmenlogo erscheint im Kopfbereich der Rechnung."
+      },
+      "requiredNotice": "Mit * markierte Felder sind Pflichtangaben und werden für eine ordnungsgemäße Buchhaltung benötigt. Umsatzsteuer-ID oder Steuernummer sind für Geschäftsdokumente erforderlich, können aber leer bleiben, solange die Angaben noch nicht vorliegen.",
+      "taxMode": {
+        "STANDARD": "Regelbesteuerung",
+        "SMALL_BUSINESS": "Kleinunternehmerregelung"
+      },
+      "taxModeHint": {
+        "STANDARD": "Umsatzsteuer wird mit 19% bzw. 7% ausgewiesen.",
+        "SMALL_BUSINESS": "Keine Umsatzsteuer gemäß §19 UStG. Umsatzgrenze: 25.000 € / Jahr. (2026)"
+      },
+      "name": "Firmenname",
+      "nameSuffix": "Firmenzusatz",
+      "nameSuffixPlaceholder": "z.B. & Partner, e.K.",
+      "nameSuffixHint": "Wird auf Rechnungen an den Firmennamen angehängt.",
+      "legalForm": "Rechtsform",
+      "legalForms": {
+        "none": "Keine Auswahl",
+        "SELF_EMPLOYED": "Selbstständig",
+        "SOLE_PROPRIETOR": "Einzelunternehmer",
+        "PARTNERSHIP": "Personengesellschaft (z. B. GbR, OHG, KG)",
+        "NON_PROFIT": "Gemeinnützig / Verein",
+        "PRIVATE_COMPANY": "Gesellschaft in privater Hand (z. B. GmbH, UG, Ltd.)",
+        "CORPORATION": "Aktiengesellschaft"
+      },
+      "ownerName": "Inhaber",
+      "ownerNamePlaceholder": "Max Mustermann",
+      "managingDirector": "Geschäftsführer",
+      "address": "Straße & Hausnummer",
+      "city": "Stadt",
+      "zip": "PLZ",
+      "country": "Land",
+      "email": "E-Mail",
+      "senderEmail": "Absender-E-Mail (Rechnungsversand)",
+      "senderEmailHint": "Diese Adresse erscheint als Absender bei Rechnungs-E-Mails. Muss in Brevo als verifizierter Absender hinterlegt sein.",
+      "senderName": "Absendername",
+      "senderNameHint": "Anzeigename des Absenders, z.B. \"Accounting Team | zoonox\"",
+      "phone": "Telefon",
+      "website": "Website",
+      "taxId": "Steuernummer",
+      "vatId": "USt-IdNr.",
+      "registerCourt": "Amtsgericht",
+      "registerNumber": "Handelsregisternummer",
+      "bankName": "Kreditinstitut",
+      "iban": "IBAN",
+      "bic": "BIC",
+      "invoicePrefix": "Rechnungspräfix",
+      "defaultIntroText": "Standard-Einleitungstext",
+      "defaultIntroTextHint": "Wird automatisch über den Positionen auf neuen Rechnungen vorausgefüllt.",
+      "defaultIntroTextPlaceholder": "Sehr geehrte Damen und Herren,\n\nvielen Dank für Ihren Auftrag…",
+      "defaultNotes": "Standard-Fußnote",
+      "defaultNotesPlaceholder": "z.B. Zahlbar innerhalb von 14 Tagen ohne Abzug.",
+      "logo": "Logo",
+      "logoHint": "PNG oder JPG, max. 1 MB. Erscheint auf der Rechnung.",
+      "logoUpload": "Logo hochladen",
+      "logoReplace": "Ersetzen",
+      "logoRemove": "Logo entfernen",
+      "save": "Einstellungen speichern",
+      "saving": "Wird gespeichert…",
+      "saved": "Gespeichert.",
+      "skrType": "Kontenrahmen (SKR)",
+      "skrTypeHint": "Wähle deinen Standardkontenrahmen für die automatische Belegkategorisierung.",
+      "skr": {
+        "SKR03": "SKR 03 – Dienstleistung / Freie Berufe",
+        "SKR04": "SKR 04 – Industrie / Handel"
+      },
+      "profitLossMethod": {
+        "title": "Berechnungsart der Auswertung",
+        "hint": "Legt fest, nach welchem Prinzip die zentrale Gewinnermittlung (Reiter „EÜR/GuV“) rechnet. In der BWA kannst du dir bei Bedarf trotzdem ad hoc die jeweils andere Methode anzeigen lassen.",
+        "info": "EÜR (Einnahmen-Überschuss-Rechnung): Vereinfachte Gewinnermittlung nach §4 Abs. 3 EStG für Freiberufler und Kleingewerbe. Es zählt der Zeitpunkt der tatsächlichen Zahlung (Zufluss-/Abflussprinzip).\n\nGuV (Gewinn- und Verlustrechnung): Doppelte Buchführung mit periodengerechter Abgrenzung. Erträge und Aufwendungen werden im Zeitraum erfasst, dem sie wirtschaftlich zuzuordnen sind (Soll-/Realisationsprinzip).",
+        "EUR": "EÜR (Zufluss-/Abflussprinzip)",
+        "GUV": "GuV (Soll-/Realisationsprinzip)",
+        "desc": {
+          "EUR": "Gewinn = Einnahmen − Ausgaben zum Zahlungszeitpunkt.",
+          "GUV": "Periodengerechte Abgrenzung nach wirtschaftlicher Zuordnung."
+        }
+      }
+    },
+    "language": {
+      "title": "Sprache",
+      "description": "Legt die Sprache der gesamten Oberfläche fest.",
+      "de": "Deutsch",
+      "en": "English"
+    },
+    "appearance": {
+      "title": "Darstellung",
+      "description": "Wechsle zwischen hellem und dunklem Design.",
+      "dark": "Dunkel",
+      "light": "Hell"
+    }
+  },
+  "documents": {
+    "pageTitle": "Dokumente",
+    "subtitle": "Dokumentenverwaltung mit automatischer Erkennung.",
+    "listCta": "Beleg erfassen",
+    "source": {
+      "EMAIL": "E-Mail",
+      "MOBILE": "Mobil"
+    },
+    "new": {
+      "pageTitle": "Beleg erfassen",
+      "subtitle": "Datei hochladen, vom Handy aufnehmen oder Ausgabe manuell anlegen.",
+      "back": "Zurück zur Übersicht",
+      "manual": {
+        "title": "Ohne Beleg anlegen",
+        "hint": "Daten manuell eintragen, Beleg später nachreichen."
+      }
+    },
+    "supplierLink": {
+      "title": "Lieferant (Kreditor)",
+      "supplierNo": "Lieferantennr.",
+      "unlink": "Verknüpfung entfernen",
+      "ocrHint": "Aus OCR erkannt: „{name}“ — verknüpfe einen Lieferanten für die Kreditoren-OPOS.",
+      "searchPlaceholder": "Lieferanten suchen…",
+      "emptyAll": "Noch keine Lieferanten angelegt.",
+      "emptyFiltered": "Keine Treffer.",
+      "createAs": "Als Lieferant „{name}\" anlegen",
+      "createNewAdvanced": "Mit allen Stammdaten anlegen…"
+    },
+    "empty": "Noch keine Dokumente hochgeladen.",
+    "upload": {
+      "title": "Dokumente hochladen",
+      "hint": "PDF, PNG oder JPG — max. 10 MB. Drag & Drop oder klicken.",
+      "dropTitle": "Datei hier ablegen",
+      "dropHint": "Loslassen, um den Upload zu starten."
+    },
+    "mobileUpload": {
+      "button": "Per Handy",
+      "buttonTitle": "QR-Code für Foto-Upload vom Handy anzeigen",
+      "ctaTitle": "Per Handy",
+      "ctaHint": "Tippen, um QR zu scannen",
+      "title": "Beleg per Handy aufnehmen",
+      "subtitle": "Scanne den Code mit der Kamera-App deines Handys.",
+      "scanHint": "Öffne die Kamera deines Handys und richte sie auf den Code.",
+      "expired": "QR-Code abgelaufen — bitte schließen und neu öffnen.",
+      "expiredShort": "Abgelaufen",
+      "validFor": "Gültig noch {time}",
+      "waiting": "Warte auf Upload …",
+      "received": "{count} Beleg(e) empfangen",
+      "copyLink": "Link kopieren",
+      "close": "Schließen"
+    },
+    "documentType": {
+      "INCOME": "Einnahme",
+      "EXPENSE": "Ausgabe"
+    },
+    "table": {
+      "fileName": "Datei",
+      "date": "Datum",
+      "documentType": "Belegart",
+      "paymentStatus": "Status",
+      "recognizedAmount": "Betrag",
+      "supplier": "Lieferant",
+      "actions": "Aktionen"
+    },
+    "status": {
+      "PENDING": "Wartend",
+      "PROCESSING": "Wird verarbeitet",
+      "DONE": "Fertig",
+      "FAILED": "Fehlgeschlagen"
+    },
+    "category": {
+      "INVOICE_INCOMING": "Eingangsrechnung",
+      "RECEIPT": "Beleg",
+      "CONTRACT": "Vertrag",
+      "CREDIT_NOTE": "Gutschrift",
+      "DELIVERY_NOTE": "Lieferschein",
+      "OTHER": "Sonstiges"
+    },
+    "paymentStatus": {
+      "draft": "Entwurf",
+      "dueToday": "Heute fällig",
+      "processing": "Wird verarbeitet",
+      "overdue": "Überfällig",
+      "dueSoon": "Bald fällig",
+      "open": "Offen",
+      "noDueDate": "Kein Fälligkeitsdatum",
+      "paid": "Bezahlt"
+    },
+    "tabs": {
+      "all": "Alle",
+      "open": "Offen",
+      "overdue": "Überfällig",
+      "draft": "Entwurf",
+      "paid": "Bezahlt"
+    },
+    "filter": {
+      "search": "Datei oder Lieferant suchen…"
+    },
+    "actions": {
+      "edit": "Bearbeiten",
+      "markAsPaid": "Als bezahlt markieren",
+      "markAsOpen": "Als offen markieren",
+      "confirmUnpaid": "Zurücksetzen?"
+    },
+    "delete": "Löschen",
+    "confirmDelete": "Löschen?",
+    "detail": {
+      "saveFailed": "Speichern fehlgeschlagen — deine Eingaben wurden nicht übernommen.",
+      "download": "Herunterladen",
+      "deleteDocument": "Dokument löschen",
+      "deleteConfirm": "Löschen bestätigen",
+      "deleteCancel": "Abbrechen",
+      "noPreview": "Vorschau nicht verfügbar",
+      "downloadFile": "Datei herunterladen",
+      "zoomIn": "Vergrößern",
+      "zoomOut": "Verkleinern",
+      "back": "Zurück",
+      "attach": {
+        "title": "Beleg nachreichen",
+        "hint": "PDF, PNG oder JPG hier ablegen oder klicken — max. 10 MB.",
+        "uploading": "Beleg wird hochgeladen …",
+        "preserveHint": "Manuell eingetragene Felder bleiben unverändert"
+      },
+      "saveDraft": "Entwurf speichern",
+      "complete": "Fertigstellen",
+      "saving": "Wird gespeichert…",
+      "saved": "Gespeichert",
+      "addLineItem": "Position hinzufügen",
+      "removeLineItem": "Entfernen",
+      "lineItemsToggle": "Belegpositionen anzeigen",
+      "noLineItems": "Noch keine Positionen.",
+      "retryOcr": "OCR erneut starten",
+      "ocrRetrying": "Wird verarbeitet…",
+      "duplicates": {
+        "exactTitle": "Achtung: Identische Datei gefunden",
+        "semanticTitle": "Möglicher Duplikat-Beleg gefunden",
+        "exactHint": "Diese Datei wurde bereits einmal hochgeladen. Bitte prüfen, bevor du buchst.",
+        "semanticHint": "Ein bestehender Beleg hat denselben Lieferanten, Betrag und Belegdatum. Kann ein Duplikat sein — z.B. eine wiederkehrende Rechnung mit identischem Betrag ist aber legitim.",
+        "openExisting": "Bestehenden Beleg öffnen",
+        "andMore": "und {count} weitere",
+        "confirmTitle": "Evtl. doppelter Beleg",
+        "confirmBody": "Diese Datei wurde bereits einmal hochgeladen. Möchtest du den Beleg trotzdem speichern?",
+        "confirmFinalize": "Trotzdem fertigstellen",
+        "confirmDraft": "Trotzdem als Entwurf speichern",
+        "confirmCancel": "Abbrechen"
+      },
+      "validation": {
+        "title": "Bitte alle Pflichtfelder ausfüllen, um abzuschließen:",
+        "required": "Pflichtfeld"
+      },
+      "ocrProcessingTitle": "Dokument wird analysiert…",
+      "ocrProcessingSubtitle": "OCR-Erkennung läuft",
+      "cards": {
+        "openAmount": "Offener Betrag (Brutto)",
+        "grossAmount": "Bruttobetrag",
+        "info": "Weitere Informationen",
+        "file": "Dateiinformationen",
+        "ocrAnalysis": "OCR-Analyse",
+        "linkedInvoice": "Verknüpfte Rechnung",
+        "documentId": "Dokument-ID",
+        "lineItems": "Belegpositionen"
+      },
+      "inputVatKinds": {
+        "standard": "Keine — Rechnung mit ausgewiesener Vorsteuer",
+        "reverseChargeEuService": "§ 13b — Dienstleistung aus dem EU-Ausland",
+        "reverseChargeOther": "§ 13b — Bauleistung, Werklieferung, Schrott u. a.",
+        "reverseChargeGrEStG": "§ 13b — Umsatz nach GrEStG",
+        "intraCommunityAcquisition": "Innergemeinschaftlicher Erwerb (Warenkauf EU)",
+        "importVat": "Einfuhrumsatzsteuer"
+      },
+      "fields": {
+        "statedVatAmount": "Steuer laut Beleg (abweichend)",
+        "statedVatHint": "Leer lassen, wenn der Beleg keinen abweichenden Betrag ausweist.",
+        "statedVatOverride": "Dieser Betrag hat Vorrang vor der Berechnung aus Brutto und Satz.",
+        "inputVatKind": "Steuerschuldumkehr",
+        "inputVatKindHint": "Der Rechnungsbetrag gilt als Nettobetrag. Die Umsatzsteuer schuldest du selbst und ziehst sie — bei Regelbesteuerung — im selben Zug als Vorsteuer ab.",
+        "documentDate": "Belegdatum",
+        "deliveryDate": "Lieferdatum",
+        "deliveryDateRange": "Lieferzeitraum",
+        "deliveryDateFrom": "Von",
+        "deliveryDateTo": "Bis",
+        "deliveryDateSwitchRange": "Zeitraum",
+        "deliveryDateSwitchSingle": "Einzeldatum",
+        "dueDate": "Fälligkeitsdatum",
+        "dueSince": "Fällig seit {days} Tagen",
+        "supplier": "Lieferant",
+        "supplierCreate": "Als Lieferant anlegen",
+        "supplierLinked": "Verknüpft mit {name} — Kontakt öffnen",
+        "recognizedSupplier": "Erkannter Lieferant",
+        "currency": "Währung",
+        "exchangeRate": "Wechselkurs (EUR je 1)",
+        "fxHint": "Kurs {rate} EUR je 1 {currency} · ≈ {eur}",
+        "fxHintMissing": "Kein Kurs hinterlegt — gib den ECB-Tageskurs ein oder warte auf Auto-Lookup.",
+        "fxLookupFailed": "Kursabruf fehlgeschlagen: {error}",
+        "documentType": "Belegart",
+        "documentNumber": "Belegnummer",
+        "bookingAccount": "Buchungskonto (SKR)",
+        "bookingAccountPlaceholder": "Konto-Nr. eingeben",
+        "bookingAccountPicker": "Konto wählen",
+        "bookingAccountSearch": "Konto suchen…",
+        "bookingAccountAll": "Alle Konten",
+        "bookingAccountNoResults": "Keine Konten gefunden",
+        "category": "Kategorie",
+        "suggestedCategory": "Vorgeschlagen",
+        "fileType": "Dateityp",
+        "fileSize": "Dateigröße",
+        "uploadedAt": "Hochgeladen am",
+        "uploadedBy": "Von",
+        "ocrConfidence": "OCR-Genauigkeit",
+        "ocrInfoToggle": "OCR-Informationen umschalten",
+        "ocrConfidenceInfo": "Dieser Wert gibt an, wie sicher die KI bei den extrahierten Daten ist. Niedrigere Werte sollten sorgfältig manuell geprüft werden.",
+        "tags": "Tags",
+        "tagsPlaceholder": "Tag eingeben, Enter drücken",
+        "descriptionLabel": "Beschreibung",
+        "descriptionPlaceholder": "Wofür ist dieser Beleg?",
+        "description": "Bezeichnung",
+        "skrAccount": "SKR-Konto",
+        "depreciation": "Abschreibung",
+        "amount": "Betrag",
+        "vatRule": "Steuerschlüssel",
+        "vatRate": "MwSt.-Satz (%)",
+        "vatRatePlaceholder": "MwSt.-Satz wählen",
+        "vatAmount": "MwSt.",
+        "netAmount": "Netto",
+        "grossAmount": "Brutto",
+        "totalNet": "Netto gesamt",
+        "salesTax": "Umsatzsteuer",
+        "total": "Brutto gesamt",
+        "dueDateQuick": "+{days} Tage"
+      },
+      "editDocument": "Bearbeiten",
+      "editConfirm": {
+        "title": "Beleg bearbeiten?",
+        "description": "Dieser Beleg wurde bereits abgeschlossen.",
+        "cancel": "Abbrechen",
+        "confirm": "Trotzdem bearbeiten"
+      },
+      "payment": {
+        "modalTitle": "Als bezahlt markieren",
+        "paidAt": "Zahlungsdatum",
+        "useDocDate": "Zahlungsdatum = Belegdatum",
+        "method": "Zahlungsart",
+        "bankAccount": "Bankkonto",
+        "noBankAccount": "Noch kein aktives Bankkonto angelegt.",
+        "paidAmount": "Tatsächlich gezahlt",
+        "txSearchPlaceholder": "Suche: Name, Verwendungszweck, Betrag…",
+        "txLoading": "Lade Banktransaktionen…",
+        "txEmpty": "Keine offenen Transaktionen im Zeitraum.",
+        "txUnknownCounterpart": "Unbekannter Empfänger",
+        "txFilter": {
+          "label": "Filter",
+          "outflow": "Nur Ausgänge",
+          "inflow": "Nur Eingänge",
+          "all": "Alle"
+        },
+        "moreFilters": "Weitere Filter",
+        "diffDetected": "Abweichung zum Belegbetrag: {sign}{diff}. Bitte Grund angeben.",
+        "diffReasonPlaceholder": "Grund auswählen…",
+        "diffReason": {
+          "ROUNDING": "Rundungsdifferenz",
+          "SKONTO": "Skonto",
+          "FX": "Kursdifferenz",
+          "OTHER": "Sonstige Abweichung"
+        },
+        "diffNotePlaceholder": "Notiz (optional)",
+        "cancel": "Abbrechen",
+        "confirm": "Bestätigen",
+        "markAsPaid": "Als bezahlt markieren",
+        "paidLabel": "Bezahlt",
+        "paidTitle": "Zahlung erfasst",
+        "paidOn": "Bezahlt am {date}",
+        "markAsUnpaid": "Als unbezahlt markieren",
+        "unpaidConfirm": {
+          "title": "Zahlung zurücksetzen?",
+          "description": "Die Zahlung wird entfernt und der Beleg als offen markiert.",
+          "cancel": "Abbrechen",
+          "confirm": "Zurücksetzen"
+        },
+        "methods": {
+          "BANK_TRANSFER": "Überweisung",
+          "CASH": "Barzahlung",
+          "CREDIT_CARD": "Kreditkarte",
+          "PAYPAL": "PayPal"
+        },
+        "docSummary": {
+          "supplier": "Lieferant",
+          "gross": "Bruttobetrag",
+          "docDate": "Belegdatum",
+          "dueDate": "Fällig"
+        }
+      }
+    },
+    "skr": {
+      "SKR03": "SKR 03 (Dienstleistung)",
+      "SKR04": "SKR 04 (Industrie/Handel)"
+    }
+  },
+  "bank": {
+    "connect": {
+      "connect": "Bank verbinden",
+      "title": "Bank verbinden",
+      "wizardTitle": "Bank direkt verbinden",
+      "intro": "Wähle deine Bank aus, um Konten und Umsätze read-only über Open Banking (PSD2) zu verbinden.",
+      "loading": "Banken werden geladen …",
+      "empty": "Keine Banken für dieses Land verfügbar.",
+      "noResults": "Keine Bank gefunden.",
+      "searchPlaceholder": "Bank suchen (Name, z. B. „Sparkasse Köln“) …",
+      "close": "Schließen",
+      "success": "Bank verbunden: {accounts} Konto/Konten verknüpft, {imported} Umsätze importiert, {matched} automatisch zugeordnet.",
+      "error": "Bankverbindung fehlgeschlagen ({code}).",
+      "psuType": {
+        "label": "Kontotyp",
+        "business": "Geschäftlich",
+        "personal": "Privat"
+      },
+      "connections": {
+        "title": "Bankverbindungen",
+        "accountCount": "{count, plural, =0 {Keine Konten} one {# Konto} other {# Konten}}",
+        "lastSync": "Sync {when}",
+        "validUntil": "gültig bis {date}",
+        "synced": "{imported} neue Umsätze importiert.",
+        "sync": "Jetzt synchronisieren",
+        "reconnect": "Neu verbinden",
+        "disconnect": "Verbindung trennen",
+        "disconnectConfirm": "Bankverbindung wirklich trennen? Bereits importierte Umsätze bleiben erhalten (GoBD-Aufbewahrung).",
+        "consent": {
+          "title": "Zustimmungs-Details",
+          "scope": "Umfang",
+          "scopeValue": "Nur Lesen: Konten, Salden, Umsätze",
+          "psuType": "Kontotyp",
+          "authorizedAt": "Zustimmung erteilt",
+          "validUntil": "Gültig bis"
+        },
+        "status": {
+          "PENDING": "Ausstehend",
+          "ACTIVE": "Aktiv",
+          "EXPIRED": "Abgelaufen",
+          "REVOKED": "Getrennt",
+          "ERROR": "Fehler"
+        }
+      }
+    },
+    "overview": {
+      "title": "Bank-Übersicht",
+      "subtitle": "Konten und letzte Bewegungen auf einen Blick.",
+      "totalBalance": "Gesamtsaldo",
+      "unmatchedTransactions": "Offene Transaktionen",
+      "monthlyIncome": "Einnahmen (Monat)",
+      "monthlyExpense": "Ausgaben (Monat)",
+      "recentTransactions": "Letzte Transaktionen",
+      "noAccounts": "Noch keine Bankkonten angelegt.",
+      "addFirstAccount": "Erstes Konto anlegen"
+    },
+    "accounts": {
+      "title": "Bankkonten",
+      "add": "Konto hinzufügen",
+      "edit": "Konto bearbeiten",
+      "editTitle": "Konto bearbeiten",
+      "editClearingUnsupported": "Verrechnungskonten können nur über die Konten-Übersicht bearbeitet werden.",
+      "delete": "Löschen",
+      "cancel": "Abbrechen",
+      "save": "Speichern",
+      "name": "Kontoname",
+      "namePlaceholder": "z.B. Geschäftskonto",
+      "bankName": "Bank",
+      "bankNamePlaceholder": "z.B. Sparkasse",
+      "iban": "IBAN",
+      "ibanPlaceholder": "DE89 3704 0044 0532 0130 00",
+      "ibanInvalid": "Ungültige IBAN",
+      "bic": "BIC",
+      "bicPlaceholder": "DEUTDEDB",
+      "openingBalance": "Anfangssaldo",
+      "bookingAccountLabel": "Buchungskonto",
+      "isDefault": "Standardkonto",
+      "balance": "Saldo",
+      "empty": "Noch keine Bankkonten angelegt.",
+      "deleteConfirm": "Bankkonto und alle zugehörigen Transaktionen löschen?",
+      "transactions": "{count} Transaktionen",
+      "transactionsCountSuffix": "Transaktionen",
+      "clearingBadge": "Verrechnung",
+      "addDialog": {
+        "title": "Neues Konto",
+        "chooseType": "Welche Art von Konto möchtest du anlegen?",
+        "back": "Zurück"
+      },
+      "type": {
+        "bank": {
+          "title": "Bankkonto",
+          "desc": "Echtes Bankkonto mit IBAN"
+        },
+        "clearing": {
+          "title": "Verrechnungskonto",
+          "desc": "Virtuelles Hilfskonto für Buchungen"
+        }
+      },
+      "bankFlow": {
+        "tab": {
+          "manual": "Manuell",
+          "csv": "CSV-Import",
+          "choose": "Bank auswählen"
+        },
+        "manualDesc": "Konto selbst anlegen und Transaktionen manuell erfassen.",
+        "csvDesc": "Regelmäßig eine CSV-Datei aus dem Online-Banking importieren.",
+        "orPickBank": "Oder Bank wählen"
+      },
+      "csv": {
+        "accountName": "Kontoname",
+        "accountNamePlaceholder": "z.B. Commerzbank Geschäftskonto",
+        "iban": "IBAN",
+        "bookingAccount": "Buchungskonto",
+        "info": "Exportiere deine Zahlungen als CSV-Datei aus deinem Online-Banking. Anschließend importierst du die Datei in zoonox.",
+        "selectedBank": "Ausgewählte Bank",
+        "continue": "Weiter",
+        "mappingStep": {
+          "info": "Lade optional eine Beispiel-CSV-Datei von deiner Bank hoch. Du kannst das überspringen und beim ersten Import nachholen.",
+          "uploadTitle": "CSV-Datei hochladen",
+          "uploadHint": "Wir nutzen die Datei nur zum Zuordnen der Spalten. Nichts wird importiert.",
+          "pickFile": "Datei auswählen",
+          "pickDifferent": "Eine andere Datei auswählen",
+          "mapperHint": "Weise jede Spalte unten zu. Wir werden uns dies für zukünftige Imports merken.",
+          "back": "Zurück",
+          "skip": "Für jetzt überspringen",
+          "confirm": "Zuordnung speichern & abschließen",
+          "errors": {
+            "unsupportedType": "Dateityp wird nicht unterstützt. Bitte eine CSV-Datei hochladen.",
+            "readFailed": "Konnte die Datei nicht lesen. Bitte versuche es erneut."
+          }
+        }        
+      },
+      "clearing": {
+        "accountName": "Kontoname",
+        "bookingAccount": "Buchungskonto",
+        "info": "Ein Verrechnungskonto ist ein buchhalterisches Hilfskonto und kein echtes Bankkonto. Auf dem Konto werden virtuelle Zahlungen erzeugt, um Belege und Rechnungen auszubuchen."
+      },
+      "banks": {
+        "moreBanks": "+5000 weitere Banken in Deutschland und Österreich",
+        "benefit1": "Eingehende Zahlungen werden automatisch erfasst.",
+        "benefit2": "Überweisungen ohne Umwege direkt in zoonox.",
+        "benefit3": "Sieh auf einen Blick, ob ein Beleg fehlt.",
+        "searchPlaceholder": "Bank suchen…",
+        "noResults": "Keine Bank gefunden. Wähle 'CSV-Import' oder 'Manuell'."
+      },
+      "bookingAccount": {
+        "placeholder": "Konto auswählen…",
+        "groupBank": "1800–1859 · Bank",
+        "groupLiabilities": "1700–1739 · Verbindlichkeiten",
+        "groupClearing": "2180–2199 · Verrechnungskonten",
+        "groupOther": "Sonstige"
+      }
+    },
+    "transactions": {
+      "title": "Transaktionen",
+      "add": "Transaktion erfassen",
+      "import": "Importieren",
+      "autoMatch": "Auto-Zuordnung",
+      "autoMatchRunning": "Wird ausgeführt…",
+      "autoMatchTooltip": "Offene Belege und Rechnungen werden automatisch mit Transaktionen abgeglichen (Betrag, Rechnungsnummer im Verwendungszweck, Name, Datum).",
+      "autoMatchedTooltip": "Automatisch zugeordnet",
+      "linkedEntity": {
+        "kindDocument": "Beleg",
+        "kindInvoice": "Rechnung",
+        "amount": "Betrag",
+        "date": "Datum",
+        "openDocument": "Beleg im neuen Tab öffnen",
+        "openInvoice": "Rechnung im neuen Tab öffnen",
+        "close": "Schließen"
+      },
+      "autoMatchResult": {
+        "title": "Auto-Zuordnung abgeschlossen",
+        "scannedSummary": "{count} offene Transaktionen geprüft.",
+        "matched": "Zugeordnet",
+        "suggestions": "Vorschläge",
+        "unresolved": "Keine Treffer",
+        "suggestionsHint": "Klicke auf eine offene Transaktion, um den Vorschlag zu prüfen und manuell zu bestätigen.",
+        "close": "Schließen"
+      },
+      "date": "Buchungsdatum",
+      "valueDate": "Wertstellung",
+      "amount": "Betrag",
+      "counterpart": "Name",
+      "counterpartIban": "Gegenkonto IBAN",
+      "purpose": "Verwendungszweck",
+      "purposePlaceholder": "Verwendungszweck eingeben",
+      "category": "Kategorie",
+      "empty": "Keine Transaktionen vorhanden.",
+      "matchDocument": "Beleg oder Rechnung zuordnen",
+      "unmatch": "Zuordnung aufheben",
+      "ignore": "Ignorieren",
+      "unignore": "Wiederherstellen",
+      "income": "Einnahme",
+      "expense": "Ausgabe",
+      "privateBadge": "Privat",
+      "privateTooltip": "Privatentnahme / -einlage — wird nicht in Einnahmen/Ausgaben berücksichtigt.",
+      "selectAll": "Alle auswählen",
+      "selectRow": "Zeile auswählen",
+      "selectedCount": "{count} ausgewählt",
+      "bulkMarkPrivate": "Als privat markieren",
+      "bulkUnmarkPrivate": "Privat aufheben",
+      "bulkIgnore": "Ignorieren",
+      "bulkUnignore": "Wiederherstellen",
+      "bulkDelete": "Löschen",
+      "confirmBulkDelete": "{count} Transaktionen unwiderruflich löschen?",
+      "bulkClear": "Auswahl aufheben",
+      "statusLabel": "Status",
+      "editAccount": "Konto bearbeiten",
+      "menu": {
+        "more": "Mehr Aktionen",
+        "markPrivate": "Als privat markieren",
+        "unmarkPrivate": "Private Markierung entfernen",
+        "createReceipt": "Beleg erstellen",
+        "delete": "Löschen",
+        "flipSign": "Vorzeichen umkehren"
+      },
+      "deleteDialog": {
+        "title": "Transaktion löschen?",
+        "message": "Die Transaktion wird dauerhaft entfernt.",
+        "hint": "Hinweis: Falls die Transaktion aus einem Import stammt, kann sie beim nächsten Import erneut erscheinen.",
+        "cancel": "Abbrechen",
+        "confirm": "Löschen"
+      },
+      "status": {
+        "UNMATCHED": "Offen",
+        "MATCHED": "Zugeordnet",
+        "AUTO_MATCHED": "Auto-Zuordnung",
+        "IGNORED": "Ignoriert"
+      },
+      "ignoreDialog": {
+        "title": "Transaktion ignorieren?",
+        "message": "Ignorierte Transaktionen werden nicht im Saldo, bei Einnahmen oder Ausgaben berücksichtigt.",
+        "reversibleHint": "Diese Aktion kann jederzeit rückgängig gemacht werden.",
+        "confirm": "Ignorieren",
+        "cancel": "Abbrechen",
+        "unknownCounterpart": "Unbekannter Empfänger"
+      },
+      "filter": {
+        "search": "Suchen…",
+        "allStatuses": "Alle Status",
+        "dateFrom": "Von",
+        "dateTo": "Bis"
+      },
+      "runningBalance": "Saldo"
+    },
+    "import": {
+      "title": "CSV-Import",
+      "selectFile": "Datei auswählen",
+      "dropHint": "CSV, MT940 oder CAMT.053 — Drag & Drop oder klicken.",
+      "supportedFormats": "Sparkasse, Deutsche Bank, N26, ING, Volksbank und weitere",
+      "preview": "Vorschau",
+      "importCount": "{count} Transaktionen werden importiert",
+      "duplicatesSkipped": "{count} Duplikate übersprungen",
+      "importSuccess": "{count} Transaktionen erfolgreich importiert",
+      "autoMatchSummary": "{count} Belege automatisch zugeordnet.",
+      "autoMatchSuggestions": "{count} weitere Vorschläge zur Prüfung.",
+      "importError": "Keine gültigen Zeilen gefunden.",
+      "confirm": "Importieren",
+      "cancel": "Abbrechen",
+      "delimiter": "Trennzeichen",
+      "comma": "Komma",
+      "semicolon": "Semikolon",
+      "tab": "Tab",
+      "pipe": "Pipe",
+      "firstRowHeader": "Erste Zeile ist Überschrift",
+      "detected": "{cols} Spalten · {rows} Zeilen erkannt",
+      "onlyOneColumn": "Nur eine Spalte erkannt — bitte anderes Trennzeichen wählen.",
+      "mapColumns": "Spalten zuordnen",
+      "ignoreCol": "Nicht importieren",
+      "previewValid": "{count} gültige Zeilen in Vorschau",
+      "field_date": "Buchungsdatum",
+      "field_amount": "Betrag (Vorzeichen)",
+      "field_counterpartName": "Name",
+      "field_counterpartIban": "IBAN",
+      "field_purpose": "Verwendungszweck",
+      "usingSavedMapping": "Gespeichertes Spalten-Mapping wird verwendet",
+      "savedMappingSummary": "Datum: {date} · Betrag: {amount} · Verwendungszweck: {purpose}",
+      "editMapping": "Mapping bearbeiten",
+      "readyToImport": "Transaktionen bereit zum Import",
+
+      "presetBroken": "Gespeichertes Mapping passt nicht mehr zu dieser Datei",
+      "presetBrokenFields": "Fehlende Spalten: {fields}. Bitte neu zuordnen und speichern.",
+
+      "saveMappingForNextTime": "Mapping für zukünftige Imports speichern",
+      "updateSavedMapping": "Gespeichertes Mapping für dieses Konto aktualisieren",
+
+      "field_credit": "Gutschrift",
+      "field_debit": "Belastung",
+
+      "importOptions": "Importoptionen",
+      "optionsHint": "Bitte ordne die Spalten korrekt zu. Wähle dazu die passende Kategorie aus deiner CSV-Datei aus.",
+      "numberFormat": "Zahlenformat",
+      "dateFormat": "Datumsformat",
+      "encoding": "Encoding",
+      "rowRange": "Tabellenzeilen",
+      "rowFrom": "Von",
+      "rowTo": "Bis",
+      "autoDetect": "automatisch",
+      "splitCreditDebit": "Gutschrift & Belastung einblenden",
+      "noneSelected": "Keine Auswahl",
+      "previewTitle": "Vorschau"
+    },
+    "cashbook": {
+      "vatRate": "Umsatzsteuer",
+      "vatRateNone": "Ohne Umsatzsteuer",
+      "vatRateSplit": "Netto {net} · Umsatzsteuer {vat}",
+      "title": "Kassenbuch",
+      "subtitle": "Bareinnahmen und -ausgaben erfassen.",
+      "add": "Eintrag hinzufügen",
+      "edit": "Eintrag bearbeiten",
+      "date": "Datum",
+      "description": "Beschreibung",
+      "descriptionPlaceholder": "z.B. Büromaterial",
+      "amount": "Betrag",
+      "type": "Art",
+      "income": "Einnahme",
+      "expense": "Ausgabe",
+      "runningTotal": "Kassenbestand",
+      "empty": "Noch keine Einträge im Kassenbuch.",
+      "openingBalance": "Anfangsbestand",
+      "closingBalance": "Endbestand",
+      "deleteConfirm": "Eintrag wirklich löschen?",
+      "document": "Beleg",
+      "noDocument": "Kein Beleg"
+    },
+    "matching": {
+      "title": "Beleg oder Rechnung zuordnen",
+      "search": "Beleg oder Rechnung suchen…",
+      "noResults": "Keine passenden Einträge gefunden.",
+      "suggested": "Vorschläge",
+      "amount": "Betrag",
+      "date": "Datum",
+      "supplier": "Lieferant",
+      "tab_all": "Alle",
+      "tab_document": "Belege",
+      "tab_invoice": "Rechnungen",
+      "kind_document": "Beleg",
+      "kind_invoice": "Rechnung",
+      "signMismatch": "Vorzeichen passt nicht: ausgehende Rechnung benötigt eingehende Zahlung (und umgekehrt).",
+      "signMismatchBadge": "Vorzeichen",
+      "suggestionBadge": "Vorschlag",
+      "suggestionTooltip": "Wahrscheinlichster Treffer auf Basis von Betrag, Verwendungszweck und Name.",
+      "mismatch": {
+        "title": "Beträge stimmen nicht überein",
+        "message": "Der Betrag der Transaktion weicht vom gewählten Beleg/der Rechnung ab. Möchtest du trotzdem verknüpfen?",
+        "transaction": "Transaktion",
+        "invoice": "Rechnung",
+        "document": "Beleg",
+        "diff": "Abweichung: {amount}",
+        "cancel": "Abbrechen",
+        "confirm": "Trotzdem verknüpfen"
+      }
+    }
+  },
+  "reports": {
+    "openItems": {
+      "pageTitle": "Offene Posten",
+      "title": "Offene Posten (OPOS)",
+      "subtitle": "Unbezahlte Kunden- und Lieferantenrechnungen.",
+      "mode": {
+        "label": "Zeige",
+        "RECEIVABLES": "Offene Kundenrechnungen",
+        "PAYABLES": "Offene Lieferantenrechnungen",
+        "BOTH": "Beide"
+      },
+      "contactFilter": {
+        "label": "Kontakt",
+        "all": "Alle Kontakte"
+      },
+      "print": "Drucken",
+      "table": {
+        "number": "Belegnr.",
+        "date": "Datum",
+        "dueDate": "Fällig",
+        "contact": "Kontakt",
+        "contactNumber": "Konto-Nr.",
+        "amount": "Betrag",
+        "daysOverdue": "Tage"
+      },
+      "section": {
+        "receivables": "Offene Kundenrechnungen (Forderungen)",
+        "payables": "Offene Lieferantenrechnungen (Verbindlichkeiten)"
+      },
+      "empty": {
+        "receivables": "Aktuell keine offenen Kundenrechnungen.",
+        "payables": "Aktuell keine offenen Lieferantenrechnungen."
+      },
+      "summary": {
+        "title": "Zusammenfassung",
+        "fromCustomers": "Von Kunden insgesamt zu erhalten",
+        "toSuppliers": "An Lieferanten insgesamt zu zahlen",
+        "net": "Saldo noch insgesamt zu erhalten",
+        "asOf": "Stand"
+      },
+      "overdueBadge": "{days} Tage überfällig"
+    },
+    "bwa": {
+      "pageTitle": "BWA",
+      "title": "Betriebswirtschaftliche Auswertung",
+      "subtitle": "Monatlicher Überblick über Ertragslage und Kostenstruktur — mit Vorjahresvergleich, ideal für Bank und Steuerberater.",
+      "controls": {
+        "year": "Geschäftsjahr",
+        "method": "Berechnungsart",
+        "methodEUR": "EÜR (Zufluss-/Abflussprinzip)",
+        "methodGuV": "GuV (Soll-/Realisationsprinzip)",
+        "compare": "Vorjahresvergleich",
+        "download": "PDF herunterladen"
+      },
+      "rows": {
+        "umsatzerloese": "1. Umsatzerlöse",
+        "gesamtleistung": "2. Gesamtleistung",
+        "wareneinsatz": "3. Material-/Wareneinsatz",
+        "rohertrag": "4. Rohertrag",
+        "personalkosten": "5. Personalkosten",
+        "raumkosten": "6. Raumkosten",
+        "versicherungen": "7. Versicherungen / Beiträge",
+        "kfz_kosten": "8. Kfz-Kosten",
+        "werbe_reisekosten": "9. Werbe- und Reisekosten",
+        "vertriebskosten": "10. Vertriebskosten",
+        "abschreibungen": "11. Abschreibungen",
+        "sonstige_kosten": "12. Sonstige Kosten",
+        "gesamtkosten": "13. Gesamtkosten",
+        "betriebsergebnis": "14. Betriebsergebnis (vorläufig)"
+      },
+      "table": {
+        "category": "Position",
+        "yearTotal": "Summe {year}",
+        "yearTotalPrior": "Summe {year} (Vorjahr)",
+        "yearChange": "Δ ggü. Vorjahr",
+        "months": {
+          "1": "Jan", "2": "Feb", "3": "Mär", "4": "Apr",
+          "5": "Mai", "6": "Jun", "7": "Jul", "8": "Aug",
+          "9": "Sep", "10": "Okt", "11": "Nov", "12": "Dez"
+        }
+      },
+      "summary": {
+        "revenue": "Umsatzerlöse",
+        "grossProfit": "Rohertrag",
+        "operatingResult": "Betriebsergebnis",
+        "margin": "Marge",
+        "vsPrior": "ggü. Vorjahr"
+      },
+      "vat": {
+        "title": "Nachrichtlich: Umsatzsteuer im Geschäftsjahr",
+        "salesVat": "Umsatzsteuer (vereinnahmt)",
+        "inputVat": "Vorsteuer (gezahlt)",
+        "balance": "Zahllast / Erstattung"
+      },
+      "disclaimer": "Vorläufige Auswertung auf Basis der zum Erstellungszeitpunkt verbuchten Geschäftsvorfälle. Endgültige Werte ergeben sich erst aus dem testierten Jahresabschluss bzw. der steuerlichen Veranlagung.",
+      "pdf": {
+        "kicker": "BWA · Kurzfristige Erfolgsrechnung",
+        "title": "Betriebswirtschaftliche Auswertung",
+        "period": "Geschäftsjahr",
+        "createdAt": "Erstellt am",
+        "method": "Methode",
+        "preparedBy": "Erstellt mit zoonox am {date}. Beträge in Euro.",
+        "signaturePlace": "Ort, Datum",
+        "signatureLine": "Unterschrift"
+      }
+    }
+  },
+  "taxes": {
+    "pageTitle": "Steuern",
+    "title": "Steuern",
+    "subtitle": "Steuerberichte und -auswertungen",
+    "tabs": {
+      "vatReturn": "UStVA",
+      "profitLoss": "EÜR",
+      "profitLossGuV": "GuV",
+      "journal": "Journal",
+      "datevExport": "DATEV-Export"
+    },
+    "datevExport": {
+      "pageTitle": "DATEV-Export",
+      "title": "DATEV-Export",
+      "subtitle": "Buchungsdaten und Belegbilder als DATEV-konforme ZIP an den Steuerberater übergeben.",
+      "noPermission": "Du hast keine Berechtigung, einen DATEV-Export zu starten."
+    },
+    "journal": {
+      "pageTitle": "Buchungsjournal",
+      "title": "Buchungsjournal",
+      "subtitle": "Lückenlose, revisionssichere Liste aller Buchungen (GoBD).",
+      "empty": "Keine Buchungen gefunden.",
+      "truncated": "Es werden die neuesten 200 Einträge angezeigt. Schränke den Zeitraum weiter ein.",
+      "filters": {
+        "searchPlaceholder": "Nummer, Beschreibung oder Quell-ID suchen…",
+        "allSources": "Alle Quellen",
+        "allStatuses": "Alle Status"
+      },
+      "table": {
+        "number": "Nr.",
+        "date": "Datum",
+        "description": "Beschreibung",
+        "source": "Quelle",
+        "status": "Status",
+        "total": "Betrag"
+      },
+      "sourceType": {
+        "INVOICE": "Ausgangsrechnung",
+        "INVOICE_PAYMENT": "Zahlung (Rechnung)",
+        "DOCUMENT": "Eingangsbeleg",
+        "DOCUMENT_PAYMENT": "Zahlung (Beleg)",
+        "BANK_TRANSACTION": "Bankumsatz",
+        "MANUAL": "Manuell",
+        "FIXED_ASSET_DEPRECIATION": "Abschreibung Anlagevermögen",
+        "FIXED_ASSET_ACQUISITION": "Anlagevermögen Anschaffung"
+      },
+      "status": {
+        "POSTED": "Gebucht",
+        "REVERSED": "Storniert"
+      },
+      "detail": {
+        "pageTitle": "Buchungsdetail",
+        "title": "Buchung #{number}",
+        "back": "Zurück zum Journal",
+        "date": "Buchungsdatum",
+        "sourceType": "Quelltyp",
+        "source": "Quell-ID",
+        "createdBy": "Erfasst von",
+        "system": "System",
+        "createdAt": "Angelegt",
+        "reversedAt": "Storniert am",
+        "reversedBy": "Storniert durch",
+        "reverses": "Storniert",
+        "linesTitle": "Buchungszeilen",
+        "lines": {
+          "account": "Konto",
+          "description": "Beschreibung",
+          "vatCode": "Steuerschlüssel",
+          "debit": "Soll",
+          "credit": "Haben",
+          "totals": "Summen"
+        }
+      }
+    },
+    "vatReturn": {
+      "pageTitle": "UStVA",
+      "title": "Umsatzsteuer-Voranmeldung",
+      "subtitle": "Übersicht über Umsatzsteuer und abziehbare Vorsteuer",
+      "period": "Zeitraum",
+      "periodMonthly": "Monatlich",
+      "periodQuarterly": "Vierteljährlich",
+      "year": "Jahr",
+      "month": "Monat",
+      "quarter": "Quartal",
+      "quarterLabel": "Q{quarter}",
+      "months": {
+        "1": "Januar",
+        "2": "Februar",
+        "3": "März",
+        "4": "April",
+        "5": "Mai",
+        "6": "Juni",
+        "7": "Juli",
+        "8": "August",
+        "9": "September",
+        "10": "Oktober",
+        "11": "November",
+        "12": "Dezember"
+      },
+      "summary": {
+        "title": "Zusammenfassung",
+        "salesTax": "Umsatzsteuer (vereinnahmt)",
+        "inputTax": "Vorsteuer (gezahlt)",
+        "payable": "Zahllast",
+        "payableHint": "Dieser Betrag ist an das Finanzamt abzuführen.",
+        "refund": "Erstattung",
+        "refundHint": "Dieser Betrag wird vom Finanzamt erstattet.",
+        "balanced": "Ausgeglichen"
+      },
+      "breakdown": {
+        "title": "Aufschlüsselung",
+        "rate": "Satz",
+        "net": "Netto",
+        "vat": "USt-Betrag",
+        "salesStandard": "Steuerpflichtige Umsätze 19 %",
+        "salesReduced": "Steuerpflichtige Umsätze 7 %",
+        "inputStandard": "Vorsteuer aus Eingangsrechnungen 19 %",
+        "inputReduced": "Vorsteuer aus Eingangsrechnungen 7 %"
+      },
+      "empty": "Keine Buchungen im gewählten Zeitraum.",
+      "elster": {
+        "transferTitle": "{count, plural, =0 {Nichts zu übertragen} one {Diese Zahl in Mein ELSTER eintragen} other {Diese # Zahlen in Mein ELSTER eintragen}}",
+        "transferHint": "Die Feldbezeichnungen sind dieselben wie in Mein ELSTER. Betrag kopieren und im gleichnamigen Feld einfügen.",
+        "transferEmpty": "In diesem Zeitraum gibt es keine Werte für die Voranmeldung.",
+        "controlTitle": "Kontrolle",
+        "controlHint": "Diese Werte trägst du nicht ein — ELSTER rechnet sie selbst aus. Stimmen sie nach der Übertragung mit dieser Anzeige überein, hast du dich nicht vertippt.",
+        "sectionLabel": "Abschnitt {number} · {title}",
+        "showFullForm": "Vollständigen Vordruck anzeigen",
+        "hideFullForm": "Vollständigen Vordruck ausblenden",
+        "fullFormHint": "Alle Felder des amtlichen Vordrucks USt 1 A, auch die leeren. Leere Felder lässt du in ELSTER frei.",
+        "dauerfristTitle": "Nutzt du eine Dauerfristverlängerung?",
+        "dauerfristHint": "Dann trägst du die festgesetzte Sondervorauszahlung in der Regel in der letzten Voranmeldung des Jahres selbst in Kz 39 (Zeile 49) ein. Wir füllen dieses Feld nicht, weil uns der festgesetzte Betrag nicht vorliegt. Der Antrag selbst läuft über den Vordruck USt 1 H.",
+        "title": "UStVA-Formular",
+        "subtitle": "Die Zahlen in der Reihenfolge des amtlichen Vordrucks — zum Übertragen nach Mein ELSTER",
+        "openForm": "Formularansicht für ELSTER",
+        "backToOverview": "Zurück zur Übersicht",
+        "formYear": "Vordruck {year}",
+        "fallbackTitle": "Formularstand {formYear} für {requestedYear} verwendet",
+        "fallbackHint": "Für {requestedYear} liegt uns noch kein eigenes Vordruckmuster vor. Angezeigt wird der Stand {formYear}. Bitte vor der Übermittlung mit dem aktuellen Formular in Mein ELSTER abgleichen.",
+        "zeile": "Zeile",
+        "kz": "Kz",
+        "field": "Bezeichnung",
+        "amount": "Betrag",
+        "copy": "Kopieren",
+        "copied": "Kopiert",
+        "computed": "berechnet",
+        "notFilled": "nicht befüllt",
+        "payableTitle": "Verbleibende Umsatzsteuer-Vorauszahlung",
+        "refundTitle": "Verbleibender Überschuss",
+        "payableHint": "Kz 83, Zeile 50 — dieser Betrag ist an das Finanzamt abzuführen.",
+        "refundHint": "Kz 83, Zeile 50 — dieser Betrag wird vom Finanzamt erstattet. In ELSTER mit Minuszeichen eintragen.",
+        "balancedHint": "Kz 83, Zeile 50 — bitte in jedem Fall ausfüllen, auch bei 0,00 €.",
+        "roundingTitle": "Rundungsdifferenz zur Buchhaltung: {amount}",
+        "roundingHint": "ELSTER rechnet die Steuer aus der auf volle Euro gerundeten Bemessungsgrundlage, die Buchhaltung summiert die je Beleg gerundeten Beträge. Ein paar Cent sind normal.",
+        "unmappedTitle": "Nicht zugeordnete Buchungen",
+        "unmappedHint": "Diese Buchungen konnten keiner Kennzahl zugeordnet werden und fehlen in den Beträgen oben. Bitte vor der Übermittlung klären.",
+        "unmappedNet": "Netto",
+        "unmappedVat": "Steuer",
+        "emptyTitle": "Keine Buchungen in diesem Zeitraum",
+        "emptyHint": "Sobald Rechnungen und Belege gebucht sind, erscheinen hier die Werte für die Voranmeldung.",
+        "sourcesTitle": "Belege in dieser Kennzahl",
+        "disclaimer": "Die Werte sind aus deinen Buchungen ermittelt und ersetzen keine steuerliche Beratung. Bitte vor der Übermittlung prüfen."
+      },
+      "smallBusinessTitle": "Kleinunternehmerregelung aktiv",
+      "smallBusinessHint": "Du bist als Kleinunternehmer nach §19 UStG registriert und weist keine Umsatzsteuer aus. Eine Umsatzsteuer-Voranmeldung ist daher in der Regel nicht erforderlich. Die Werte unten zeigen ausschließlich gezahlte Vorsteuer auf Eingangsrechnungen (nicht erstattungsfähig) — zur Prüfung, falls sich dein Status ändert.",
+      "taxFree": {
+        "title": "Steuerfreie und besondere Umsätze",
+        "subtitle": "Umsätze ohne ausgewiesene USt — gehören in eigene Kennzahlen der UStVA.",
+        "category": "Kategorie",
+        "kennzahl": "Kennzahl",
+        "tags": {
+          "IG": "Innergem. Lieferung (§ 4 Nr.1b)",
+          "NDS": "Sonstige Leistung im EU-Ausland (§ 3a Abs.2)",
+          "18b": "Reverse Charge EU (§ 18b)",
+          "13b": "Reverse Charge Inland (§ 13b)",
+          "EXP": "Ausfuhr ins Drittland (§ 4 Nr.1a)",
+          "TE4": "Steuerfreie Umsätze (§ 4)",
+          "OSS": "One-Stop-Shop (OSS)"
+        },
+        "kennzahlen": {
+          "IG": "KZ 41",
+          "NDS": "KZ 21",
+          "18b": "KZ 21",
+          "13b": "KZ 60",
+          "EXP": "KZ 43",
+          "TE4": "KZ 48",
+          "OSS": "OSS-Meldung"
+        }
+      },
+      "sources": {
+        "title": "Zugehörige Belege",
+        "open": "Belege anzeigen",
+        "close": "Schließen"
+      }
+    },
+    "profitLoss": {
+      "pageTitle": "EÜR",
+      "pageTitleGuV": "GuV",
+      "title": "Einnahmen-Überschuss-Rechnung",
+      "titleGuV": "Gewinn- und Verlustrechnung",
+      "subtitle": "Gewinnermittlung über einen frei wählbaren Zeitraum",
+      "from": "Startdatum",
+      "to": "Enddatum",
+      "method": "Berechnungsart",
+      "methodEUR": "EÜR (Zufluss-/Abflussprinzip)",
+      "methodGuV": "GuV (Soll-/Realisationsprinzip)",
+      "methodEURShort": "EÜR",
+      "methodGuVShort": "GuV",
+      "exportPdf": "PDF exportieren",
+      "methodInfo": "EÜR (Einnahmen-Überschuss-Rechnung): Vereinfachte Gewinnermittlung nach §4 Abs. 3 EStG für Freiberufler und Kleingewerbe. Es zählt der Zeitpunkt der tatsächlichen Zahlung (Zufluss-/Abflussprinzip).\n\nGuV (Gewinn- und Verlustrechnung): Doppelte Buchführung mit periodengerechter Abgrenzung. Erträge und Aufwendungen werden im Zeitraum erfasst, dem sie wirtschaftlich zuzuordnen sind (Soll-/Realisationsprinzip).",
+      "summary": {
+        "income": "Einnahmen / Erträge",
+        "expense": "Ausgaben / Aufwendungen",
+        "result": "Gewinn",
+        "loss": "Verlust",
+        "margin": "Marge"
+      },
+      "vatContext": {
+        "title": "Umsatzsteuer im Zeitraum",
+        "hint": "Nur informativ — fließt nicht in die Gewinnermittlung ein.",
+        "sales": "USt.",
+        "input": "Vorsteuer",
+        "payable": "Zahllast"
+      },
+      "breakdown": {
+        "incomeTitle": "Einnahmen",
+        "expenseTitle": "Ausgaben",
+        "category": "Kategorie",
+        "amount": "Betrag",
+        "noData": "Keine Daten im gewählten Zeitraum."
+      },
+      "sources": {
+        "title": "Zugehörige Belege",
+        "open": "Belege anzeigen",
+        "close": "Schließen"
+      }
+    },
+    "taxAdvisor": {
+      "pageTitle": "Mein Steuerberater",
+      "title": "Mein Steuerberater",
+      "subtitle": "Datenexport und Verbindung zu deinem Steuerberater",
+      "datevTitle": "DATEV-konformer Export",
+      "datevDescription": "Buchungsdaten und Belegbilder als DATEV-konforme ZIP exportieren – fertig zum Import in DATEV Kanzlei-Rechnungswesen oder Unternehmen online.",
+      "datevButton": "DATEV-Export starten",
+      "advisorTitle": "Verbindung zum Steuerberater",
+      "advisorDescription": "Verknüpfe deinen Steuerberater, um relevante Belege und Auswertungen automatisiert zu teilen.",
+      "advisorButton": "Bald verfügbar",
+      "comingSoon": "Diese Funktion wird in Kürze verfügbar sein.",
+      "invitePanel": {
+        "title": "Steuerberater-Zugang",
+        "description": "Lade deinen Steuerberater ein, damit er Belege, Buchungen und Bankbewegungen prüfen, kommentieren und Monate freigeben kann. Keine DATEV-Lizenz nötig.",
+        "inviteButton": "Steuerberater einladen",
+        "inviteDisabledHint": "Nur Admin/Owner darf Steuerberater einladen.",
+        "statusActive": "Aktiv",
+        "statusPending": "Einladung offen",
+        "removeButton": "Verbindung trennen",
+        "removeConfirm": "Verbindung zu {name} wirklich trennen? Der Steuerberater verliert sofort den Zugriff auf diesen Workspace."
+      },
+      "inviteDialog": {
+        "title": "Steuerberater einladen",
+        "salutation": "Anrede",
+        "salutationMr": "Herr",
+        "salutationMrs": "Frau",
+        "salutationDiverse": "Divers",
+        "salutationNone": "Keine Anrede",
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "email": "E-Mail",
+        "customMessage": "Begleittext",
+        "resetTemplate": "Vorlage zurücksetzen",
+        "messageHint": "Die Anrede („Sehr geehrte/r …“) und die Zugangsdaten (Login-Link + Initialpasswort) werden automatisch ergänzt — du musst sie nicht selbst einfügen.",
+        "submit": "Einladen",
+        "cancel": "Abbrechen",
+        "close": "Schließen",
+        "done": "Fertig",
+        "successTitle": "Einladung erstellt.",
+        "successEmailSent": "Eine E-Mail mit deinem Begleittext und den Zugangsdaten wurde versendet.",
+        "successEmailFailed": "Die E-Mail konnte nicht versendet werden (Brevo nicht konfiguriert). Bitte das Initialpasswort manuell weitergeben.",
+        "initialPassword": "Initialpasswort",
+        "copy": "Kopieren",
+        "copied": "Kopiert",
+        "initialPasswordHint": "Wird beim ersten Login zurückgesetzt.",
+        "defaultMessage": "ich arbeite mit zoonox, um Rechnungen zu schreiben, Belege zu erfassen und meine Buchhaltung zu organisieren. Zoonox bietet einen kostenlosen Steuerberater-Zugang an.\n\nDort finden Sie aktuelle Finanzreports, Buchungsübersichten und alle Belege. Über die Export-Funktion können Sie meine Daten in Ihre Kanzleisoftware übernehmen (DATEV). Über den Direktzugang können Sie live auf meine Buchhaltung zugreifen, Kommentare hinterlassen und Monatsabschlüsse freigeben.\n\nMit dem unten stehenden Link erhalten Sie Zugriff auf {workspace}.\n\nFreundliche Grüße\n{inviter}",
+        "errors": {
+          "FORBIDDEN": "Nur Owner und Admin dürfen Steuerberater einladen.",
+          "EMAIL_INVALID": "Bitte eine gültige E-Mail-Adresse angeben.",
+          "FIRST_NAME_REQUIRED": "Bitte einen Vornamen angeben.",
+          "MESSAGE_TOO_LONG": "Begleittext zu lang (max. 4000 Zeichen).",
+          "ALREADY_MEMBER": "Dieser Steuerberater ist bereits Mitglied dieses Workspaces.",
+          "UNKNOWN": "Unbekannter Fehler."
+        }
+      },
+      "monthCloseCard": {
+        "title": "Monatsabschluss",
+        "description": "Reiche jeden Monat zur Prüfung beim Steuerberater ein. Nach Freigabe wird der Monat als abgeschlossen markiert und gegen versehentliche Änderungen geschützt.",
+        "lastBookableMonth": "Letzter abrechenbarer Monat",
+        "statusOpen": "Noch offen",
+        "statusSubmitted": "In Prüfung",
+        "statusClosed": "Abgeschlossen",
+        "openButton": "Zum Monatsabschluss"
+      },
+      "datevDialog": {
+        "title": "DATEV-Export (Datei-Export)",
+        "sectionGeneral": "Allgemeine Exporteinstellungen",
+        "sectionPeriod": "Exportzeitraum",
+        "sectionDocuments": "Zu exportierende Dokumente",
+        "sectionData": "Zu exportierende Daten",
+        "sectionAdvanced": "Weitere Einstellungen",
+        "consultantNumber": "Beraternummer",
+        "clientNumber": "Mandantennummer",
+        "numbersTooltip": "Bitte frage deinen Steuerberater, welche Berater- und Mandantennummer du für den DATEV-Export angeben sollst. Solange dir die Nummern nicht vorliegen, kannst du den Standardwert 0 lassen — der Steuerberater kann sie beim Import korrigieren.",
+        "fiscalYearStart": "Wirtschaftsjahresbeginn",
+        "dateFrom": "Startdatum",
+        "dateTo": "Enddatum",
+        "includeInvoices": "Ausgangsrechnungen & Gutschriften",
+        "includeIncoming": "Eingangsbelege",
+        "includeBank": "Bankumsätze",
+        "includeBankHint": "Erzeugt eine Belegliste-Bank.csv mit allen Kontobewegungen des Zeitraums (Datum, Betrag, Gegenpartei, Verwendungszweck, Status, verknüpfter Beleg).",
+        "includeBookings": "Buchungsdaten (Buchungsstapel + Stammdaten)",
+        "includeBelegbilder": "Belegbilder mit exportieren",
+        "belegbilderHint": "Originale PDFs/Bilder werden in der ZIP unter Belege/ abgelegt; eine Belegliste verknüpft sie mit den Buchungen.",
+        "locked": "Buchungsstapel festschreiben",
+        "lockedHint": "DATEV importiert die Buchungen als festgeschrieben (nicht mehr änderbar).",
+        "includeReversed": "Auch stornierte Buchungen exportieren",
+        "includeReversedHint": "Standardmäßig werden nur aktuell gültige Buchungen exportiert.",
+        "submit": "Export starten",
+        "cancel": "Abbrechen",
+        "close": "Schließen",
+        "doneTitle": "Export erfolgreich erstellt",
+        "doneStats": "{entries} Buchungen, {documents} Eingangsbelege, {invoices} Ausgangsrechnungen, {bank} Bankumsätze exportiert.",
+        "doneMissing": "{count} Belegdatei(en) konnten nicht gelesen werden und wurden übersprungen."
+      }
+    }
+  },
+  "skrAccounts": {
+    "groups": {
+      "assets": "Anlagevermögen",
+      "purchasing": "Wareneinkauf",
+      "personnel": "Personalkosten",
+      "premises": "Raumkosten",
+      "insurance": "Versicherung / Beiträge",
+      "vehicle": "Fahrzeugkosten",
+      "marketing": "Werbung / Reise",
+      "distribution": "Warenabgabe",
+      "depreciation": "Abschreibungen",
+      "other": "Sonstige Aufwendungen",
+      "revenue": "Erlöse",
+      "taxes": "Steuerkonten"
+    },
+    "accounts": {
+      "SKR03": {
+        "0027": "EDV-Software",
+        "0035": "Geschäftsausstattung",
+        "0400": "Betriebsausstattung",
+        "0410": "Geschäftsausstattung",
+        "0420": "Büroeinrichtung",
+        "0430": "Ladeneinrichtung",
+        "0440": "PKW",
+        "0450": "LKW",
+        "0480": "GWG bis 800 €",
+        "0485": "GWG Pool (250,01–1.000 €)",
+        "1570": "Abziehbare Vorsteuer",
+        "1571": "Abziehbare Vorsteuer 7 %",
+        "1576": "Abziehbare Vorsteuer 19 %",
+        "1770": "Umsatzsteuer",
+        "1771": "Umsatzsteuer 7 %",
+        "1776": "Umsatzsteuer 19 %",
+        "3000": "Einsatz Roh-, Hilfs- u. Betriebsstoffe",
+        "3100": "Fremdleistungen",
+        "3200": "Wareneingang",
+        "3300": "Wareneingang 7 % VSt",
+        "3400": "Wareneingang 19 % VSt",
+        "4100": "Löhne",
+        "4110": "Löhne produktiv",
+        "4120": "Gehälter",
+        "4130": "Gesetzl. soziale Aufwendungen",
+        "4140": "Freiwillige soziale Aufwendungen",
+        "4200": "Raumkosten",
+        "4210": "Miete (unbewegliche WG)",
+        "4220": "Pacht",
+        "4230": "Heizung",
+        "4240": "Gas, Strom, Wasser",
+        "4250": "Reinigung",
+        "4260": "Instandhaltung betriebl. Räume",
+        "4300": "Versicherungen",
+        "4360": "Beiträge",
+        "4380": "Kfz-Versicherungen",
+        "4390": "Sonstige Versicherungen",
+        "4500": "Kfz-Kosten",
+        "4510": "Kfz-Steuern",
+        "4520": "Kfz-Versicherung",
+        "4530": "Laufende Kfz-Betriebskosten",
+        "4540": "Kfz-Reparaturen",
+        "4550": "Kfz-Leasing",
+        "4570": "Laufende Kfz-Kosten (Freiberufler)",
+        "4580": "Sonstige Kfz-Kosten",
+        "4600": "Werbekosten",
+        "4610": "Werbekosten",
+        "4630": "Geschenke abzugsfähig",
+        "4635": "Geschenke nicht abzugsfähig",
+        "4640": "Repräsentationskosten",
+        "4650": "Bewirtungskosten (70 %)",
+        "4654": "Nicht abzugsf. Bewirtung (30 %)",
+        "4660": "Reisekosten Arbeitnehmer",
+        "4670": "Reisekosten Unternehmer",
+        "4673": "Reisekosten Unternehmer Fahrtkosten",
+        "4674": "Reisekosten Unternehmer Verpflegung",
+        "4676": "Reisekosten Unternehmer Übernachtung",
+        "4700": "Kosten der Warenabgabe",
+        "4710": "Verpackungsmaterial",
+        "4730": "Ausgangsfrachten",
+        "4750": "Aufwand für Gewährleistungen",
+        "4800": "Reparaturen / Instandhaltung",
+        "4805": "Wartungskosten für Software",
+        "4806": "Wartungskosten für Hardware",
+        "4822": "Abschreibungen Sachanlagen",
+        "4824": "Abschreibungen GWG",
+        "4830": "Abschreibungen immat. VG",
+        "4855": "Sofortabschreibung dig. WG",
+        "4900": "Sonstige betriebliche Aufwendungen",
+        "4910": "Porto",
+        "4920": "Telefon",
+        "4925": "Internet",
+        "4921": "Telefon / Internet",
+        "4930": "Bürobedarf",
+        "4940": "Zeitschriften / Bücher",
+        "4945": "Fortbildungskosten",
+        "4946": "Fremdarbeiten / Freiberufler",
+        "4950": "Rechts- und Beratungskosten",
+        "4955": "Buchführungskosten",
+        "4957": "Abschluss- und Prüfungskosten",
+        "4960": "Miete für Einrichtungen",
+        "4964": "Leasing",
+        "4969": "Sonstige Aufwendungen betrieblich",
+        "4970": "Nebenkosten des Geldverkehrs",
+        "4980": "Bankgebühren / Kontoführung",
+        "8000": "Erlöse",
+        "8100": "Steuerfreie Umsätze §4 UStG",
+        "8120": "Steuerfreie ig. Lieferungen §4.1b",
+        "8125": "Steuerfreie Ausfuhren §4.1a",
+        "8200": "Erlöse",
+        "8290": "Erlöse 0 %",
+        "8300": "Erlöse 7 % (ermäßigt)",
+        "8400": "Erlöse 19 %",
+        "8500": "Provisionserlöse",
+        "8700": "Erlöse aus Vermietung",
+        "8900": "Sonstige Erlöse",
+        "8910": "Erträge aus Anlagenabgängen",
+        "8920": "Erträge aus Währungsdifferenzen"
+      },
+      "SKR04": {
+        "0027": "EDV-Software",
+        "0400": "Technische Anlagen und Maschinen",
+        "0410": "Maschinen",
+        "0420": "Maschinenwerkzeuge",
+        "0600": "Betriebs- und Geschäftsausstattung",
+        "0620": "Büroeinrichtung",
+        "0640": "Ladeneinrichtung",
+        "0650": "PKW",
+        "0670": "LKW",
+        "0690": "GWG bis 800 €",
+        "1400": "Abziehbare Vorsteuer",
+        "1401": "Abziehbare Vorsteuer 7 %",
+        "1406": "Abziehbare Vorsteuer 19 %",
+        "3800": "Umsatzsteuer",
+        "3801": "Umsatzsteuer 7 %",
+        "3806": "Umsatzsteuer 19 %",
+        "5000": "Einsatz Roh-, Hilfs- u. Betriebsstoffe",
+        "5100": "Einkauf Roh- und Hilfsstoffe",
+        "5200": "Wareneingang",
+        "5300": "Wareneingang 7 % VSt",
+        "5400": "Wareneingang 19 % VSt",
+        "5900": "Fremdleistungen",
+        "4000": "Erlöse",
+        "4100": "Steuerfreie Umsätze §4 UStG",
+        "4120": "Steuerfreie ig. Lieferungen §4.1b",
+        "4125": "Steuerfreie Ausfuhren §4.1a",
+        "4200": "Erlöse 7 %",
+        "4300": "Erlöse 7 % (ermäßigt)",
+        "4400": "Erlöse 19 %",
+        "4500": "Provisionserlöse",
+        "4800": "Erlöse aus Vermietung",
+        "4900": "Sonstige Erlöse",
+        "6000": "Aufwendungen für Löhne",
+        "6010": "Löhne produktiv",
+        "6020": "Gehälter",
+        "6030": "Gesetzl. soziale Aufwendungen",
+        "6040": "Freiwillige soziale Aufwendungen",
+        "6300": "Sonstige betriebliche Aufwendungen",
+        "6310": "Miete (unbewegliche WG)",
+        "6315": "Mietnebenkosten",
+        "6320": "Heizung",
+        "6325": "Gas, Strom, Wasser",
+        "6330": "Reinigung",
+        "6335": "Instandhaltung betriebl. Räume",
+        "6400": "Versicherungen",
+        "6410": "Beiträge",
+        "6420": "Kfz-Versicherungen",
+        "6500": "Kfz-Kosten",
+        "6510": "Kfz-Steuern",
+        "6520": "Kfz-Versicherung",
+        "6530": "Laufende Kfz-Betriebskosten",
+        "6540": "Kfz-Reparaturen",
+        "6550": "Kfz-Leasing",
+        "6560": "Sonstige Kfz-Kosten",
+        "6600": "Werbekosten",
+        "6610": "Werbekosten",
+        "6620": "Geschenke abzugsfähig",
+        "6625": "Geschenke nicht abzugsfähig",
+        "6630": "Repräsentationskosten",
+        "6640": "Bewirtungskosten (70 %)",
+        "6644": "Nicht abzugsf. Bewirtung (30 %)",
+        "6650": "Reisekosten Arbeitnehmer",
+        "6660": "Reisekosten Unternehmer",
+        "6663": "Reisekosten Unternehmer Fahrtkosten",
+        "6664": "Reisekosten Unternehmer Verpflegung",
+        "6666": "Reisekosten Unternehmer Übernachtung",
+        "6700": "Kosten der Warenabgabe",
+        "6710": "Verpackungsmaterial",
+        "6730": "Ausgangsfrachten",
+        "6800": "Abschreibungen Sachanlagen",
+        "6805": "Reparaturen / Instandhaltung",
+        "6810": "Abschreibungen immaterielle VG",
+        "6815": "Wartungskosten für Software",
+        "6820": "Abschreibungen GWG",
+        "6825": "Sofortabschreibung dig. WG",
+        "6850": "Porto",
+        "6855": "Telefon / Internet",
+        "6860": "Bürobedarf",
+        "6870": "Zeitschriften / Bücher",
+        "6875": "Fortbildungskosten",
+        "6880": "Fremdarbeiten / Freiberufler",
+        "6890": "Rechts- und Beratungskosten",
+        "6895": "Buchführungskosten",
+        "6900": "Abschluss- und Prüfungskosten",
+        "6910": "Miete für Einrichtungen",
+        "6920": "Leasing",
+        "6930": "Nebenkosten des Geldverkehrs",
+        "6940": "Bankgebühren / Kontoführung",
+        "6950": "Sonstige Aufwendungen betrieblich"
+      }
+    }
+  },
+  "assets": {
+    "pageTitle": "Anlagenverzeichnis",
+    "title": "Anlagenverzeichnis",
+    "subtitle": "Anlagegüter, Abschreibungen und Restbuchwerte im Überblick.",
+    "backToDocuments": "Zurück zu Belegen",
+    "new": "Neue Anlage",
+    "newFromDocument": "Aus Beleg übernehmen",
+    "tabs": {
+      "all": "Alle",
+      "active": "Aktiv",
+      "planned": "Geplant",
+      "fully": "Abgeschrieben",
+      "disposed": "Abgang"
+    },
+    "table": {
+      "assetNumber": "Inv.-Nr.",
+      "name": "Bezeichnung",
+      "acquisitionDate": "Anschaffung",
+      "acquisitionCost": "AK",
+      "bookValue": "Restbuchwert",
+      "monthlyAmount": "AfA mtl.",
+      "totalDepreciated": "kum. AfA",
+      "status": "Status",
+      "category": "Kategorie",
+      "method": "Methode",
+      "untitled": "Ohne Bezeichnung",
+      "lastError": "Letzter Fehler bei der AfA-Buchung",
+      "dueTooltip": "{count, plural, =1 {# Monat noch nicht gebucht} other {# Monate noch nicht gebucht}}"
+    },
+    "empty": {
+      "title": "Noch keine Anlagen",
+      "subtitle": "Markiere einen Beleg als Anlage oder lege ein Anlagegut manuell an.",
+      "cta": "Anlage manuell anlegen"
+    },
+    "status": {
+      "planned": "Geplant",
+      "active": "Aktiv",
+      "fully_depreciated": "Abgeschrieben",
+      "disposed": "Abgang"
+    },
+    "method": {
+      "linear": "Linear",
+      "immediate": "Sofortabschreibung (GWG)",
+      "pool": "Sammelposten",
+      "degressive": "Degressiv"
+    },
+    "category": {
+      "tangible": "Sonstige bewegliche Sachanlagen",
+      "it_hardware": "IT / Hardware",
+      "it_software": "Software / Lizenzen",
+      "vehicle": "Fahrzeug",
+      "machinery": "Maschinen",
+      "building": "Gebäude",
+      "intangible": "Immaterielle Vermögensgegenstände",
+      "other": "Sonstiges"
+    },
+    "form": {
+      "title": "Anlage anlegen",
+      "subtitle": "Anlagegut für die Abschreibung erfassen.",
+      "sectionMaster": "Stammdaten",
+      "sectionValues": "Anschaffung",
+      "sectionPlan": "Abschreibung",
+      "sectionAccounts": "Konten (SKR)",
+      "sectionReceipt": "Beleg",
+      "name": "Bezeichnung",
+      "namePlaceholder": "z. B. MacBook Pro 14\"",
+      "description": "Beschreibung (optional)",
+      "category": "Kategorie",
+      "method": "Methode",
+      "acquisitionDate": "Anschaffungsdatum",
+      "acquisitionCost": "Anschaffungskosten (brutto)",
+      "vatRate": "USt-Satz",
+      "netAmount": "Netto (AfA-Basis)",
+      "usefulLifeYears": "Nutzungsdauer (Jahre)",
+      "usefulLifeMonths": "Nutzungsdauer (Monate)",
+      "scrapValue": "Restwert / Erinnerungs-Euro",
+      "skrAssetAccount": "Anlagekonto",
+      "skrDepreciationAccount": "Abschreibungskonto",
+      "monthlyAmount": "Monatlicher AfA-Betrag",
+      "submit": "Anlage erstellen",
+      "submitting": "Wird angelegt …",
+      "cancel": "Abbrechen",
+      "errors": {
+        "nameRequired": "Bezeichnung ist erforderlich.",
+        "costPositive": "Anschaffungskosten müssen größer als 0 sein.",
+        "usefulLifeRequired": "Nutzungsdauer ist erforderlich.",
+        "failed": "Anlage konnte nicht angelegt werden."
+      },
+      "gwgHint": "Netto ≤ 800 €: Sofortabschreibung (GWG) als Vorschlag.",
+      "smallBusinessHint": "Kleinunternehmerregelung (§ 19 UStG): kein Vorsteuerabzug — die AfA-Basis ist der Bruttobetrag.",
+      "linkedDocument": "Verknüpft mit Beleg",
+      "noLinkedDocument": "Ohne Beleg (manuelle Anlage)"
+    },
+    "detail": {
+      "scheduleTitle": "Abschreibungsplan",
+      "scheduleSubtitle": "Geplante und gebuchte Monatsabschreibungen.",
+      "period": "Periode",
+      "amount": "AfA",
+      "bookValueBefore": "RBW vorher",
+      "bookValueAfter": "RBW nachher",
+      "postedAt": "Gebucht am",
+      "notPosted": "geplant",
+      "postNow": "Jetzt buchen",
+      "posting": "Buchung läuft …",
+      "disposeTitle": "Anlage abgeben",
+      "disposeButton": "Anlage abgeben",
+      "disposalDate": "Abgangsdatum",
+      "disposalProceeds": "Verkaufserlös (brutto)",
+      "disposalReason": "Grund",
+      "disposeSubmit": "Abgang buchen",
+      "deleteTitle": "Anlage löschen",
+      "deleteHint": "Löschen ist nur vor der ersten Buchung möglich.",
+      "deleteButton": "Anlage löschen",
+      "linkedDocument": "Quellbeleg",
+      "monthlyAmountLabel": "AfA mtl.",
+      "remainingMonths": "Restlaufzeit",
+      "duePending": "{count, plural, =1 {# Monat noch nicht gebucht} other {# Monate noch nicht gebucht}}",
+      "dueHint": "Anschaffungs- und vergangene Monate, die noch nicht im Hauptbuch erfasst sind. Jeder Monat wird als eigenständige Buchung mit dem korrekten Buchungsdatum erfasst.",
+      "postAllDue": "{count, plural, =1 {# Monat jetzt buchen} other {Alle # Monate buchen}}",
+      "autoPostInfo": "Künftige Monate werden automatisch gebucht",
+      "autoPostHint": "Der Buchungslauf läuft monatlich am 1. um 02:00 Uhr (Europe/Berlin). Verpasste Monate werden beim nächsten Lauf automatisch nachgebucht."
+    },
+    "upload": {
+      "pickFile": "Beleg hochladen (PDF, PNG, JPG)",
+      "uploading": "Wird hochgeladen …",
+      "hint": "Optional. Max. 10 MB. Bei Bedarf läuft die OCR automatisch im Hintergrund.",
+      "remove": "Entfernen",
+      "errors": {
+        "type": "Dateityp wird nicht unterstützt. Akzeptiert: PDF, PNG, JPG.",
+        "size": "Datei zu groß. Max. 10 MB.",
+        "uploadFailed": "Upload fehlgeschlagen. Bitte erneut versuchen."
+      }
+    },
+    "documentToggle": {
+      "title": "Abschreibung",
+      "treatAsAsset": "Als Anlage behandeln",
+      "treatAsAssetHint": "Dieser Beleg wird nicht sofort als Aufwand verbucht, sondern über die Nutzungsdauer abgeschrieben.",
+      "usefulLifeYears": "Nutzungsdauer",
+      "yearsUnit": "Jahre",
+      "category": "Kategorie",
+      "linked": "Mit Anlage verknüpft",
+      "viewAsset": "Zur Anlage",
+      "createOnSave": "Anlage wird beim Speichern erstellt.",
+      "lockedHint": "Belegstatus ist bereits abgeschlossen — Markierung als Anlage ist gesperrt.",
+      "ocrHint": "Höherer Betrag erkannt — soll dieser Beleg als Anlage abgeschrieben werden?",
+      "remove": "Anlage entfernen"
+    }
+  },
+  "onboarding": {
+    "welcome": {
+      "eyebrow": "Willkommen an Bord",
+      "title": "Willkommen bei zoonox",
+      "body": "Schön, dass du da bist. Lass uns deinen Workspace einrichten — in wenigen Minuten bist du startklar für deine erste Rechnung.",
+      "features": {
+        "invoices": {
+          "title": "Rechnungen schreiben",
+          "desc": "Erstelle und versende rechtssichere Rechnungen in Minuten."
+        },
+        "documents": {
+          "title": "Belege erfassen",
+          "desc": "Lade Belege hoch — wir lesen die Daten automatisch aus."
+        },
+        "taxes": {
+          "title": "Steuern im Blick",
+          "desc": "Behalte Umsatz, Aufwand und Fristen jederzeit im Überblick."
+        }
+      },
+      "cta": "Los geht's",
+      "skip": "Onboarding überspringen",
+      "close": "Schließen"
+    },
+    "checklist": {
+      "title": "Erste Schritte",
+      "subtitle": "Richte deinen Workspace in wenigen Minuten ein.",
+      "progress": "{done} von {total} erledigt",
+      "dismiss": "Checkliste ausblenden",
+      "items": {
+        "company": {
+          "title": "Firmendaten vervollständigen",
+          "desc": "Name, Adresse und Steuernummer für deine Rechnungen."
+        },
+        "contact": {
+          "title": "Ersten Kontakt anlegen",
+          "desc": "Lege deinen ersten Kunden oder Lieferanten an."
+        },
+        "invoice": {
+          "title": "Erste Rechnung erstellen",
+          "desc": "Schreibe und versende deine erste Rechnung."
+        },
+        "document": {
+          "title": "Ersten Beleg hochladen",
+          "desc": "Lade einen Beleg oder eine Eingangsrechnung hoch."
+        }
+      },
+      "allDone": {
+        "title": "Stark — alles eingerichtet",
+        "body": "Dein Workspace ist startklar. Du kannst diese Karte jetzt ausblenden.",
+        "cta": "Karte ausblenden"
+      }
+    },
+    "hints": {
+      "step": "Schritt {current} von {total}",
+      "gotIt": "Verstanden",
+      "skip": "Tour beenden",
+      "settings-nav": {
+        "title": "Zuerst: deine Firmendaten",
+        "body": "Hinterlege unter Einstellungen deine Firmendaten — sie erscheinen auf jeder Rechnung. Klick dich hier hinein."
+      },
+      "settings-company-form": {
+        "title": "Fast geschafft",
+        "body": "Trage hier Name, Adresse und Steuernummer ein und speichere. Damit werden deine Rechnungen rechtssicher."
+      },
+      "new-invoice": {
+        "title": "Bereit für deine erste Rechnung",
+        "body": "Sobald deine Firmendaten stehen, erstellst du hier mit einem Klick deine erste Rechnung."
+      }
+    }
+  },
+  "firm": {
+    "closing": {
+      "pageTitle": "Monatsabschluss",
+      "title": "Monatsabschluss",
+      "description": "Reiche jeden Monat zur Prüfung beim Steuerberater ein. Nach Freigabe wird der Monat als abgeschlossen markiert.",
+      "table": {
+        "month": "Monat",
+        "status": "Status",
+        "readiness": "Bereit?",
+        "history": "Verlauf",
+        "actions": "Aktion"
+      },
+      "status": {
+        "open": "Offen",
+        "submitted": "In Prüfung",
+        "closed": "Abgeschlossen"
+      },
+      "history": {
+        "submittedAt": "Eingereicht {date}",
+        "submittedAtBy": "Eingereicht {date} von {name}",
+        "finalizedAt": "Abgeschlossen {date}",
+        "finalizedAtBy": "Abgeschlossen {date} von {name}"
+      },
+      "actions": {
+        "submit": "Einreichen",
+        "submitDisabledHint": "Bitte zuerst Steuerberater einladen, dann Einreichen freigeschaltet.",
+        "reopen": "Korrekturen nötig",
+        "reopenPlaceholder": "Hinweis an den Mandanten (z.B. fehlender Beleg) …",
+        "reopenCancel": "Abbrechen",
+        "reopenSubmit": "Zurückgeben",
+        "finalize": "Abschließen",
+        "locked": "Gesperrt",
+        "unfinalize": "Sperre aufheben"
+      },
+      "confirm": {
+        "finalizeTitle": "Monat abschließen?",
+        "finalizeDescription": "Du markierst {month} {year} als endgültig abgeschlossen. Belege und Buchungen mit Datum in diesem Monat zeigen anschließend einen Sperr-Hinweis. Die GoBD-Immutability bestehender Rechnungen ist davon unabhängig und ändert sich nicht. Die Sperre lässt sich über „Sperre aufheben“ rückgängig machen, solange du Owner-Rechte hast.",
+        "finalizeConfirm": "Abschließen",
+        "unfinalizeTitle": "Sperre aufheben?",
+        "unfinalizeDescription": "Du hebst die Sperre für {month} {year} auf. Der Monat steht wieder als offen in der Liste. GoBD-finalisierte Rechnungen / Belege bleiben unverändert.",
+        "unfinalizeConfirm": "Sperre aufheben",
+        "cancel": "Abbrechen"
+      },
+      "readiness": {
+        "documentsBooked": "Belege gebucht",
+        "bankCleared": "Bankbuchungen geklärt",
+        "commentsAnswered": "Kommentare beantwortet",
+        "openSuffix": "{count} offen"
+      },
+      "noAccountantBanner": {
+        "title": "Noch kein Steuerberater verknüpft",
+        "description": "Sobald ein Steuerberater eingeladen ist, kannst du Monate zur Prüfung einreichen.",
+        "cta": "Steuerberater einladen"
+      },
+      "errors": {
+        "FORBIDDEN": "Keine Berechtigung.",
+        "INVALID_PERIOD": "Ungültiger Zeitraum.",
+        "ALREADY_CLOSED": "Dieser Monat ist bereits abgeschlossen.",
+        "NOT_CLOSED": "Monat ist nicht abgeschlossen.",
+        "UNKNOWN": "Unbekannter Fehler."
+      }
+    },
+    "clients": {
+      "pageTitle": "Mandanten",
+      "title": "Mandanten",
+      "description": "Übersicht aller Mandanten mit Ampel-Status für {month}. Klick auf einen Mandanten wechselt den aktiven Arbeitsbereich.",
+      "empty": "Keine Mandanten zugeordnet.",
+      "active": "Aktiv",
+      "lastUpload": "Letzter Upload",
+      "lastUploadNone": "Noch kein Upload",
+      "today": "Heute",
+      "yesterday": "Gestern",
+      "daysAgo": "vor {count} Tagen",
+      "weeksAgo": "vor {count} Wochen",
+      "currentMonth": "Aktueller Monat",
+      "monthStatusOpen": "Offen",
+      "monthStatusSubmitted": "In Prüfung",
+      "monthStatusClosed": "Abgeschlossen",
+      "openTransactions": "Ungeklärte Bankbuchungen",
+      "openTransactionsCount": "{count} offen",
+      "openTransactionsNone": "Keine offen"
+    }
+  },
+  "comments": {
+    "title": "Kommentare",
+    "titleBank": "Hinweise zu dieser Buchung",
+    "openCount": "{count} offen",
+    "empty": "Noch keine Kommentare. Hinterlasse einen Hinweis für den Steuerberater oder umgekehrt.",
+    "placeholder": "Kommentar hinzufügen…",
+    "send": "Senden",
+    "reply": "Antworten",
+    "replyPlaceholder": "Antworten…",
+    "replyCancel": "Abbrechen",
+    "replySend": "Antworten",
+    "resolved": "Erledigt",
+    "markResolved": "Als erledigt markieren",
+    "reopen": "Wieder öffnen",
+    "delete": "Löschen",
+    "confirmDelete": "Kommentar wirklich löschen?",
+    "unknownAuthor": "Unbekannt",
+    "actionsLabel": "Aktionen",
+    "openBadge": "{count} offene Kommentare",
+    "errors": {
+      "EMPTY": "Kommentar darf nicht leer sein.",
+      "TOO_LONG": "Kommentar zu lang (max. 5000 Zeichen).",
+      "FORBIDDEN": "Keine Berechtigung.",
+      "ENTITY_NOT_FOUND": "Zielobjekt nicht gefunden.",
+      "INVALID_ENTITY_TYPE": "Ungültiger Entitätstyp.",
+      "PARENT_NOT_FOUND": "Antwort auf unbekannten Kommentar.",
+      "NOT_FOUND": "Kommentar nicht gefunden.",
+      "ONLY_AUTHOR_CAN_DELETE": "Nur der Autor darf den Kommentar löschen.",
+      "UNKNOWN": "Unbekannter Fehler."
+    }
+  },
+  "monthClose": {
+    "banner": {
+      "submittedTitle": "{month} {year} liegt beim Steuerberater zur Prüfung.",
+      "submittedDescription": "Bitte keine Änderungen mehr vornehmen, bevor der Monat freigegeben ist — sonst muss er erneut eingereicht werden.",
+      "closedTitle": "{month} {year} ist abgeschlossen.",
+      "closedDescription": "Belege und Buchungen in diesem Monat sollten unverändert bleiben."
+    },
+    "emails": {
+      "submitted": {
+        "subject": "{workspace}: {month} {year} bereit zur Prüfung",
+        "previewLine": "{workspace}: {month} {year} bereit zur Prüfung",
+        "heading": "{month} {year} steht zur Prüfung bereit",
+        "greeting": "Hallo {name},",
+        "body": "{submitter} hat den Monat {month} {year} für {workspace} zur Prüfung eingereicht. Du kannst die Buchungen direkt im Dashboard durchgehen, Kommentare hinterlassen oder den Monat freigeben.",
+        "openButton": "Monat öffnen",
+        "footer": "Diese E-Mail wurde automatisch von {platform} versendet."
+      }
+    }
+  }
+}

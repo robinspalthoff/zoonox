@@ -1,0 +1,30 @@
+name: CI
+
+# Lint + Type-Check auf Push/PR nach main. Deployt NICHTS (der Name "Deploy to
+# Production" war irreführend). Der eigentliche Image-Build läuft in
+# build-and-push.yml, das Deploy übernimmt Coolify.
+#
+# Die E-Invoice/KOSIT-Validierung lag hier doppelt — sie hat eine eigene,
+# path-gefilterte Datei (einvoice-validation.yml) und wurde hier entfernt,
+# damit dieser Workflow nicht bei jedem Push rot wird.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-typecheck:
+    name: Lint & Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run type-check
+      - run: npm test --workspace=zoonox-dashboard

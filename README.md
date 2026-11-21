@@ -116,7 +116,8 @@ apps/dashboard/src/
 
 ## Running it locally
 
-See [docs/local-setup.md](docs/local-setup.md). Short version: Docker for
+Cheat sheet: [LOCAL.md](LOCAL.md). Full walkthrough:
+[docs/local-setup.md](docs/local-setup.md). Short version: Docker for
 Postgres, `npm run db:migrate && npm run db:seed`, `npm run dev`. Everything
 external is optional — document storage falls back to the local filesystem,
 OCR falls back to a free vision model, and email simply stays unsent.
